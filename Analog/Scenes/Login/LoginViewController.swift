@@ -12,10 +12,12 @@ import Entities
 
 class LoginViewController: UIViewController {
 
+    private let scrollView = Views.scrollView()
+    private let stackView = Views.stackView()
     private let passwordInput = Views.passwordInput()
     private let imageView = Views.imageView()
     private let forgotPinButton = Views.forgotPinButton()
-    private let emailLabel = Views.emailLabel()
+    private let emailField = Views.emailField()
 
     private let viewModel: LoginViewModel
 
@@ -26,7 +28,6 @@ class LoginViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         passwordInput.delegate = self
         viewModel.delegate = self
-        emailLabel.text = viewModel.email
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -44,36 +45,40 @@ class LoginViewController: UIViewController {
     }
 
     private func defineLayout() {
-        view.addSubview(imageView)
+        view.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            imageView.heightAnchor.constraint(equalToConstant: 100),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
         ])
+
         if #available(iOS 11.0, *) {
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin).isActive = true
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin).isActive = true
         } else {
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin).isActive = true
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin).isActive = true
         }
 
-        view.addSubview(emailLabel)
+        scrollView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            emailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: margin),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
 
-        view.addSubview(passwordInput)
+        // Add arranged subviews to the stack view
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(.spacing(margin))
+        stackView.addArrangedSubview(emailField)
+        stackView.addArrangedSubview(.spacing(margin))
+        stackView.addArrangedSubview(passwordInput)
+        stackView.addArrangedSubview(.spacing(margin))
+        stackView.addArrangedSubview(forgotPinButton)
+
         NSLayoutConstraint.activate([
-            passwordInput.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            passwordInput.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
             passwordInput.heightAnchor.constraint(equalToConstant: 100),
-            passwordInput.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: margin)
-        ])
-
-        view.addSubview(forgotPinButton)
-        NSLayoutConstraint.activate([
-            forgotPinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            forgotPinButton.topAnchor.constraint(equalTo: passwordInput.bottomAnchor, constant: margin),
+            imageView.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
 
@@ -88,7 +93,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: PasswordInputDelegate {
     func didFinish(_ code: String) {
-        viewModel.login(password: code)
+        viewModel.login(email: emailField.text ?? "", password: code)
     }
 }
 
@@ -97,9 +102,10 @@ extension LoginViewController: LoginViewModelDelegate {
         switch state {
         case .loading:
             print("Loading...")
-        case .loaded(_):
+        case .loaded(let value):
             let vc = HomeTabBarViewController()
             present(vc, animated: true, completion: nil)
+            print(value.token)
         case .error(let error):
             print(error)
         default:
@@ -122,6 +128,21 @@ extension LoginViewController: LoginViewModelDelegate {
 }
 
 private enum Views {
+    static func stackView() -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }
+
+    static func scrollView() -> UIScrollView {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }
+
     static func passwordInput() -> PasswordInput {
         let view = PasswordInput(numberOfInputFields: 4)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -142,10 +163,14 @@ private enum Views {
         return button
     }
 
-    static func emailLabel() -> UILabel {
-        let label = UILabel()
-        label.font = Font.font(size: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    static func emailField() -> UITextField {
+        let textField = UITextField()
+        textField.font = Font.font(size: 18)
+        textField.borderStyle = .roundedRect
+        textField.textAlignment = .center
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.text = UserDefaults.standard.string(forKey: "email") ?? ""
+        textField.placeholder = NSLocalizedString("login_email_placeholder", comment: "")
+        return textField
     }
 }

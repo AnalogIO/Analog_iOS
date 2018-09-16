@@ -21,14 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func startSession() {
-        if let email = KeyChainService.shared.get(key: .email) {
+        if UserDefaults.standard.string(forKey: "email") != nil {
             //LOGIN SCENE
-            let viewModel = LoginViewModel(email: email)
-            window?.rootViewController = LoginViewController(viewModel: viewModel)
+            window?.rootViewController = LoginViewController(viewModel: LoginViewModel())
         } else {
             //ONBOARDING SCENE
-            let viewModel = OnboardingViewModel()
-            window?.rootViewController = OnboardingViewController(viewModel: viewModel)
+            window?.rootViewController = OnboardingViewController(viewModel: OnboardingViewModel())
         }
     }
 

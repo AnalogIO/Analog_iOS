@@ -26,8 +26,8 @@
 		EC603FFE21494B6400666F22 /* TicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FFD21494B6400666F22 /* TicketsViewModel.swift */; };
 		EC60400021494EEE00666F22 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FFF21494EEE00666F22 /* Color.swift */; };
 		EC60400221494EF700666F22 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60400121494EF700666F22 /* Font.swift */; };
-		EC604004214951FF00666F22 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604003214951FF00666F22 /* OnboardingViewController.swift */; };
-		EC6040062149521900666F22 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040052149521900666F22 /* OnboardingViewModel.swift */; };
+		EC604004214951FF00666F22 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604003214951FF00666F22 /* RegisterViewController.swift */; };
+		EC6040062149521900666F22 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040052149521900666F22 /* RegisterViewModel.swift */; };
 		EC6040102149556000666F22 /* Entities.h in Headers */ = {isa = PBXBuildFile; fileRef = EC60400E2149556000666F22 /* Entities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC6040132149556000666F22 /* Entities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60400C2149556000666F22 /* Entities.framework */; };
 		EC6040142149556000666F22 /* Entities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC60400C2149556000666F22 /* Entities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -79,6 +79,10 @@
 		EC9F983E214E4D1D00C39F96 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983D214E4D1D00C39F96 /* Token.swift */; };
 		EC9F9840214E680E00C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983F214E680E00C39F96 /* Programme.swift */; };
 		EC9F9842214E684400C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9841214E684400C39F96 /* Programme.swift */; };
+		EC9F9844214E7CA900C39F96 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9843214E7CA900C39F96 /* Message.swift */; };
+		EC9F9847214EA49000C39F96 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9846214EA49000C39F96 /* UIView.swift */; };
+		EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */; };
+		EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,8 +163,8 @@
 		EC603FFD21494B6400666F22 /* TicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewModel.swift; sourceTree = "<group>"; };
 		EC603FFF21494EEE00666F22 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		EC60400121494EF700666F22 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		EC604003214951FF00666F22 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		EC6040052149521900666F22 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		EC604003214951FF00666F22 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EC6040052149521900666F22 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		EC60400C2149556000666F22 /* Entities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Entities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC60400E2149556000666F22 /* Entities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entities.h; sourceTree = "<group>"; };
 		EC60400F2149556000666F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -207,6 +211,10 @@
 		EC9F983D214E4D1D00C39F96 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EC9F983F214E680E00C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 		EC9F9841214E684400C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
+		EC9F9843214E7CA900C39F96 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EC9F9846214EA49000C39F96 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,8 +340,9 @@
 		EC603FDC2149381400666F22 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EC9F9845214EA21100C39F96 /* Onboarding */,
 				EC603FE32149493E00666F22 /* Home */,
-				EC603FE22149492600666F22 /* Onboarding */,
+				EC603FE22149492600666F22 /* Register */,
 				EC603FDD214948F400666F22 /* Login */,
 			);
 			path = Scenes;
@@ -348,13 +357,13 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		EC603FE22149492600666F22 /* Onboarding */ = {
+		EC603FE22149492600666F22 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				EC604003214951FF00666F22 /* OnboardingViewController.swift */,
-				EC6040052149521900666F22 /* OnboardingViewModel.swift */,
+				EC604003214951FF00666F22 /* RegisterViewController.swift */,
+				EC6040052149521900666F22 /* RegisterViewModel.swift */,
 			);
-			path = Onboarding;
+			path = Register;
 			sourceTree = "<group>";
 		};
 		EC603FE32149493E00666F22 /* Home */ = {
@@ -480,6 +489,7 @@
 				EC9F982F214BCB1500C39F96 /* Cafe.swift */,
 				EC9F983D214E4D1D00C39F96 /* Token.swift */,
 				EC9F983F214E680E00C39F96 /* Programme.swift */,
+				EC9F9843214E7CA900C39F96 /* Message.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -562,8 +572,18 @@
 			isa = PBXGroup;
 			children = (
 				EC9F9836214E3D2200C39F96 /* String.swift */,
+				EC9F9846214EA49000C39F96 /* UIView.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EC9F9845214EA21100C39F96 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */,
+				EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -861,17 +881,20 @@
 				EC603FEC21494AE200666F22 /* MoreViewController.swift in Sources */,
 				EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */,
 				EC603FDF2149491000666F22 /* LoginViewController.swift in Sources */,
-				EC604004214951FF00666F22 /* OnboardingViewController.swift in Sources */,
+				EC604004214951FF00666F22 /* RegisterViewController.swift in Sources */,
 				EC603FE5214949CB00666F22 /* HomeTabBarViewController.swift in Sources */,
 				EC603FEE21494AF200666F22 /* MoreViewModel.swift in Sources */,
 				EC603FF021494AFE00666F22 /* ProfileViewController.swift in Sources */,
 				EC603FC52149357700666F22 /* AppDelegate.swift in Sources */,
+				EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */,
 				EC603FFA21494B3B00666F22 /* ScheduleViewModel.swift in Sources */,
+				EC9F9847214EA49000C39F96 /* UIView.swift in Sources */,
 				EC60400021494EEE00666F22 /* Color.swift in Sources */,
 				EC603FFE21494B6400666F22 /* TicketsViewModel.swift in Sources */,
+				EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */,
 				EC603FF221494B0800666F22 /* ProfileViewModel.swift in Sources */,
 				EC603FE12149492000666F22 /* LoginViewModel.swift in Sources */,
-				EC6040062149521900666F22 /* OnboardingViewModel.swift in Sources */,
+				EC6040062149521900666F22 /* RegisterViewModel.swift in Sources */,
 				EC60400221494EF700666F22 /* Font.swift in Sources */,
 				EC603FF821494B2E00666F22 /* ScheduleViewController.swift in Sources */,
 				EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */,
@@ -890,6 +913,7 @@
 				EC6040692149561700666F22 /* Employees.swift in Sources */,
 				EC60406C2149561700666F22 /* Shift.swift in Sources */,
 				EC60406A2149561700666F22 /* Shifts.swift in Sources */,
+				EC9F9844214E7CA900C39F96 /* Message.swift in Sources */,
 				EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */,
 				EC60406D2149561700666F22 /* Products.swift in Sources */,
 				EC6040682149561700666F22 /* Product.swift in Sources */,

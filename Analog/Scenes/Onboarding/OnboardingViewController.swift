@@ -2,42 +2,28 @@
 //  OnboardingViewController.swift
 //  Analog
 //
-//  Created by Frederik Christensen on 12/09/2018.
+//  Created by Frederik Christensen on 16/09/2018.
 //  Copyright © 2018 analogio. All rights reserved.
 //
 
 import UIKit
-import Views
-import Entities
 
 class OnboardingViewController: UIViewController {
 
-    let scrollView = Views.scrollView()
-    let stackView = Views.stackView()
-    let nameField = Views.nameField()
-    let emailField = Views.emailField()
-    let passwordInput = Views.passwordInput()
-    let programmePicker = Views.programmePicker()
-    let registerButton = Views.registerButton()
-
-    let margin: CGFloat = 16
-
-    var programmes: [Programme] = [] {
-        didSet {
-            programmePicker.reloadAllComponents()
-        }
-    }
-    var password: String?
+    private let scrollView = Views.scrollView()
+    private let stackView = Views.stackView()
+    private let titleLabel = Views.titleLabel()
+    private let descriptionLabel = Views.descriptionLabel()
+    private let registerButton = Views.registerButton()
+    private let loginButton = Views.loginButton()
 
     let viewModel: OnboardingViewModel
+
+    let margin: CGFloat = 16
 
     init(viewModel: OnboardingViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        viewModel.delegate = self
-        programmePicker.delegate = self
-        programmePicker.dataSource = self
-        passwordInput.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -74,74 +60,37 @@ class OnboardingViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
 
         // Add arranged subviews to the stack view
-        stackView.addArrangedSubview(nameField)
+        stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(.spacing(margin))
-        stackView.addArrangedSubview(emailField)
+        stackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(.spacing(margin))
-        stackView.addArrangedSubview(passwordInput)
-        stackView.addArrangedSubview(.spacing(margin))
-        stackView.addArrangedSubview(programmePicker)
+        stackView.addArrangedSubview(loginButton)
         stackView.addArrangedSubview(.spacing(margin))
         stackView.addArrangedSubview(registerButton)
 
         NSLayoutConstraint.activate([
-            passwordInput.heightAnchor.constraint(equalToConstant: 100),
-            programmePicker.heightAnchor.constraint(equalToConstant: 200),
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            registerButton.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
 
-    func setupTargets() {
+    private func setupTargets() {
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
 
-    @objc func didTapRegisterButton(sender: UIButton) {
-        guard let name = nameField.text, let email = emailField.text, let password = password else {
-            print("Fill in required fields...")
-            return
-        }
-        let programme = programmes[programmePicker.selectedRow(inComponent: 0)]
-        viewModel.register(name: name, email: email, password: password, programme: programme)
-    }
-}
-
-extension OnboardingViewController: OnboardingViewModelDelegate {
-    func didSetFetchProgrammesState(state: State<[Programme]>) {
-        switch state {
-        case .loading:
-            print("Loading...")
-        case .loaded(let value):
-            programmes = value
-        case .error(let error):
-            print(error)
-        default:
-            break
-        }
-    }
-}
-
-extension OnboardingViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return programmes[row].fullName
-    }
-}
-
-extension OnboardingViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    @objc func didTapLoginButton(sendeR: UIButton) {
+        let vc = LoginViewController(viewModel: LoginViewModel())
+        present(vc, animated: true, completion: nil)
     }
 
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return programmes.count
-    }
-}
-
-extension OnboardingViewController: PasswordInputDelegate {
-    func didFinish(_ code: String) {
-        self.password = code
+    @objc func didTapRegisterButton(sendeR: UIButton) {
+        let vc = RegisterViewController(viewModel: RegisterViewModel())
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -161,56 +110,44 @@ private enum Views {
         return scrollView
     }
 
-    static func nameField() -> UITextField {
-        let view = UITextField()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = Font.font(size: 16)
-        view.borderStyle = .roundedRect
-        view.placeholder = NSLocalizedString("onboarding_name_placeholder", comment: "")
-        return view
+    static func titleLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = Font.boldFont(size: 28)
+        label.textAlignment = .center
+        label.text = NSLocalizedString("onboarding_title", comment: "")
+        return label
     }
 
-    static func emailField() -> UITextField {
-        let view = UITextField()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.font = Font.font(size: 16)
-        view.borderStyle = .roundedRect
-        view.placeholder = NSLocalizedString("onboarding_email_placeholder", comment: "")
-        return view
-    }
-
-    static func passwordInput() -> PasswordInput {
-        let view = PasswordInput(numberOfInputFields: 4)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }
-
-    static func programmePicker() -> UIPickerView {
-        let view = UIPickerView()
-        return view
+    static func descriptionLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = Font.font(size: 17)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.text = NSLocalizedString("onboarding_description", comment: "")
+        return label
     }
 
     static func registerButton() -> UIButton {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(NSLocalizedString("onboarding_button_register", comment: ""), for: .normal)
+        button.layer.cornerRadius = 12
+        button.backgroundColor = Color.buttonBackground
+        button.setTitleColor(Color.buttonText, for: .normal)
+        button.titleLabel?.font = Font.boldFont(size: 17)
+        button.setTitle(NSLocalizedString("onboarding_register_button", comment: ""), for: .normal)
         return button
     }
-}
 
-private extension UIView {
-    static func spacing(_ height: CGFloat, required: Bool = true, priority: UILayoutPriority = .required) -> UIView {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        if required {
-            let constraint = view.heightAnchor.constraint(equalToConstant: height)
-            constraint.priority = priority
-            constraint.isActive = true
-        } else {
-            let constraint = view.heightAnchor.constraint(lessThanOrEqualToConstant: height)
-            constraint.priority = priority
-            constraint.isActive = true
-        }
-        return view
+    static func loginButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 12
+        button.backgroundColor = Color.buttonBackground
+        button.setTitleColor(Color.buttonText, for: .normal)
+        button.titleLabel?.font = Font.boldFont(size: 17)
+        button.setTitle(NSLocalizedString("onboarding_login_button", comment: ""), for: .normal)
+        return button
     }
 }

@@ -15,7 +15,7 @@ public enum User {
         return Request(path: "account/login")
     }
 
-    public static func register() -> RequestNoContent<ClipCardError> {
-        return RequestNoContent(path: "account/register")
+    public static func register() -> Request<Message, ClipCardError> {
+        return Request(path: "account/register")
     }
 }

@@ -20,9 +20,6 @@ class LoginViewModel {
 
     weak var delegate: LoginViewModelDelegate?
 
-    let email: String
-    let version: String
-
     var fetchCafeState: State<Cafe> = .unknown {
         didSet {
             delegate?.didSetFetchCafeState(state: fetchCafeState)
@@ -33,11 +30,6 @@ class LoginViewModel {
         didSet {
             delegate?.didSetFetchTokenState(state: fetchTokenState)
         }
-    }
-
-    init(email: String) {
-        self.email = email
-        self.version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
 
     public func viewDidLoad() {
@@ -57,17 +49,18 @@ class LoginViewModel {
         }
     }
 
-    public func login(password: String) {
+    public func login(email: String, password: String) {
         fetchTokenState = .loading
         let api = ClipCardAPI()
         let parameters = [
             "email": email,
             "password": password.sha256(),
-            "version": version,
+            "version": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "",
         ]
         User.login().response(using: api, method: .post, parameters: parameters) { response in
             switch response {
             case .success(let value):
+                UserDefaults.standard.set(email, forKey: "email")
                 KeyChainService.shared.store(key: .token, value: value.token)
                 self.fetchTokenState = .loaded(value)
             case .error(let error):

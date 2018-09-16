@@ -9,9 +9,18 @@
 /* LOGIN SCENE */
 
 "login_button_forgot_pin" = "Forgot PIN?";
+"login_email_placeholder" = "Enter email";
+
+/* REGISTER SCENE */
+
+"register_name_placeholder" = "Enter name";
+"register_email_placeholder" = "Enter email";
+"register_button_register" = "Submit";
+"register_title" = "Register";
 
 /* ONBOARDING SCENE */
 
-"onboarding_name_placeholder" = "Enter name";
-"onboarding_email_placeholder" = "Enter email";
-"onboarding_button_register" = "Submit";
+"onboarding_title" = "Welcome!";
+"onboarding_description" = "This is the Café Analog App.";
+"onboarding_register_button" = "Sign Up";
+"onboarding_login_button" = "Log In";

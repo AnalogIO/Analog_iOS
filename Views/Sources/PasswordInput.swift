@@ -17,7 +17,7 @@ public class PasswordInput: UIView {
     private let stackView = Views.stackView()
     public weak var delegate: PasswordInputDelegate?
     private var currentInput = 0
-    private var password = ""
+    public var password = ""
     private var numberOfInputFields: Int
     private var inputFields:[UITextField] = []
 
