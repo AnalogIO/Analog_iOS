@@ -21,9 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func startSession() {
-        let viewModel = LoginViewModel(email: "frda@itu.dk")
-        window?.rootViewController = LoginViewController(viewModel: viewModel)
-        /*if let email = KeyChainService.shared.get(key: .email) {
+        if let email = KeyChainService.shared.get(key: .email) {
             //LOGIN SCENE
             let viewModel = LoginViewModel(email: email)
             window?.rootViewController = LoginViewController(viewModel: viewModel)
@@ -31,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //ONBOARDING SCENE
             let viewModel = OnboardingViewModel()
             window?.rootViewController = OnboardingViewController(viewModel: viewModel)
-        }*/
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

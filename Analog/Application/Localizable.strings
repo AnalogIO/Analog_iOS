@@ -9,3 +9,9 @@
 /* LOGIN SCENE */
 
 "login_button_forgot_pin" = "Forgot PIN?";
+
+/* ONBOARDING SCENE */
+
+"onboarding_name_placeholder" = "Enter name";
+"onboarding_email_placeholder" = "Enter email";
+"onboarding_button_register" = "Submit";

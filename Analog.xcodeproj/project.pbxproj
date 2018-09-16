@@ -77,6 +77,8 @@
 		EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9839214E402B00C39F96 /* KeyChainService.swift */; };
 		EC9F983C214E4C5700C39F96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983B214E4C5700C39F96 /* User.swift */; };
 		EC9F983E214E4D1D00C39F96 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983D214E4D1D00C39F96 /* Token.swift */; };
+		EC9F9840214E680E00C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983F214E680E00C39F96 /* Programme.swift */; };
+		EC9F9842214E684400C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9841214E684400C39F96 /* Programme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +205,8 @@
 		EC9F9839214E402B00C39F96 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		EC9F983B214E4C5700C39F96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC9F983D214E4D1D00C39F96 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		EC9F983F214E680E00C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
+		EC9F9841214E684400C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +479,7 @@
 				EC6040632149561700666F22 /* State.swift */,
 				EC9F982F214BCB1500C39F96 /* Cafe.swift */,
 				EC9F983D214E4D1D00C39F96 /* Token.swift */,
+				EC9F983F214E680E00C39F96 /* Programme.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 			children = (
 				EC604070214956BF00666F22 /* Products.swift */,
 				EC9F983B214E4C5700C39F96 /* User.swift */,
+				EC9F9841214E684400C39F96 /* Programme.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -878,6 +884,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9F9840214E680E00C39F96 /* Programme.swift in Sources */,
 				EC6040662149561700666F22 /* Employee.swift in Sources */,
 				EC9F983E214E4D1D00C39F96 /* Token.swift in Sources */,
 				EC6040692149561700666F22 /* Employees.swift in Sources */,
@@ -894,6 +901,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC9F9842214E684400C39F96 /* Programme.swift in Sources */,
 				EC604072214956BF00666F22 /* Products.swift in Sources */,
 				EC604079214956CE00666F22 /* ClipCardAPI.swift in Sources */,
 				EC9F983C214E4C5700C39F96 /* User.swift in Sources */,
