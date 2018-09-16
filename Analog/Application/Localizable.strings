@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Analog
+
+  Created by Frederik Christensen on 16/09/2018.
+  Copyright © 2018 analogio. All rights reserved.
+*/
+
+/* LOGIN SCENE */
+
+"login_button_forgot_pin" = "Forgot PIN?";
