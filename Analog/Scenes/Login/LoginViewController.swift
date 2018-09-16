@@ -84,10 +84,18 @@ class LoginViewController: UIViewController {
 
     private func setupTargets() {
         forgotPinButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapBackground))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 
     @objc private func didTapForgotPassword(sender: UIButton) {
         print("Forgot password clicked...")
+    }
+
+    @objc private func didTapBackground(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 

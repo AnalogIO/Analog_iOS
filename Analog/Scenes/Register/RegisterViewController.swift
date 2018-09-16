@@ -98,6 +98,10 @@ class RegisterViewController: UIViewController {
 
     func setupTargets() {
         registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapBackground))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 
     @objc func didTapRegisterButton(sender: UIButton) {
@@ -109,6 +113,10 @@ class RegisterViewController: UIViewController {
         }
         let programme = programmes[programmePicker.selectedRow(inComponent: 0)]
         viewModel.register(name: name, email: email, password: passwordInput.password, programme: programme)
+    }
+
+    @objc private func didTapBackground(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 

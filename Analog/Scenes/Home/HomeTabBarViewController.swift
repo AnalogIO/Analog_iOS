@@ -12,7 +12,13 @@ protocol HomeTabBarViewControllerDelegate {}
 
 class HomeTabBarViewController: UITabBarController {
 
-    private let tabBarTitles = ["Tickets", "Schedule", "Receipts", "Profile", "More"]
+    private let tabBarConfigs: [TabBarConfig] = [
+        TabBarConfig(title: "Tickets", icon: #imageLiteral(resourceName: "Tickets")),
+        TabBarConfig(title: "Schedule", icon: #imageLiteral(resourceName: "Schedule")),
+        TabBarConfig(title: "Receipts", icon: #imageLiteral(resourceName: "Receipts")),
+        TabBarConfig(title: "Profile", icon: #imageLiteral(resourceName: "Profile")),
+        TabBarConfig(title: "More", icon: #imageLiteral(resourceName: "More")),
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +28,7 @@ class HomeTabBarViewController: UITabBarController {
 
     func configureNavigationBar() {
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.navigationItem.title = self.tabBarTitles.first
+        self.navigationItem.title = self.tabBarConfigs.first?.title ?? ""
     }
 
     func configureTabBar() {
@@ -34,8 +40,14 @@ class HomeTabBarViewController: UITabBarController {
             UINavigationController(rootViewController: MoreViewController()),
         ]
         controllers.enumerated().forEach { (index, vc) in
-            vc.tabBarItem = UITabBarItem(title: tabBarTitles[index], image: nil, tag: index)
+            let config = tabBarConfigs[index]
+            vc.tabBarItem = UITabBarItem(title: config.title, image: config.icon, tag: index)
         }
         self.viewControllers = controllers
     }
+}
+
+private struct TabBarConfig {
+    let title: String
+    let icon: UIImage
 }
