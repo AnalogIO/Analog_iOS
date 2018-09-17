@@ -11,4 +11,8 @@ import Client
 
 public struct ShiftPlanningError: APIError {
     public let message: String
+
+    public var errorDescription: String? {
+        return NSLocalizedString(message, comment: "ShiftPlanningError")
+    }
 }

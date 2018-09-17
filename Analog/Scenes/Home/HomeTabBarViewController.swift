@@ -33,7 +33,7 @@ class HomeTabBarViewController: UITabBarController {
 
     func configureTabBar() {
         let controllers: [UIViewController] = [
-            UINavigationController(rootViewController: TicketsViewController()),
+            UINavigationController(rootViewController: TicketsViewController(viewModel: TicketsViewModel())),
             UINavigationController(rootViewController: ScheduleViewController()),
             UINavigationController(rootViewController: ReceiptsViewController()),
             UINavigationController(rootViewController: ProfileViewController()),

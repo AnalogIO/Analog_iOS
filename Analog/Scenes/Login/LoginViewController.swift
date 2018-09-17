@@ -115,7 +115,7 @@ extension LoginViewController: LoginViewModelDelegate {
             present(vc, animated: true, completion: nil)
             print(value.token)
         case .error(let error):
-            print(error)
+            displayMessage(title: "Error", message: error.localizedDescription, actions: [.Ok])
         default:
             break
         }

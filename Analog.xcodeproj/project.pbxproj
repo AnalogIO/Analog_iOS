@@ -83,6 +83,8 @@
 		EC9F9847214EA49000C39F96 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9846214EA49000C39F96 /* UIView.swift */; };
 		EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */; };
 		EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */; };
+		ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA58214FAD940082E2E9 /* Ticket.swift */; };
+		ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -215,6 +217,8 @@
 		EC9F9846214EA49000C39F96 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		ECC5CA58214FAD940082E2E9 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,6 +494,7 @@
 				EC9F983D214E4D1D00C39F96 /* Token.swift */,
 				EC9F983F214E680E00C39F96 /* Programme.swift */,
 				EC9F9843214E7CA900C39F96 /* Message.swift */,
+				ECC5CA58214FAD940082E2E9 /* Ticket.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 			children = (
 				EC9F9836214E3D2200C39F96 /* String.swift */,
 				EC9F9846214EA49000C39F96 /* UIView.swift */,
+				ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -891,6 +897,7 @@
 				EC9F9847214EA49000C39F96 /* UIView.swift in Sources */,
 				EC60400021494EEE00666F22 /* Color.swift in Sources */,
 				EC603FFE21494B6400666F22 /* TicketsViewModel.swift in Sources */,
+				ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */,
 				EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */,
 				EC603FF221494B0800666F22 /* ProfileViewModel.swift in Sources */,
 				EC603FE12149492000666F22 /* LoginViewModel.swift in Sources */,
@@ -914,6 +921,7 @@
 				EC60406C2149561700666F22 /* Shift.swift in Sources */,
 				EC60406A2149561700666F22 /* Shifts.swift in Sources */,
 				EC9F9844214E7CA900C39F96 /* Message.swift in Sources */,
+				ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */,
 				EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */,
 				EC60406D2149561700666F22 /* Products.swift in Sources */,
 				EC6040682149561700666F22 /* Product.swift in Sources */,

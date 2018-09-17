@@ -8,4 +8,4 @@
 
 import Foundation
 
-public protocol APIError: Error, Codable {}
+public protocol APIError: LocalizedError, Codable {}

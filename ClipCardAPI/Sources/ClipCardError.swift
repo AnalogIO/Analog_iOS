@@ -11,4 +11,8 @@ import Client
 
 public struct ClipCardError: APIError {
     let message: String
+
+    public var errorDescription: String? {
+        return NSLocalizedString(message, comment: "ClipCardError")
+    }
 }

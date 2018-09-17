@@ -7,7 +7,30 @@
 //
 
 import Foundation
+import ClipCardAPI
+import Entities
+import Client
+
+protocol TicketsViewModelDelegate: class {
+    func didSetFetchTicketsState(state: State<[Ticket]>)
+}
 
 class TicketsViewModel {
-    
+    weak var delegate: TicketsViewModelDelegate?
+
+    var fetchTicketsState: State<[Ticket]> = .unknown {
+        didSet {
+            delegate?.didSetFetchTicketsState(state: fetchTicketsState)
+        }
+    }
+
+    func viewDidLoad() {
+        fetchTickets()
+    }
+
+    func fetchTickets() {
+        fetchTicketsState = .loading
+        let api = ClipCardAPI()
+        
+    }
 }
