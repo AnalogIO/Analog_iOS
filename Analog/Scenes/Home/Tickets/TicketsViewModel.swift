@@ -30,7 +30,6 @@ class TicketsViewModel {
 
     func fetchTickets() {
         fetchTicketsState = .loading
-        let api = ClipCardAPI()
         
     }
 }
