@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     private let imageView = Views.imageView()
     private let forgotPinButton = Views.forgotPinButton()
     private let emailField = Views.emailField()
+    private lazy var indicator = ActivityIndication(container: view)
 
     private let viewModel: LoginViewModel
 
@@ -109,12 +110,13 @@ extension LoginViewController: LoginViewModelDelegate {
     func didSetFetchTokenState(state: State<Token>) {
         switch state {
         case .loading:
-            print("Loading...")
-        case .loaded(let value):
+            indicator.start()
+        case .loaded(_):
+            indicator.stop()
             let vc = HomeTabBarViewController()
             present(vc, animated: true, completion: nil)
-            print(value.token)
         case .error(let error):
+            indicator.stop()
             displayMessage(title: "Error", message: error.localizedDescription, actions: [.Ok])
         default:
             break
@@ -123,8 +125,6 @@ extension LoginViewController: LoginViewModelDelegate {
 
     func didSetFetchCafeState(state: State<Cafe>) {
         switch state {
-        case .loading:
-            print("Loading...")
         case .loaded(let value):
             imageView.image = value.open ? #imageLiteral(resourceName: "analog_logo_open") : #imageLiteral(resourceName: "analog_logo_closed")
         case .error(let error):

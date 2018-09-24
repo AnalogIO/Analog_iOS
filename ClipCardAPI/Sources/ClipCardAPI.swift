@@ -9,22 +9,26 @@
 import Foundation
 import Alamofire
 import Client
+import Entities
 
 public class ClipCardAPI: API {
     
     #if DEBUG
-    public var baseUrl: String = "http://frederikjorgensen.dk/coffeecard/api/"
+    public var baseUrl: String = "https://frederikjorgensen.dk/coffeecard/api/"
     #else
     public var baseUrl: String = "https://analogio.dk/coffeecard/api/"
     #endif
+
+    let token: String?
     
     private lazy var headers: HTTPHeaders = {
-        return [
-            :
-        ]
+        var headers: HTTPHeaders = [:]
+        if let token = token { headers["Authorization"] = token }
+        return headers
     }()
     
-    public init() {
+    public init(token: String? = nil) {
+        self.token = token
         super.init(baseUrl: baseUrl)
         setDefaultHeaders(headers: headers)
     }

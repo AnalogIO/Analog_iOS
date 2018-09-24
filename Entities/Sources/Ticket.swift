@@ -9,5 +9,10 @@
 import Foundation
 
 public struct Ticket: Codable {
-
+    public let id: Int
+    public let dateCreated: String
+    public let dateUsed: String?
+    public let isUsed: Bool
+    public let productName: String
+    public let productId: Int
 }

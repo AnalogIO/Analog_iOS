@@ -52,7 +52,6 @@
 		EC60406D2149561700666F22 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040652149561700666F22 /* Products.swift */; };
 		EC604072214956BF00666F22 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604070214956BF00666F22 /* Products.swift */; };
 		EC604077214956CE00666F22 /* ClipCardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604074214956CE00666F22 /* ClipCardError.swift */; };
-		EC604079214956CE00666F22 /* ClipCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604076214956CE00666F22 /* ClipCardAPI.swift */; };
 		EC604082214957C600666F22 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60407E214957C600666F22 /* Shift.swift */; };
 		EC6040892149580700666F22 /* ShiftPlanningError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040862149580700666F22 /* ShiftPlanningError.swift */; };
 		EC60408A2149580700666F22 /* ShiftPlanningAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040872149580700666F22 /* ShiftPlanningAPI.swift */; };
@@ -68,6 +67,8 @@
 		EC60409D214960A800666F22 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60409C214960A800666F22 /* Alamofire.framework */; };
 		EC60409E2149677400666F22 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60409C214960A800666F22 /* Alamofire.framework */; };
 		EC60409F214967B400666F22 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60409C214960A800666F22 /* Alamofire.framework */; };
+		EC66020E215546A3004716F7 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC66020D215546A3004716F7 /* Ticket.swift */; };
+		EC66021521554ED7004716F7 /* ClipCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604076214956CE00666F22 /* ClipCardAPI.swift */; };
 		EC9F982A214B8BC300C39F96 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9829214B8BC300C39F96 /* APIError.swift */; };
 		EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */; };
 		EC9F982E214BCA2700C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982D214BCA2700C39F96 /* Cafe.swift */; };
@@ -83,6 +84,10 @@
 		EC9F9847214EA49000C39F96 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9846214EA49000C39F96 /* UIView.swift */; };
 		EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */; };
 		EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */; };
+		ECBD74A22157D8410097C9A6 /* TicketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */; };
+		ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC660216215550E9004716F7 /* ActivityIndication.swift */; };
+		ECBD74A521584C270097C9A6 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */; };
+		ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A62158D0BD0097C9A6 /* Receipt.swift */; };
 		ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA58214FAD940082E2E9 /* Ticket.swift */; };
 		ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
@@ -201,6 +206,8 @@
 		EC60408F2149584D00666F22 /* RequestNoContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNoContent.swift; sourceTree = "<group>"; };
 		EC6040902149584D00666F22 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		EC60409C214960A800666F22 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EC66020D215546A3004716F7 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		EC660216215550E9004716F7 /* ActivityIndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndication.swift; sourceTree = "<group>"; };
 		EC9F9829214B8BC300C39F96 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInput.swift; sourceTree = "<group>"; };
 		EC9F982D214BCA2700C39F96 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
@@ -217,6 +224,9 @@
 		EC9F9846214EA49000C39F96 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECBD74A62158D0BD0097C9A6 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		ECC5CA58214FAD940082E2E9 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,6 +330,7 @@
 		EC603FDA2149362400666F22 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				EC660216215550E9004716F7 /* ActivityIndication.swift */,
 				EC9F9835214E3D1200C39F96 /* Extensions */,
 				EC603FFF21494EEE00666F22 /* Color.swift */,
 				EC60400121494EF700666F22 /* Font.swift */,
@@ -514,6 +525,8 @@
 				EC604070214956BF00666F22 /* Products.swift */,
 				EC9F983B214E4C5700C39F96 /* User.swift */,
 				EC9F9841214E684400C39F96 /* Programme.swift */,
+				EC66020D215546A3004716F7 /* Ticket.swift */,
+				ECBD74A62158D0BD0097C9A6 /* Receipt.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -521,6 +534,7 @@
 		EC60407A2149577E00666F22 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EC66020F215548C8004716F7 /* Cells */,
 				EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */,
 			);
 			path = Sources;
@@ -571,6 +585,15 @@
 				EC603FD7214935EC00666F22 /* Cartfile */,
 			);
 			name = Meta;
+			sourceTree = "<group>";
+		};
+		EC66020F215548C8004716F7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */,
+				ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		EC9F9835214E3D1200C39F96 /* Extensions */ = {
@@ -764,26 +787,27 @@
 				TargetAttributes = {
 					EC603FC02149357700666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					EC60400B2149556000666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 					EC60401D2149556A00666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 					EC60402E2149557000666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 					EC60403F2149559200666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 					EC604050214955A200666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -886,6 +910,7 @@
 				EC9F9837214E3D2200C39F96 /* String.swift in Sources */,
 				EC603FEC21494AE200666F22 /* MoreViewController.swift in Sources */,
 				EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */,
+				ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */,
 				EC603FDF2149491000666F22 /* LoginViewController.swift in Sources */,
 				EC604004214951FF00666F22 /* RegisterViewController.swift in Sources */,
 				EC603FE5214949CB00666F22 /* HomeTabBarViewController.swift in Sources */,
@@ -933,9 +958,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC66021521554ED7004716F7 /* ClipCardAPI.swift in Sources */,
 				EC9F9842214E684400C39F96 /* Programme.swift in Sources */,
+				ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */,
+				EC66020E215546A3004716F7 /* Ticket.swift in Sources */,
 				EC604072214956BF00666F22 /* Products.swift in Sources */,
-				EC604079214956CE00666F22 /* ClipCardAPI.swift in Sources */,
 				EC9F983C214E4C5700C39F96 /* User.swift in Sources */,
 				EC604077214956CE00666F22 /* ClipCardError.swift in Sources */,
 			);
@@ -946,6 +973,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */,
+				ECBD74A521584C270097C9A6 /* ReceiptCollectionViewCell.swift in Sources */,
+				ECBD74A22157D8410097C9A6 /* TicketCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,7 +1176,7 @@
 				PROVISIONING_PROFILE = "099456e7-1924-4a2d-b2f0-2fdafb00de82";
 				PROVISIONING_PROFILE_SPECIFIER = Analog_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1170,7 +1199,7 @@
 				PROVISIONING_PROFILE = "099456e7-1924-4a2d-b2f0-2fdafb00de82";
 				PROVISIONING_PROFILE_SPECIFIER = Analog_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1199,7 +1228,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1229,7 +1258,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Entities;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1264,7 +1293,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1298,7 +1327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.ClipCardAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1329,7 +1358,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1359,7 +1388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Views;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1394,7 +1423,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1428,7 +1457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Client;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1463,7 +1492,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1497,7 +1526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.ShiftPlanningAPI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

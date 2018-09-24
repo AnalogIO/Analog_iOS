@@ -16,7 +16,7 @@ public class KeyChainService {
     }
 
     private static var _shared: KeyChainService?
-    open static var shared: KeyChainService {
+    public static var shared: KeyChainService {
         get {
             guard let shared = _shared else {
                 let service = KeyChainService()

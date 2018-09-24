@@ -35,7 +35,7 @@ class HomeTabBarViewController: UITabBarController {
         let controllers: [UIViewController] = [
             UINavigationController(rootViewController: TicketsViewController(viewModel: TicketsViewModel())),
             UINavigationController(rootViewController: ScheduleViewController()),
-            UINavigationController(rootViewController: ReceiptsViewController()),
+            UINavigationController(rootViewController: ReceiptsViewController(viewModel: ReceiptsViewModel())),
             UINavigationController(rootViewController: ProfileViewController()),
             UINavigationController(rootViewController: MoreViewController()),
         ]
