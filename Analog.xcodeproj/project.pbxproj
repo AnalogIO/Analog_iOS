@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC51B8DA215926B500DF5EB1 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51B8D9215926B500DF5EB1 /* MoreTableViewCell.swift */; };
 		EC603FC52149357700666F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FC42149357700666F22 /* AppDelegate.swift */; };
 		EC603FCC2149357800666F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC603FCB2149357800666F22 /* Assets.xcassets */; };
 		EC603FCF2149357800666F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC603FCD2149357800666F22 /* LaunchScreen.storyboard */; };
@@ -149,6 +150,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC51B8D9215926B500DF5EB1 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
 		EC603FC12149357700666F22 /* Analog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Analog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC603FC42149357700666F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC603FCB2149357800666F22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -289,6 +291,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC51B8DB215927BB00DF5EB1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EC603FCB2149357800666F22 /* Assets.xcassets */,
+				EC9F9833214E3A4E00C39F96 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EC603FB82149357700666F22 = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +331,7 @@
 		EC603FC32149357700666F22 /* Analog */ = {
 			isa = PBXGroup;
 			children = (
+				EC51B8DB215927BB00DF5EB1 /* Resources */,
 				EC603FDC2149381400666F22 /* Scenes */,
 				EC603FDB2149365900666F22 /* Application */,
 				EC603FDA2149362400666F22 /* Shared */,
@@ -342,11 +354,9 @@
 		EC603FDB2149365900666F22 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				EC603FD02149357800666F22 /* Info.plist */,
 				EC603FCD2149357800666F22 /* LaunchScreen.storyboard */,
-				EC603FCB2149357800666F22 /* Assets.xcassets */,
+				EC603FD02149357800666F22 /* Info.plist */,
 				EC603FC42149357700666F22 /* AppDelegate.swift */,
-				EC9F9833214E3A4E00C39F96 /* Localizable.strings */,
 				EC9F9838214E3D9800C39F96 /* Analog-Bridging-Header.h */,
 			);
 			path = Application;
@@ -592,6 +602,7 @@
 			children = (
 				ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */,
 				ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */,
+				EC51B8D9215926B500DF5EB1 /* MoreTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -972,6 +983,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC51B8DA215926B500DF5EB1 /* MoreTableViewCell.swift in Sources */,
 				EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */,
 				ECBD74A521584C270097C9A6 /* ReceiptCollectionViewCell.swift in Sources */,
 				ECBD74A22157D8410097C9A6 /* TicketCollectionViewCell.swift in Sources */,
