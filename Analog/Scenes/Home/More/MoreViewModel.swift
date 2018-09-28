@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol MoreViewModelDelegate: class {}
+
 class MoreViewModel {
-    
+    weak var delegate: MoreViewModelDelegate?
+
+    func viewWillAppear() {}
 }

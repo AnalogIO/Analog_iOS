@@ -13,18 +13,29 @@ class MoreViewController: UIViewController {
 
     let tableView = Views.tableView()
 
-    let cellConfigs: [[MoreTableViewCellConfig]] = [
+    lazy var cellConfigs: [[StaticTableViewCellConfig]] = [
         [
-            MoreTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_purchases"), title: "Purchases"),
-            MoreTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_settings"), title: "Settings"),
-            MoreTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_help"), title: "Help (FAQ)"),
-            MoreTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_shop"), title: "Shop"),
-            MoreTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_voucher"), title: "Redeem Voucher")
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_purchases"), title: "Purchases", action: navigateToPurchases),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_settings"), title: "Settings", action: navigateToSettings),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_help"), title: "Help (FAQ)", action: navigateToHelp),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_shop"), title: "Shop", action: navigateToShop),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_voucher"), title: "Redeem Voucher", action: navigateToVoucher)
         ],
         [
-            MoreTableViewCellConfig(title: "Log out", type: .escape)
+            StaticTableViewCellConfig(title: "Log out", type: .escape, action: navigateToLogin)
         ]
     ]
+
+    let viewModel: MoreViewModel
+
+    init(viewModel: MoreViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +45,14 @@ class MoreViewController: UIViewController {
         defineLayout()
         setupTargets()
 
+        viewModel.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
     }
 
     private func defineLayout() {
@@ -49,12 +66,43 @@ class MoreViewController: UIViewController {
     }
 
     private func setupTargets() {}
+
+    private func navigateToPurchases() {
+        let vc = PurchasesViewController(viewModel: PurchasesViewModel())
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func navigateToSettings() {
+        let vc = SettingsViewController(viewModel: SettingsViewModel())
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func navigateToHelp() {
+        let vc = HelpViewController(viewModel: HelpViewModel())
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func navigateToShop() {
+        let vc = ShopViewController(viewModel: ShopViewModel())
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func navigateToVoucher() {
+        let vc = VoucherViewController(viewModel: VoucherViewModel())
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func navigateToLogin() {
+        let vc = LoginViewController(viewModel: LoginViewModel())
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension MoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(indexPath.row)
+        let config = cellConfigs[indexPath.section][indexPath.row]
+        config.action?()
     }
 }
 
@@ -68,18 +116,20 @@ extension MoreViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MoreTableViewCell.reuseIdentifier, for: indexPath) as! MoreTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: StaticTableViewCell.reuseIdentifier, for: indexPath) as! StaticTableViewCell
         let config = cellConfigs[indexPath.section][indexPath.row]
         cell.configure(config: config)
         return cell
     }
 }
 
+extension MoreViewController: MoreViewModelDelegate {}
+
 private enum Views {
     static func tableView() -> UITableView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(MoreTableViewCell.self, forCellReuseIdentifier: MoreTableViewCell.reuseIdentifier)
+        tableView.register(StaticTableViewCell.self, forCellReuseIdentifier: StaticTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = Color.background
         return tableView

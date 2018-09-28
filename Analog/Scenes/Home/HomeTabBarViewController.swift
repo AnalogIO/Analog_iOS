@@ -37,7 +37,7 @@ class HomeTabBarViewController: UITabBarController {
             UINavigationController(rootViewController: ScheduleViewController()),
             UINavigationController(rootViewController: ReceiptsViewController(viewModel: ReceiptsViewModel())),
             UINavigationController(rootViewController: ProfileViewController()),
-            UINavigationController(rootViewController: MoreViewController()),
+            UINavigationController(rootViewController: MoreViewController(viewModel: MoreViewModel())),
         ]
         controllers.enumerated().forEach { (index, vc) in
             let config = tabBarConfigs[index]

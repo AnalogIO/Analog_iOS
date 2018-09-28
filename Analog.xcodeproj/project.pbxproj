@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC51B8DA215926B500DF5EB1 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51B8D9215926B500DF5EB1 /* MoreTableViewCell.swift */; };
+		EC51B8DA215926B500DF5EB1 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */; };
 		EC603FC52149357700666F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FC42149357700666F22 /* AppDelegate.swift */; };
 		EC603FCC2149357800666F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC603FCB2149357800666F22 /* Assets.xcassets */; };
 		EC603FCF2149357800666F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC603FCD2149357800666F22 /* LaunchScreen.storyboard */; };
@@ -91,6 +91,20 @@
 		ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A62158D0BD0097C9A6 /* Receipt.swift */; };
 		ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA58214FAD940082E2E9 /* Ticket.swift */; };
 		ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */; };
+		ECC91169215E4B4F0085295A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ECC91168215E4B4F0085295A /* README.md */; };
+		ECC91170215E4C5D0085295A /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9116F215E4C5D0085295A /* PurchasesViewController.swift */; };
+		ECC91172215E4C690085295A /* PurchasesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91171215E4C690085295A /* PurchasesViewModel.swift */; };
+		ECC91174215E4DA70085295A /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91173215E4DA70085295A /* Purchase.swift */; };
+		ECC91176215E4DCE0085295A /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91175215E4DCE0085295A /* PurchaseCollectionViewCell.swift */; };
+		ECC91178215E4F1F0085295A /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91177215E4F1F0085295A /* Purchase.swift */; };
+		ECC9117A215E53620085295A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91179215E53620085295A /* SettingsViewController.swift */; };
+		ECC9117C215E53E80085295A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9117B215E53E80085295A /* SettingsViewModel.swift */; };
+		ECC9117E215E59A30085295A /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9117D215E59A30085295A /* HelpViewController.swift */; };
+		ECC91180215E5A7B0085295A /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9117F215E5A7B0085295A /* HelpViewModel.swift */; };
+		ECC91182215E5AC70085295A /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91181215E5AC70085295A /* ShopViewController.swift */; };
+		ECC91184215E5AD00085295A /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91183215E5AD00085295A /* ShopViewModel.swift */; };
+		ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91185215E5ADB0085295A /* VoucherViewController.swift */; };
+		ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91187215E5AE50085295A /* VoucherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,7 +164,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EC51B8D9215926B500DF5EB1 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
+		EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewCell.swift; sourceTree = "<group>"; };
 		EC603FC12149357700666F22 /* Analog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Analog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC603FC42149357700666F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC603FCB2149357800666F22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +245,20 @@
 		ECBD74A62158D0BD0097C9A6 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		ECC5CA58214FAD940082E2E9 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		ECC91168215E4B4F0085295A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		ECC9116F215E4C5D0085295A /* PurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
+		ECC91171215E4C690085295A /* PurchasesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesViewModel.swift; sourceTree = "<group>"; };
+		ECC91173215E4DA70085295A /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		ECC91175215E4DCE0085295A /* PurchaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECC91177215E4F1F0085295A /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		ECC91179215E53620085295A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		ECC9117B215E53E80085295A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		ECC9117D215E59A30085295A /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		ECC9117F215E5A7B0085295A /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
+		ECC91181215E5AC70085295A /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		ECC91183215E5AD00085295A /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
+		ECC91185215E5ADB0085295A /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
+		ECC91187215E5AE50085295A /* VoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +393,11 @@
 		EC603FDC2149381400666F22 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				ECC9116E215E4C360085295A /* Voucher */,
+				ECC9116D215E4C320085295A /* Shop */,
+				ECC9116C215E4C2C0085295A /* Help */,
+				ECC9116B215E4C260085295A /* Settings */,
+				ECC9116A215E4C1F0085295A /* Purchases */,
 				EC9F9845214EA21100C39F96 /* Onboarding */,
 				EC603FE32149493E00666F22 /* Home */,
 				EC603FE22149492600666F22 /* Register */,
@@ -516,6 +549,7 @@
 				EC9F983F214E680E00C39F96 /* Programme.swift */,
 				EC9F9843214E7CA900C39F96 /* Message.swift */,
 				ECC5CA58214FAD940082E2E9 /* Ticket.swift */,
+				ECC91173215E4DA70085295A /* Purchase.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -537,6 +571,7 @@
 				EC9F9841214E684400C39F96 /* Programme.swift */,
 				EC66020D215546A3004716F7 /* Ticket.swift */,
 				ECBD74A62158D0BD0097C9A6 /* Receipt.swift */,
+				ECC91177215E4F1F0085295A /* Purchase.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -592,6 +627,7 @@
 		EC60409B21495C7A00666F22 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				ECC91168215E4B4F0085295A /* README.md */,
 				EC603FD7214935EC00666F22 /* Cartfile */,
 			);
 			name = Meta;
@@ -602,7 +638,8 @@
 			children = (
 				ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */,
 				ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */,
-				EC51B8D9215926B500DF5EB1 /* MoreTableViewCell.swift */,
+				EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */,
+				ECC91175215E4DCE0085295A /* PurchaseCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -624,6 +661,51 @@
 				EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		ECC9116A215E4C1F0085295A /* Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				ECC9116F215E4C5D0085295A /* PurchasesViewController.swift */,
+				ECC91171215E4C690085295A /* PurchasesViewModel.swift */,
+			);
+			path = Purchases;
+			sourceTree = "<group>";
+		};
+		ECC9116B215E4C260085295A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECC91179215E53620085295A /* SettingsViewController.swift */,
+				ECC9117B215E53E80085295A /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		ECC9116C215E4C2C0085295A /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				ECC9117D215E59A30085295A /* HelpViewController.swift */,
+				ECC9117F215E5A7B0085295A /* HelpViewModel.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		ECC9116D215E4C320085295A /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				ECC91181215E5AC70085295A /* ShopViewController.swift */,
+				ECC91183215E5AD00085295A /* ShopViewModel.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
+		ECC9116E215E4C360085295A /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				ECC91185215E5ADB0085295A /* VoucherViewController.swift */,
+				ECC91187215E5AE50085295A /* VoucherViewModel.swift */,
+			);
+			path = Voucher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -852,6 +934,7 @@
 			files = (
 				EC603FD8214935EC00666F22 /* Cartfile in Resources */,
 				EC9F9834214E3A4E00C39F96 /* Localizable.strings in Resources */,
+				ECC91169215E4B4F0085295A /* README.md in Resources */,
 				EC603FCF2149357800666F22 /* LaunchScreen.storyboard in Resources */,
 				EC603FCC2149357800666F22 /* Assets.xcassets in Resources */,
 			);
@@ -920,6 +1003,7 @@
 			files = (
 				EC9F9837214E3D2200C39F96 /* String.swift in Sources */,
 				EC603FEC21494AE200666F22 /* MoreViewController.swift in Sources */,
+				ECC91180215E5A7B0085295A /* HelpViewModel.swift in Sources */,
 				EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */,
 				ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */,
 				EC603FDF2149491000666F22 /* LoginViewController.swift in Sources */,
@@ -927,20 +1011,29 @@
 				EC603FE5214949CB00666F22 /* HomeTabBarViewController.swift in Sources */,
 				EC603FEE21494AF200666F22 /* MoreViewModel.swift in Sources */,
 				EC603FF021494AFE00666F22 /* ProfileViewController.swift in Sources */,
+				ECC91170215E4C5D0085295A /* PurchasesViewController.swift in Sources */,
+				ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */,
 				EC603FC52149357700666F22 /* AppDelegate.swift in Sources */,
+				ECC91182215E5AC70085295A /* ShopViewController.swift in Sources */,
 				EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */,
 				EC603FFA21494B3B00666F22 /* ScheduleViewModel.swift in Sources */,
 				EC9F9847214EA49000C39F96 /* UIView.swift in Sources */,
 				EC60400021494EEE00666F22 /* Color.swift in Sources */,
 				EC603FFE21494B6400666F22 /* TicketsViewModel.swift in Sources */,
+				ECC9117C215E53E80085295A /* SettingsViewModel.swift in Sources */,
 				ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */,
+				ECC91184215E5AD00085295A /* ShopViewModel.swift in Sources */,
 				EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */,
+				ECC9117E215E59A30085295A /* HelpViewController.swift in Sources */,
 				EC603FF221494B0800666F22 /* ProfileViewModel.swift in Sources */,
 				EC603FE12149492000666F22 /* LoginViewModel.swift in Sources */,
 				EC6040062149521900666F22 /* RegisterViewModel.swift in Sources */,
 				EC60400221494EF700666F22 /* Font.swift in Sources */,
 				EC603FF821494B2E00666F22 /* ScheduleViewController.swift in Sources */,
+				ECC9117A215E53620085295A /* SettingsViewController.swift in Sources */,
 				EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */,
+				ECC91172215E4C690085295A /* PurchasesViewModel.swift in Sources */,
+				ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */,
 				EC603FF621494B2300666F22 /* ReceiptsViewModel.swift in Sources */,
 				EC603FFC21494B5A00666F22 /* TicketsViewController.swift in Sources */,
 			);
@@ -961,6 +1054,7 @@
 				EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */,
 				EC60406D2149561700666F22 /* Products.swift in Sources */,
 				EC6040682149561700666F22 /* Product.swift in Sources */,
+				ECC91174215E4DA70085295A /* Purchase.swift in Sources */,
 				EC60406B2149561700666F22 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -973,6 +1067,7 @@
 				EC9F9842214E684400C39F96 /* Programme.swift in Sources */,
 				ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */,
 				EC66020E215546A3004716F7 /* Ticket.swift in Sources */,
+				ECC91178215E4F1F0085295A /* Purchase.swift in Sources */,
 				EC604072214956BF00666F22 /* Products.swift in Sources */,
 				EC9F983C214E4C5700C39F96 /* User.swift in Sources */,
 				EC604077214956CE00666F22 /* ClipCardError.swift in Sources */,
@@ -983,7 +1078,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC51B8DA215926B500DF5EB1 /* MoreTableViewCell.swift in Sources */,
+				EC51B8DA215926B500DF5EB1 /* StaticTableViewCell.swift in Sources */,
+				ECC91176215E4DCE0085295A /* PurchaseCollectionViewCell.swift in Sources */,
 				EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */,
 				ECBD74A521584C270097C9A6 /* ReceiptCollectionViewCell.swift in Sources */,
 				ECBD74A22157D8410097C9A6 /* TicketCollectionViewCell.swift in Sources */,

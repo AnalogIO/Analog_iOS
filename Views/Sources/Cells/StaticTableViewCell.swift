@@ -8,8 +8,8 @@
 
 import UIKit
 
-public class MoreTableViewCell: UITableViewCell {
-    public static let reuseIdentifier: String = "MoreCell"
+public class StaticTableViewCell: UITableViewCell {
+    public static let reuseIdentifier: String = "StaticCell"
 
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,7 +20,7 @@ public class MoreTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public func configure(config: MoreTableViewCellConfig) {
+    public func configure(config: StaticTableViewCellConfig) {
         imageView?.image = config.icon
         textLabel?.text = config.title
 
@@ -30,25 +30,28 @@ public class MoreTableViewCell: UITableViewCell {
             textLabel?.textColor = .black
             textLabel?.textAlignment = .natural
         case .escape:
+            accessoryType = .none
             textLabel?.textColor = .red
             textLabel?.textAlignment = .center
         }
     }
 }
 
-public struct MoreTableViewCellConfig {
-    let icon: UIImage?
-    let title: String
-    let type: MoreTableViewCellType
+public struct StaticTableViewCellConfig {
+    public let icon: UIImage?
+    public let title: String
+    public let type: StaticTableViewCellType
+    public let action: (() -> Void)?
 
-    public init(icon: UIImage? = nil, title: String, type: MoreTableViewCellType = .normal) {
+    public init(icon: UIImage? = nil, title: String, type: StaticTableViewCellType = .normal, action: (() -> Void)? = nil) {
         self.icon = icon
         self.title = title
         self.type = type
+        self.action = action
     }
 }
 
-public enum MoreTableViewCellType {
+public enum StaticTableViewCellType {
     case normal
     case escape
 }
