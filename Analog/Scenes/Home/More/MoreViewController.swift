@@ -15,14 +15,14 @@ class MoreViewController: UIViewController {
 
     lazy var cellConfigs: [[StaticTableViewCellConfig]] = [
         [
-            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_purchases"), title: "Purchases", action: navigateToPurchases),
-            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_settings"), title: "Settings", action: navigateToSettings),
-            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_help"), title: "Help (FAQ)", action: navigateToHelp),
-            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_shop"), title: "Shop", action: navigateToShop),
-            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_voucher"), title: "Redeem Voucher", action: navigateToVoucher)
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_purchases"), title: "Purchases", click: navigateToPurchases),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_settings"), title: "Settings", click: navigateToSettings),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_help"), title: "Help (FAQ)", click: navigateToHelp),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_shop"), title: "Shop", click: navigateToShop),
+            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_voucher"), title: "Redeem Voucher", click: navigateToVoucher)
         ],
         [
-            StaticTableViewCellConfig(title: "Log out", type: .escape, action: navigateToLogin)
+            StaticTableViewCellConfig(title: "Log out", type: .escape, click: navigateToLogin)
         ]
     ]
 
@@ -102,7 +102,7 @@ extension MoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let config = cellConfigs[indexPath.section][indexPath.row]
-        config.action?()
+        config.click?()
     }
 }
 

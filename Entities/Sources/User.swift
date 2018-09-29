@@ -1,5 +1,5 @@
 //
-//  Token.swift
+//  User.swift
 //  Entities
 //
 //  Created by Frederik Christensen on 16/09/2018.
@@ -8,6 +8,9 @@
 
 import Foundation
 
-public struct Token: Codable {
+public struct User: Codable {
+    public let name: String
+    //public let programme: String
+    public let email: String
     public let token: String
 }

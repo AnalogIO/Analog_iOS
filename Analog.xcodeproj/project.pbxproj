@@ -50,8 +50,7 @@
 		EC60406A2149561700666F22 /* Shifts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040622149561700666F22 /* Shifts.swift */; };
 		EC60406B2149561700666F22 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040632149561700666F22 /* State.swift */; };
 		EC60406C2149561700666F22 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040642149561700666F22 /* Shift.swift */; };
-		EC60406D2149561700666F22 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040652149561700666F22 /* Products.swift */; };
-		EC604072214956BF00666F22 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604070214956BF00666F22 /* Products.swift */; };
+		EC604072214956BF00666F22 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604070214956BF00666F22 /* Product.swift */; };
 		EC604077214956CE00666F22 /* ClipCardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604074214956CE00666F22 /* ClipCardError.swift */; };
 		EC604082214957C600666F22 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60407E214957C600666F22 /* Shift.swift */; };
 		EC6040892149580700666F22 /* ShiftPlanningError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040862149580700666F22 /* ShiftPlanningError.swift */; };
@@ -78,7 +77,7 @@
 		EC9F9837214E3D2200C39F96 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9836214E3D2200C39F96 /* String.swift */; };
 		EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9839214E402B00C39F96 /* KeyChainService.swift */; };
 		EC9F983C214E4C5700C39F96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983B214E4C5700C39F96 /* User.swift */; };
-		EC9F983E214E4D1D00C39F96 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983D214E4D1D00C39F96 /* Token.swift */; };
+		EC9F983E214E4D1D00C39F96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983D214E4D1D00C39F96 /* User.swift */; };
 		EC9F9840214E680E00C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983F214E680E00C39F96 /* Programme.swift */; };
 		EC9F9842214E684400C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9841214E684400C39F96 /* Programme.swift */; };
 		EC9F9844214E7CA900C39F96 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9843214E7CA900C39F96 /* Message.swift */; };
@@ -105,6 +104,7 @@
 		ECC91184215E5AD00085295A /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91183215E5AD00085295A /* ShopViewModel.swift */; };
 		ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91185215E5ADB0085295A /* VoucherViewController.swift */; };
 		ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91187215E5AE50085295A /* VoucherViewModel.swift */; };
+		ECC9118A215FB91E0085295A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,8 +209,7 @@
 		EC6040622149561700666F22 /* Shifts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shifts.swift; sourceTree = "<group>"; };
 		EC6040632149561700666F22 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		EC6040642149561700666F22 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
-		EC6040652149561700666F22 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
-		EC604070214956BF00666F22 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		EC604070214956BF00666F22 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EC604074214956CE00666F22 /* ClipCardError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipCardError.swift; sourceTree = "<group>"; };
 		EC604076214956CE00666F22 /* ClipCardAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipCardAPI.swift; sourceTree = "<group>"; };
 		EC60407E214957C600666F22 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
@@ -233,7 +232,7 @@
 		EC9F9838214E3D9800C39F96 /* Analog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Analog-Bridging-Header.h"; sourceTree = "<group>"; };
 		EC9F9839214E402B00C39F96 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		EC9F983B214E4C5700C39F96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		EC9F983D214E4D1D00C39F96 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		EC9F983D214E4D1D00C39F96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC9F983F214E680E00C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 		EC9F9841214E684400C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 		EC9F9843214E7CA900C39F96 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -259,6 +258,7 @@
 		ECC91183215E5AD00085295A /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		ECC91185215E5ADB0085295A /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
 		ECC91187215E5AE50085295A /* VoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewModel.swift; sourceTree = "<group>"; };
+		ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,12 +540,11 @@
 				EC60405E2149561700666F22 /* Employee.swift */,
 				EC6040612149561700666F22 /* Employees.swift */,
 				EC6040602149561700666F22 /* Product.swift */,
-				EC6040652149561700666F22 /* Products.swift */,
 				EC6040642149561700666F22 /* Shift.swift */,
 				EC6040622149561700666F22 /* Shifts.swift */,
 				EC6040632149561700666F22 /* State.swift */,
 				EC9F982F214BCB1500C39F96 /* Cafe.swift */,
-				EC9F983D214E4D1D00C39F96 /* Token.swift */,
+				EC9F983D214E4D1D00C39F96 /* User.swift */,
 				EC9F983F214E680E00C39F96 /* Programme.swift */,
 				EC9F9843214E7CA900C39F96 /* Message.swift */,
 				ECC5CA58214FAD940082E2E9 /* Ticket.swift */,
@@ -566,7 +565,7 @@
 		EC60406F214956AE00666F22 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
-				EC604070214956BF00666F22 /* Products.swift */,
+				EC604070214956BF00666F22 /* Product.swift */,
 				EC9F983B214E4C5700C39F96 /* User.swift */,
 				EC9F9841214E684400C39F96 /* Programme.swift */,
 				EC66020D215546A3004716F7 /* Ticket.swift */,
@@ -640,6 +639,7 @@
 				ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */,
 				EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */,
 				ECC91175215E4DCE0085295A /* PurchaseCollectionViewCell.swift */,
+				ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1045,14 +1045,13 @@
 			files = (
 				EC9F9840214E680E00C39F96 /* Programme.swift in Sources */,
 				EC6040662149561700666F22 /* Employee.swift in Sources */,
-				EC9F983E214E4D1D00C39F96 /* Token.swift in Sources */,
+				EC9F983E214E4D1D00C39F96 /* User.swift in Sources */,
 				EC6040692149561700666F22 /* Employees.swift in Sources */,
 				EC60406C2149561700666F22 /* Shift.swift in Sources */,
 				EC60406A2149561700666F22 /* Shifts.swift in Sources */,
 				EC9F9844214E7CA900C39F96 /* Message.swift in Sources */,
 				ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */,
 				EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */,
-				EC60406D2149561700666F22 /* Products.swift in Sources */,
 				EC6040682149561700666F22 /* Product.swift in Sources */,
 				ECC91174215E4DA70085295A /* Purchase.swift in Sources */,
 				EC60406B2149561700666F22 /* State.swift in Sources */,
@@ -1068,7 +1067,7 @@
 				ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */,
 				EC66020E215546A3004716F7 /* Ticket.swift in Sources */,
 				ECC91178215E4F1F0085295A /* Purchase.swift in Sources */,
-				EC604072214956BF00666F22 /* Products.swift in Sources */,
+				EC604072214956BF00666F22 /* Product.swift in Sources */,
 				EC9F983C214E4C5700C39F96 /* User.swift in Sources */,
 				EC604077214956CE00666F22 /* ClipCardError.swift in Sources */,
 			);
@@ -1078,6 +1077,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC9118A215FB91E0085295A /* ProductCollectionViewCell.swift in Sources */,
 				EC51B8DA215926B500DF5EB1 /* StaticTableViewCell.swift in Sources */,
 				ECC91176215E4DCE0085295A /* PurchaseCollectionViewCell.swift in Sources */,
 				EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */,

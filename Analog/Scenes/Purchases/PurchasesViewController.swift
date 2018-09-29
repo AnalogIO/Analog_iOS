@@ -43,8 +43,11 @@ class PurchasesViewController: UIViewController {
 
         defineLayout()
         setupTargets()
+    }
 
-        viewModel.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
     }
 
     private func defineLayout() {

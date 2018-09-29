@@ -14,16 +14,16 @@ class SettingsViewController: UIViewController {
 
     let tableView = Views.tableView()
 
-    let cellConfigs: [[StaticTableViewCellConfig]] = [
+    lazy var cellConfigs: [[StaticTableViewCellConfig]] = [
         [
-            StaticTableViewCellConfig(title: "Name"),
-            StaticTableViewCellConfig(title: "Email"),
-            StaticTableViewCellConfig(title: "Programme"),
-            StaticTableViewCellConfig(title: "Change PIN"),
+            StaticTableViewCellConfig(title: "Name", detail: UserDefaults.standard.string(forKey: "name")),
+            StaticTableViewCellConfig(title: "Email", detail: UserDefaults.standard.string(forKey: "email")),
+            StaticTableViewCellConfig(title: "Programme", detail: UserDefaults.standard.string(forKey: "programme")),
+            StaticTableViewCellConfig(title: "Change PIN", detail: "‌\u{2022}‌\u{2022}‌\u{2022}‌\u{2022}"),
         ],
         [
-            StaticTableViewCellConfig(title: "Face-ID"),
-            StaticTableViewCellConfig(title: "Swipe confirmation"),
+            StaticTableViewCellConfig(title: "Face-ID", type: .switch, switchAction: didTapFaceId),
+            StaticTableViewCellConfig(title: "Swipe confirmation", type: .switch, switchAction: didTapSwipeConfirmation),
         ],
         [
             StaticTableViewCellConfig(title: "Privacy"),
@@ -67,16 +67,22 @@ class SettingsViewController: UIViewController {
         ])
     }
 
+    private func didTapFaceId(sender: UISwitch) {
+        print("Face-ID: \(sender.isOn)")
+    }
+
+    private func didTapSwipeConfirmation(sender: UISwitch) {
+        print("Swipe: \(sender.isOn)")
+    }
+
     private func setupTargets() {}
 }
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        switch indexPath.row {
-        default:
-            break
-        }
+        let config = cellConfigs[indexPath.section][indexPath.row]
+        config.click?()
     }
 }
 

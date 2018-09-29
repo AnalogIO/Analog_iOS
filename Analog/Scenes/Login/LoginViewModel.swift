@@ -13,7 +13,7 @@ import ClipCardAPI
 
 protocol LoginViewModelDelegate: class {
     func didSetFetchCafeState(state: State<Cafe>)
-    func didSetFetchTokenState(state: State<Token>)
+    func didSetFetchUserState(state: State<User>)
 }
 
 class LoginViewModel {
@@ -26,9 +26,9 @@ class LoginViewModel {
         }
     }
 
-    var fetchTokenState: State<Token> = .unknown {
+    var fetchUserState: State<User> = .unknown {
         didSet {
-            delegate?.didSetFetchTokenState(state: fetchTokenState)
+            delegate?.didSetFetchUserState(state: fetchUserState)
         }
     }
 
@@ -50,7 +50,7 @@ class LoginViewModel {
     }
 
     public func login(email: String, password: String) {
-        fetchTokenState = .loading
+        fetchUserState = .loading
         let api = ClipCardAPI()
         let parameters = [
             "email": email,
@@ -59,13 +59,19 @@ class LoginViewModel {
         ]
         User.login().response(using: api, method: .post, parameters: parameters) { response in
             switch response {
-            case .success(let value):
-                UserDefaults.standard.set(email, forKey: "email")
-                KeyChainService.shared.store(key: .token, value: value.token)
-                self.fetchTokenState = .loaded(value)
+            case .success(let user):
+                self.persistUserData(user: user)
+                self.fetchUserState = .loaded(user)
             case .error(let error):
-                self.fetchTokenState = .error(error)
+                self.fetchUserState = .error(error)
             }
         }
+    }
+
+    private func persistUserData(user: User) {
+        UserDefaults.standard.set(user.name, forKey: "name")
+        UserDefaults.standard.set(user.email, forKey: "email")
+        //UserDefaults.standard.set(user.programme, forKey: "programme")
+        KeyChainService.shared.store(key: .token, value: user.token)
     }
 }

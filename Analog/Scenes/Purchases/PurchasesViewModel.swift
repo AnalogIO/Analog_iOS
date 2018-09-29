@@ -26,7 +26,7 @@ class PurchasesViewModel {
         }
     }
 
-    public func viewDidLoad() {
+    public func viewWillAppear() {
         fetchPurchases()
     }
 

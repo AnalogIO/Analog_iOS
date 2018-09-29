@@ -11,8 +11,8 @@ import Foundation
 import Entities
 import Client
 
-extension Products {
-    public static func get() -> Request<Products, ClipCardError> {
+extension Product {
+    public static func getAll() -> Request<[Product], ClipCardError> {
         return Request(path: "products")
     }
 }

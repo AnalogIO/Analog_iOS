@@ -10,8 +10,8 @@ import Foundation
 import Client
 import Entities
 
-public enum User {
-    public static func login() -> Request<Token, ClipCardError> {
+extension User {
+    public static func login() -> Request<User, ClipCardError> {
         return Request(path: "account/login")
     }
 

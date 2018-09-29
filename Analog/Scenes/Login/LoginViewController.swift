@@ -107,7 +107,7 @@ extension LoginViewController: PasswordInputDelegate {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
-    func didSetFetchTokenState(state: State<Token>) {
+    func didSetFetchUserState(state: State<User>) {
         switch state {
         case .loading:
             indicator.start()
