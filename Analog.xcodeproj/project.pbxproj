@@ -105,6 +105,10 @@
 		ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91185215E5ADB0085295A /* VoucherViewController.swift */; };
 		ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91187215E5AE50085295A /* VoucherViewModel.swift */; };
 		ECC9118A215FB91E0085295A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */; };
+		ECC9118C21602AFD0085295A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9118B21602AFD0085295A /* InputView.swift */; };
+		ECC911922160309C0085295A /* UpdateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC911912160309C0085295A /* UpdateUserViewController.swift */; };
+		ECC911962160EB3F0085295A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC911952160EB3F0085295A /* UIView.swift */; };
+		ECEC48792162397B00CE18D2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC48782162397B00CE18D2 /* PrivacyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -259,6 +263,10 @@
 		ECC91185215E5ADB0085295A /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
 		ECC91187215E5AE50085295A /* VoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewModel.swift; sourceTree = "<group>"; };
 		ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECC9118B21602AFD0085295A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		ECC911912160309C0085295A /* UpdateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
+		ECC911952160EB3F0085295A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		ECEC48782162397B00CE18D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +401,8 @@
 		EC603FDC2149381400666F22 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				ECEC4877216230E900CE18D2 /* Privacy */,
+				ECC91190216030730085295A /* UpdateUser */,
 				ECC9116E215E4C360085295A /* Voucher */,
 				ECC9116D215E4C320085295A /* Shop */,
 				ECC9116C215E4C2C0085295A /* Help */,
@@ -578,8 +588,10 @@
 		EC60407A2149577E00666F22 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				ECC911932160EAF70085295A /* Shared */,
 				EC66020F215548C8004716F7 /* Cells */,
 				EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */,
+				ECC9118B21602AFD0085295A /* InputView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -706,6 +718,38 @@
 				ECC91187215E5AE50085295A /* VoucherViewModel.swift */,
 			);
 			path = Voucher;
+			sourceTree = "<group>";
+		};
+		ECC91190216030730085295A /* UpdateUser */ = {
+			isa = PBXGroup;
+			children = (
+				ECC911912160309C0085295A /* UpdateUserViewController.swift */,
+			);
+			path = UpdateUser;
+			sourceTree = "<group>";
+		};
+		ECC911932160EAF70085295A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				ECC911942160EB340085295A /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		ECC911942160EB340085295A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ECC911952160EB3F0085295A /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ECEC4877216230E900CE18D2 /* Privacy */ = {
+			isa = PBXGroup;
+			children = (
+				ECEC48782162397B00CE18D2 /* PrivacyViewController.swift */,
+			);
+			path = Privacy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1005,12 +1049,14 @@
 				EC603FEC21494AE200666F22 /* MoreViewController.swift in Sources */,
 				ECC91180215E5A7B0085295A /* HelpViewModel.swift in Sources */,
 				EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */,
+				ECEC48792162397B00CE18D2 /* PrivacyViewController.swift in Sources */,
 				ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */,
 				EC603FDF2149491000666F22 /* LoginViewController.swift in Sources */,
 				EC604004214951FF00666F22 /* RegisterViewController.swift in Sources */,
 				EC603FE5214949CB00666F22 /* HomeTabBarViewController.swift in Sources */,
 				EC603FEE21494AF200666F22 /* MoreViewModel.swift in Sources */,
 				EC603FF021494AFE00666F22 /* ProfileViewController.swift in Sources */,
+				ECC911922160309C0085295A /* UpdateUserViewController.swift in Sources */,
 				ECC91170215E4C5D0085295A /* PurchasesViewController.swift in Sources */,
 				ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */,
 				EC603FC52149357700666F22 /* AppDelegate.swift in Sources */,
@@ -1077,7 +1123,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC911962160EB3F0085295A /* UIView.swift in Sources */,
 				ECC9118A215FB91E0085295A /* ProductCollectionViewCell.swift in Sources */,
+				ECC9118C21602AFD0085295A /* InputView.swift in Sources */,
 				EC51B8DA215926B500DF5EB1 /* StaticTableViewCell.swift in Sources */,
 				ECC91176215E4DCE0085295A /* PurchaseCollectionViewCell.swift in Sources */,
 				EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */,
@@ -1203,7 +1251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1257,7 +1305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1274,7 +1322,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y5U9T77F2K;
 				INFOPLIST_FILE = Analog/Application/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1297,7 +1345,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y5U9T77F2K;
 				INFOPLIST_FILE = Analog/Application/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1326,7 +1374,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Entities/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1357,7 +1405,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Entities/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1391,7 +1439,7 @@
 				);
 				INFOPLIST_FILE = ClipCardAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1426,7 +1474,7 @@
 				);
 				INFOPLIST_FILE = ClipCardAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1456,7 +1504,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Views/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1487,7 +1535,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Views/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1521,7 +1569,7 @@
 				);
 				INFOPLIST_FILE = Client/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1556,7 +1604,7 @@
 				);
 				INFOPLIST_FILE = Client/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1590,7 +1638,7 @@
 				);
 				INFOPLIST_FILE = ShiftPlanningAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1625,7 +1673,7 @@
 				);
 				INFOPLIST_FILE = ShiftPlanningAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -59,13 +59,8 @@ class RegisterViewController: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin),
         ])
-
-        if #available(iOS 11.0, *) {
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin).isActive = true
-        } else {
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: margin).isActive = true
-        }
 
         scrollView.addSubview(stackView)
         NSLayoutConstraint.activate([

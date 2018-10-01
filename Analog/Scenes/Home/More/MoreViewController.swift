@@ -13,17 +13,17 @@ class MoreViewController: UIViewController {
 
     let tableView = Views.tableView()
 
-    lazy var cellConfigs: [[StaticTableViewCellConfig]] = [
-        [
+    lazy var sections: [StaticSection] = [
+        StaticSection(cellConfigs: [
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_purchases"), title: "Purchases", click: navigateToPurchases),
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_settings"), title: "Settings", click: navigateToSettings),
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_help"), title: "Help (FAQ)", click: navigateToHelp),
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_shop"), title: "Shop", click: navigateToShop),
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_voucher"), title: "Redeem Voucher", click: navigateToVoucher)
-        ],
-        [
+        ]),
+        StaticSection(cellConfigs: [
             StaticTableViewCellConfig(title: "Log out", type: .escape, click: navigateToLogin)
-        ]
+        ]),
     ]
 
     let viewModel: MoreViewModel
@@ -60,7 +60,7 @@ class MoreViewController: UIViewController {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
@@ -101,23 +101,23 @@ class MoreViewController: UIViewController {
 extension MoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let config = cellConfigs[indexPath.section][indexPath.row]
+        let config = sections[indexPath.section].cellConfigs[indexPath.row]
         config.click?()
     }
 }
 
 extension MoreViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return cellConfigs.count
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellConfigs[section].count
+        return sections[section].cellConfigs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StaticTableViewCell.reuseIdentifier, for: indexPath) as! StaticTableViewCell
-        let config = cellConfigs[indexPath.section][indexPath.row]
+        let config = sections[indexPath.section].cellConfigs[indexPath.row]
         cell.configure(config: config)
         return cell
     }

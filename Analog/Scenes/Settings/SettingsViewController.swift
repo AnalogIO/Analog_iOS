@@ -14,20 +14,20 @@ class SettingsViewController: UIViewController {
 
     let tableView = Views.tableView()
 
-    lazy var cellConfigs: [[StaticTableViewCellConfig]] = [
-        [
-            StaticTableViewCellConfig(title: "Name", detail: UserDefaults.standard.string(forKey: "name")),
-            StaticTableViewCellConfig(title: "Email", detail: UserDefaults.standard.string(forKey: "email")),
-            StaticTableViewCellConfig(title: "Programme", detail: UserDefaults.standard.string(forKey: "programme")),
-            StaticTableViewCellConfig(title: "Change PIN", detail: "‌\u{2022}‌\u{2022}‌\u{2022}‌\u{2022}"),
-        ],
-        [
+    lazy var sections: [StaticSection] = [
+        StaticSection(cellConfigs: [
+            StaticTableViewCellConfig(title: "Name", detail: UserDefaults.standard.string(forKey: "name"), click: didTapChangeName),
+            StaticTableViewCellConfig(title: "Email", detail: UserDefaults.standard.string(forKey: "email"), click: didTapChangeEmail),
+            StaticTableViewCellConfig(title: "Programme", detail: UserDefaults.standard.string(forKey: "programme"), click: didTapChangeProgramme),
+            StaticTableViewCellConfig(title: "Change PIN", detail: "‌\u{2022}‌\u{2022}‌\u{2022}‌\u{2022}", click: didTapChangePin),
+        ]),
+        StaticSection(cellConfigs: [
             StaticTableViewCellConfig(title: "Face-ID", type: .switch, switchAction: didTapFaceId),
             StaticTableViewCellConfig(title: "Swipe confirmation", type: .switch, switchAction: didTapSwipeConfirmation),
-        ],
-        [
-            StaticTableViewCellConfig(title: "Privacy"),
-        ]
+        ]),
+        StaticSection(cellConfigs: [
+            StaticTableViewCellConfig(title: "Privacy", click: didTapPrivacy),
+        ]),
     ]
 
     let viewModel: SettingsViewModel
@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
@@ -76,28 +76,43 @@ class SettingsViewController: UIViewController {
     }
 
     private func setupTargets() {}
+
+    private func didTapChangeName() { navigateToUpdateUser(type: .name) }
+    private func didTapChangeEmail() { navigateToUpdateUser(type: .email) }
+    private func didTapChangePin() { navigateToUpdateUser(type: .pin) }
+    private func didTapChangeProgramme() { navigateToUpdateUser(type: .programme) }
+
+    private func didTapPrivacy() {
+        let vc = PrivacyViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    private func navigateToUpdateUser(type: UserFieldType) {
+        let vc = UpdateUserViewController(type: type)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let config = cellConfigs[indexPath.section][indexPath.row]
+        let config = sections[indexPath.section].cellConfigs[indexPath.row]
         config.click?()
     }
 }
 
 extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return cellConfigs.count
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellConfigs[section].count
+        return sections[section].cellConfigs.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StaticTableViewCell.reuseIdentifier, for: indexPath) as! StaticTableViewCell
-        let config = cellConfigs[indexPath.section][indexPath.row]
+        let config = sections[indexPath.section].cellConfigs[indexPath.row]
         cell.configure(config: config)
         return cell
     }

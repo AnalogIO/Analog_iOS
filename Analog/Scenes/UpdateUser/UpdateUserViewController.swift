@@ -1,27 +1,26 @@
 //
-//  VoucherViewController.swift
+//  UpdateUserViewController.swift
 //  Analog
 //
-//  Created by Frederik Christensen on 28/09/2018.
+//  Created by Frederik Christensen on 30/09/2018.
 //  Copyright © 2018 analogio. All rights reserved.
 //
 
 import UIKit
 import Views
-import Entities
 
-class VoucherViewController: UIViewController {
-
+class UpdateUserViewController: UIViewController {
     let input = Views.inputView()
 
-    let viewModel: VoucherViewModel
+    var type: UserFieldType {
+        didSet {
+            updateView()
+        }
+    }
 
-    lazy var indicator = ActivityIndication(container: view)
-
-    init(viewModel: VoucherViewModel) {
-        self.viewModel = viewModel
+    init(type: UserFieldType) {
+        self.type = type
         super.init(nibName: nil, bundle: nil)
-        viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -30,13 +29,12 @@ class VoucherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Voucher"
         view.backgroundColor = Color.background
 
         defineLayout()
         setupTargets()
 
-        viewModel.viewDidLoad()
+        updateView()
     }
 
     private func defineLayout() {
@@ -50,17 +48,25 @@ class VoucherViewController: UIViewController {
     }
 
     private func setupTargets() {}
-}
 
-extension VoucherViewController: VoucherViewModelDelegate {}
+    private func updateView() {
+        input.titleLabel.text = "Change \(type.rawValue)"
+        input.descriptionLabel.text = NSLocalizedString("update_\(type.rawValue)_description", comment: "")
+        input.textField.text = UserDefaults.standard.string(forKey: type.rawValue)
+    }
+}
 
 private enum Views {
     static func inputView() -> InputView {
         let view = InputView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.titleLabel.text = "Redeem Voucher"
-        view.descriptionLabel.text = NSLocalizedString("voucher_description", comment: "")
-        view.textField.placeholder = "Enter code"
         return view
     }
+}
+
+public enum UserFieldType: String {
+    case name
+    case pin
+    case programme
+    case email
 }

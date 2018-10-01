@@ -24,3 +24,14 @@
 "onboarding_description" = "This is the Café Analog App.";
 "onboarding_register_button" = "Sign Up";
 "onboarding_login_button" = "Log In";
+
+/* UPDATE USER SCENE */
+
+"update_programme_description" = "Please choose your actual programme, or 'other' if you are not studying at ITU.";
+"update_email_description" = "email description";
+"update_name_description" = "name description";
+"update_pin_description" = "pin description";
+
+/* VOUCHER SCENE */
+
+"voucher_description" = "voucher description";

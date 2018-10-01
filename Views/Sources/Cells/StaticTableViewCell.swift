@@ -119,3 +119,11 @@ private enum Views {
         return label
     }
 }
+
+public struct StaticSection {
+    public let cellConfigs: [StaticTableViewCellConfig]
+
+    public init(cellConfigs: [StaticTableViewCellConfig]) {
+        self.cellConfigs = cellConfigs
+    }
+}
