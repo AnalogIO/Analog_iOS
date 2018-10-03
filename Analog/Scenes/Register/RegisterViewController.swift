@@ -199,6 +199,7 @@ private enum Views {
         let view = UITextField()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.font = Font.font(size: 16)
+        view.keyboardType = UIKeyboardType.emailAddress
         view.borderStyle = .roundedRect
         view.placeholder = NSLocalizedString("register_email_placeholder", comment: "")
         return view
