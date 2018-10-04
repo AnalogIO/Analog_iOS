@@ -169,6 +169,7 @@ private enum Views {
     static func emailField() -> UITextField {
         let textField = UITextField()
         textField.font = Font.font(size: 18)
+        textField.keyboardType = UIKeyboardType.emailAddress
         textField.borderStyle = .roundedRect
         textField.textAlignment = .center
         textField.translatesAutoresizingMaskIntoConstraints = false
