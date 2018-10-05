@@ -11,6 +11,7 @@ import ClipCardAPI
 import Entities
 import Client
 import Views
+import MobilePayAPI
 
 protocol ShopViewModelDelegate: class {
     func didSetFetchProductsState(state: State<[ProductCellConfig]>)
@@ -31,8 +32,13 @@ class ShopViewModel {
     }
 
     public func didSelectItem(at index: Int) {
-        let purchase = products[index]
-        print(purchase)
+        let product = products[index]
+        initiatePurchase(product: product)
+    }
+
+    private func initiatePurchase(product: Product) {
+        let payment: MobilePayPayment = MobilePayPayment(orderId: UUID().uuidString, productPrice: Float(product.price))
+        MobilePayManager.sharedInstance().beginMobilePayment(with: payment, error: { print($0) })
     }
 
     private func fetchProducts() {

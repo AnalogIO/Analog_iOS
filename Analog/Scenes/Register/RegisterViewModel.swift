@@ -60,7 +60,6 @@ class RegisterViewModel {
         User.register().response(using: api, method: .post, parameters: parameters, headers: [:]) { response in
             switch response {
             case .success(let value):
-                UserDefaults.standard.set(email, forKey: "email")
                 self.registerState = .loaded(value)
             case .error(let error):
                 self.registerState = .error(error)

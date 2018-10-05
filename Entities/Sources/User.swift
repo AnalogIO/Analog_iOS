@@ -10,7 +10,6 @@ import Foundation
 
 public struct User: Codable {
     public let name: String
-    //public let programme: String
+    public let programme: String
     public let email: String
-    public let token: String
 }

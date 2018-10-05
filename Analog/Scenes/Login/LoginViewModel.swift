@@ -13,7 +13,7 @@ import ClipCardAPI
 
 protocol LoginViewModelDelegate: class {
     func didSetFetchCafeState(state: State<Cafe>)
-    func didSetFetchUserState(state: State<User>)
+    func didSetFetchTokenState(state: State<Token>)
 }
 
 class LoginViewModel {
@@ -26,9 +26,9 @@ class LoginViewModel {
         }
     }
 
-    var fetchUserState: State<User> = .unknown {
+    var fetchTokenState: State<Token> = .unknown {
         didSet {
-            delegate?.didSetFetchUserState(state: fetchUserState)
+            delegate?.didSetFetchTokenState(state: fetchTokenState)
         }
     }
 
@@ -50,7 +50,7 @@ class LoginViewModel {
     }
 
     public func login(email: String, password: String) {
-        fetchUserState = .loading
+        fetchTokenState = .loading
         let api = ClipCardAPI()
         let parameters = [
             "email": email,
@@ -59,19 +59,31 @@ class LoginViewModel {
         ]
         User.login().response(using: api, method: .post, parameters: parameters) { response in
             switch response {
-            case .success(let user):
-                self.persistUserData(user: user)
-                self.fetchUserState = .loaded(user)
+            case .success(let token):
+                KeyChainService.shared.store(key: .token, value: token.token)
+                self.fetchTokenState = .loaded(token)
+                self.fetchUser()
             case .error(let error):
-                self.fetchUserState = .error(error)
+                self.fetchTokenState = .error(error)
             }
         }
+    }
+
+    private func fetchUser() {
+        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
+        User.get().response(using: api, method: .get, response: { response in
+            switch response {
+            case .success(let user):
+                self.persistUserData(user: user)
+            case .error(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
 
     private func persistUserData(user: User) {
         UserDefaults.standard.set(user.name, forKey: "name")
         UserDefaults.standard.set(user.email, forKey: "email")
-        //UserDefaults.standard.set(user.programme, forKey: "programme")
-        KeyChainService.shared.store(key: .token, value: user.token)
+        UserDefaults.standard.set(user.programme, forKey: "programme")
     }
 }

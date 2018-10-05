@@ -11,11 +11,15 @@ import Client
 import Entities
 
 extension User {
-    public static func login() -> Request<User, ClipCardError> {
+    public static func login() -> Request<Token, ClipCardError> {
         return Request(path: "account/login")
     }
 
     public static func register() -> Request<Message, ClipCardError> {
         return Request(path: "account/register")
+    }
+
+    public static func get() -> Request<User, ClipCardError> {
+        return Request(path: "account/user")
     }
 }

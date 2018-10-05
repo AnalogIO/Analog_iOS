@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MobilePayAPI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
+
+        setupMobilePay()
+
         startSession()
         window?.makeKeyAndVisible()
         return true
@@ -28,6 +32,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //ONBOARDING SCENE
             window?.rootViewController = OnboardingViewController(viewModel: OnboardingViewModel())
         }
+    }
+
+    func setupMobilePay() {
+        #if DEBUG
+        MobilePayManager.sharedInstance().setup(withMerchantId: "APPDK0000000000", merchantUrlScheme: "Analog", country: .denmark)
+        #else
+        MobilePayManager.sharedInstance().setup(withMerchantId: "APPDK1882644001", merchantUrlScheme: "Analog", country: .denmark)
+        #endif
+    }
+
+    func handleMobilePayPaymentWithUrl(url: URL) {
+        MobilePayManager.sharedInstance().handleMobilePayPayment(with: url, success: { success in
+            print("MobilePay purchase succeeded!")
+        }, error: { error in
+            print("MobilePay purchase failed: \(error.localizedDescription)")
+        }, cancel: { cancel in
+            print("MobilePay purchase cancelled by user. \(cancel?.orderId ?? "")")
+        })
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        handleMobilePayPaymentWithUrl(url: url)
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

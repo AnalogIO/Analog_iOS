@@ -47,7 +47,6 @@
 		EC6040662149561700666F22 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC60405E2149561700666F22 /* Employee.swift */; };
 		EC6040682149561700666F22 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040602149561700666F22 /* Product.swift */; };
 		EC6040692149561700666F22 /* Employees.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040612149561700666F22 /* Employees.swift */; };
-		EC60406A2149561700666F22 /* Shifts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040622149561700666F22 /* Shifts.swift */; };
 		EC60406B2149561700666F22 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040632149561700666F22 /* State.swift */; };
 		EC60406C2149561700666F22 /* Shift.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6040642149561700666F22 /* Shift.swift */; };
 		EC604072214956BF00666F22 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604070214956BF00666F22 /* Product.swift */; };
@@ -88,6 +87,16 @@
 		ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC660216215550E9004716F7 /* ActivityIndication.swift */; };
 		ECBD74A521584C270097C9A6 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */; };
 		ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A62158D0BD0097C9A6 /* Receipt.swift */; };
+		ECBE0D8E21679127001725D6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE0D8D21679127001725D6 /* Token.swift */; };
+		ECBE0DE42167CF11001725D6 /* MobilePayAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBE0DE22167CF11001725D6 /* MobilePayAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECBE0DE72167CF11001725D6 /* MobilePayAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBE0DE02167CF11001725D6 /* MobilePayAPI.framework */; };
+		ECBE0DE82167CF11001725D6 /* MobilePayAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ECBE0DE02167CF11001725D6 /* MobilePayAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ECBE0DED2167CF31001725D6 /* MobilePayCancelledPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBE0DCF2167CD21001725D6 /* MobilePayCancelledPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECBE0DEE2167CF31001725D6 /* MobilePayManager.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBE0DCE2167CD20001725D6 /* MobilePayManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECBE0DEF2167CF31001725D6 /* MobilePayPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBE0DD02167CD21001725D6 /* MobilePayPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECBE0DF02167CF31001725D6 /* MobilePaySuccessfulPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBE0DD12167CD21001725D6 /* MobilePaySuccessfulPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECBE0DF12167CF36001725D6 /* libMobilePayManager1.8.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBE0DCD2167CD20001725D6 /* libMobilePayManager1.8.1.a */; };
+		ECBE0DF22167CF9F001725D6 /* libMobilePayManager1.8.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECBE0DCD2167CD20001725D6 /* libMobilePayManager1.8.1.a */; };
 		ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA58214FAD940082E2E9 /* Ticket.swift */; };
 		ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */; };
 		ECC91169215E4B4F0085295A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ECC91168215E4B4F0085295A /* README.md */; };
@@ -147,6 +156,13 @@
 			remoteGlobalIDString = EC604050214955A200666F22;
 			remoteInfo = ShiftPlanningAPI;
 		};
+		ECBE0DE52167CF11001725D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC603FB92149357700666F22 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ECBE0DDF2167CF11001725D6;
+			remoteInfo = MobilePayAPI;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -158,6 +174,7 @@
 			files = (
 				EC6040142149556000666F22 /* Entities.framework in Embed Frameworks */,
 				EC6040262149556A00666F22 /* ClipCardAPI.framework in Embed Frameworks */,
+				ECBE0DE82167CF11001725D6 /* MobilePayAPI.framework in Embed Frameworks */,
 				EC6040372149557000666F22 /* Views.framework in Embed Frameworks */,
 				EC604059214955A200666F22 /* ShiftPlanningAPI.framework in Embed Frameworks */,
 				EC6040482149559200666F22 /* Client.framework in Embed Frameworks */,
@@ -210,7 +227,6 @@
 		EC60405E2149561700666F22 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		EC6040602149561700666F22 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		EC6040612149561700666F22 /* Employees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employees.swift; sourceTree = "<group>"; };
-		EC6040622149561700666F22 /* Shifts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shifts.swift; sourceTree = "<group>"; };
 		EC6040632149561700666F22 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		EC6040642149561700666F22 /* Shift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shift.swift; sourceTree = "<group>"; };
 		EC604070214956BF00666F22 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -246,6 +262,15 @@
 		ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECBD74A62158D0BD0097C9A6 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		ECBE0D8D21679127001725D6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		ECBE0DCD2167CD20001725D6 /* libMobilePayManager1.8.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobilePayManager1.8.1.a; sourceTree = "<group>"; };
+		ECBE0DCE2167CD20001725D6 /* MobilePayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayManager.h; sourceTree = "<group>"; };
+		ECBE0DCF2167CD21001725D6 /* MobilePayCancelledPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayCancelledPayment.h; sourceTree = "<group>"; };
+		ECBE0DD02167CD21001725D6 /* MobilePayPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePayPayment.h; sourceTree = "<group>"; };
+		ECBE0DD12167CD21001725D6 /* MobilePaySuccessfulPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobilePaySuccessfulPayment.h; sourceTree = "<group>"; };
+		ECBE0DE02167CF11001725D6 /* MobilePayAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobilePayAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECBE0DE22167CF11001725D6 /* MobilePayAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobilePayAPI.h; sourceTree = "<group>"; };
+		ECBE0DE32167CF11001725D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECC5CA58214FAD940082E2E9 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		ECC91168215E4B4F0085295A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -276,9 +301,11 @@
 			files = (
 				EC6040132149556000666F22 /* Entities.framework in Frameworks */,
 				EC6040252149556A00666F22 /* ClipCardAPI.framework in Frameworks */,
+				ECBE0DE72167CF11001725D6 /* MobilePayAPI.framework in Frameworks */,
 				EC6040362149557000666F22 /* Views.framework in Frameworks */,
 				EC604058214955A200666F22 /* ShiftPlanningAPI.framework in Frameworks */,
 				EC6040472149559200666F22 /* Client.framework in Frameworks */,
+				ECBE0DF22167CF9F001725D6 /* libMobilePayManager1.8.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +351,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECBE0DDD2167CF11001725D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBE0DF12167CF36001725D6 /* libMobilePayManager1.8.1.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -346,6 +381,7 @@
 				EC6040302149557000666F22 /* Views */,
 				EC6040412149559200666F22 /* Client */,
 				EC604052214955A200666F22 /* ShiftPlanningAPI */,
+				ECBE0DE12167CF11001725D6 /* MobilePayAPI */,
 				EC603FC22149357700666F22 /* Products */,
 				EC60409621495C0A00666F22 /* Frameworks */,
 			);
@@ -360,6 +396,7 @@
 				EC60402F2149557000666F22 /* Views.framework */,
 				EC6040402149559200666F22 /* Client.framework */,
 				EC604051214955A200666F22 /* ShiftPlanningAPI.framework */,
+				ECBE0DE02167CF11001725D6 /* MobilePayAPI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -551,7 +588,6 @@
 				EC6040612149561700666F22 /* Employees.swift */,
 				EC6040602149561700666F22 /* Product.swift */,
 				EC6040642149561700666F22 /* Shift.swift */,
-				EC6040622149561700666F22 /* Shifts.swift */,
 				EC6040632149561700666F22 /* State.swift */,
 				EC9F982F214BCB1500C39F96 /* Cafe.swift */,
 				EC9F983D214E4D1D00C39F96 /* User.swift */,
@@ -559,6 +595,7 @@
 				EC9F9843214E7CA900C39F96 /* Message.swift */,
 				ECC5CA58214FAD940082E2E9 /* Ticket.swift */,
 				ECC91173215E4DA70085295A /* Purchase.swift */,
+				ECBE0D8D21679127001725D6 /* Token.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -673,6 +710,28 @@
 				EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		ECBE0DE12167CF11001725D6 /* MobilePayAPI */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE0DEC2167CF18001725D6 /* Sources */,
+				ECBE0DE22167CF11001725D6 /* MobilePayAPI.h */,
+				ECBE0DE32167CF11001725D6 /* Info.plist */,
+			);
+			path = MobilePayAPI;
+			sourceTree = "<group>";
+		};
+		ECBE0DEC2167CF18001725D6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				ECBE0DCD2167CD20001725D6 /* libMobilePayManager1.8.1.a */,
+				ECBE0DCF2167CD21001725D6 /* MobilePayCancelledPayment.h */,
+				ECBE0DCE2167CD20001725D6 /* MobilePayManager.h */,
+				ECBE0DD02167CD21001725D6 /* MobilePayPayment.h */,
+				ECBE0DD12167CD21001725D6 /* MobilePaySuccessfulPayment.h */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		ECC9116A215E4C1F0085295A /* Purchases */ = {
@@ -795,6 +854,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECBE0DDB2167CF11001725D6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECBE0DF02167CF31001725D6 /* MobilePaySuccessfulPayment.h in Headers */,
+				ECBE0DEF2167CF31001725D6 /* MobilePayPayment.h in Headers */,
+				ECBE0DED2167CF31001725D6 /* MobilePayCancelledPayment.h in Headers */,
+				ECBE0DE42167CF11001725D6 /* MobilePayAPI.h in Headers */,
+				ECBE0DEE2167CF31001725D6 /* MobilePayManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -816,6 +887,7 @@
 				EC6040352149557000666F22 /* PBXTargetDependency */,
 				EC6040462149559200666F22 /* PBXTargetDependency */,
 				EC604057214955A200666F22 /* PBXTargetDependency */,
+				ECBE0DE62167CF11001725D6 /* PBXTargetDependency */,
 			);
 			name = Analog;
 			productName = Analog;
@@ -912,6 +984,24 @@
 			productReference = EC604051214955A200666F22 /* ShiftPlanningAPI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		ECBE0DDF2167CF11001725D6 /* MobilePayAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECBE0DE92167CF11001725D6 /* Build configuration list for PBXNativeTarget "MobilePayAPI" */;
+			buildPhases = (
+				ECBE0DDB2167CF11001725D6 /* Headers */,
+				ECBE0DDC2167CF11001725D6 /* Sources */,
+				ECBE0DDD2167CF11001725D6 /* Frameworks */,
+				ECBE0DDE2167CF11001725D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobilePayAPI;
+			productName = MobilePayAPI;
+			productReference = ECBE0DE02167CF11001725D6 /* MobilePayAPI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -946,6 +1036,9 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
 					};
+					ECBE0DDF2167CF11001725D6 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 				};
 			};
 			buildConfigurationList = EC603FBC2149357700666F22 /* Build configuration list for PBXProject "Analog" */;
@@ -967,6 +1060,7 @@
 				EC60402E2149557000666F22 /* Views */,
 				EC60403F2149559200666F22 /* Client */,
 				EC604050214955A200666F22 /* ShiftPlanningAPI */,
+				ECBE0DDF2167CF11001725D6 /* MobilePayAPI */,
 			);
 		};
 /* End PBXProject section */
@@ -1019,6 +1113,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECBE0DDE2167CF11001725D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1036,7 +1137,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1094,12 +1195,12 @@
 				EC9F983E214E4D1D00C39F96 /* User.swift in Sources */,
 				EC6040692149561700666F22 /* Employees.swift in Sources */,
 				EC60406C2149561700666F22 /* Shift.swift in Sources */,
-				EC60406A2149561700666F22 /* Shifts.swift in Sources */,
 				EC9F9844214E7CA900C39F96 /* Message.swift in Sources */,
 				ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */,
 				EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */,
 				EC6040682149561700666F22 /* Product.swift in Sources */,
 				ECC91174215E4DA70085295A /* Purchase.swift in Sources */,
+				ECBE0D8E21679127001725D6 /* Token.swift in Sources */,
 				EC60406B2149561700666F22 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1158,6 +1259,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ECBE0DDC2167CF11001725D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1185,6 +1293,11 @@
 			isa = PBXTargetDependency;
 			target = EC604050214955A200666F22 /* ShiftPlanningAPI */;
 			targetProxy = EC604056214955A200666F22 /* PBXContainerItemProxy */;
+		};
+		ECBE0DE62167CF11001725D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ECBE0DDF2167CF11001725D6 /* MobilePayAPI */;
+			targetProxy = ECBE0DE52167CF11001725D6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1327,6 +1440,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MobilePayAPI/Sources",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Analog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "099456e7-1924-4a2d-b2f0-2fdafb00de82";
@@ -1349,6 +1467,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MobilePayAPI/Sources",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Analog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1689,6 +1811,73 @@
 			};
 			name = Release;
 		};
+		ECBE0DEA2167CF11001725D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y5U9T77F2K;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MobilePayAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MobilePayAPI/Sources",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.MobilePayAPI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ECBE0DEB2167CF11001725D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Y5U9T77F2K;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MobilePayAPI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MobilePayAPI/Sources",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.MobilePayAPI;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1751,6 +1940,15 @@
 			buildConfigurations = (
 				EC60405B214955A200666F22 /* Debug */,
 				EC60405C214955A200666F22 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECBE0DE92167CF11001725D6 /* Build configuration list for PBXNativeTarget "MobilePayAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECBE0DEA2167CF11001725D6 /* Debug */,
+				ECBE0DEB2167CF11001725D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

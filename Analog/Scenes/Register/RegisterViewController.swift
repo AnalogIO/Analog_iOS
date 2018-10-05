@@ -120,8 +120,7 @@ extension RegisterViewController: RegisterViewModelDelegate {
         switch state {
         case .loading:
             print("Loading...")
-        case .loaded(let value):
-            print(value)
+        case .loaded(_):
             let vc = LoginViewController(viewModel: LoginViewModel())
             present(vc, animated: true, completion: nil)
         case .error(let error):
