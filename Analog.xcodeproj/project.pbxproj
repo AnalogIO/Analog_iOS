@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC45A16F216B531800E14A55 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */; };
+		EC45A171216B549600E14A55 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A170216B549600E14A55 /* Leaderboard.swift */; };
+		EC45A173216B558A00E14A55 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A172216B558A00E14A55 /* Leaderboard.swift */; };
 		EC51B8DA215926B500DF5EB1 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */; };
 		EC603FC52149357700666F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FC42149357700666F22 /* AppDelegate.swift */; };
 		EC603FCC2149357800666F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC603FCB2149357800666F22 /* Assets.xcassets */; };
@@ -17,8 +20,8 @@
 		EC603FE5214949CB00666F22 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FE4214949CB00666F22 /* HomeTabBarViewController.swift */; };
 		EC603FEC21494AE200666F22 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FEB21494AE200666F22 /* MoreViewController.swift */; };
 		EC603FEE21494AF200666F22 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FED21494AF200666F22 /* MoreViewModel.swift */; };
-		EC603FF021494AFE00666F22 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FEF21494AFE00666F22 /* ProfileViewController.swift */; };
-		EC603FF221494B0800666F22 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF121494B0800666F22 /* ProfileViewModel.swift */; };
+		EC603FF021494AFE00666F22 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FEF21494AFE00666F22 /* LeaderboardViewController.swift */; };
+		EC603FF221494B0800666F22 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF121494B0800666F22 /* LeaderboardViewModel.swift */; };
 		EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF321494B1A00666F22 /* ReceiptsViewController.swift */; };
 		EC603FF621494B2300666F22 /* ReceiptsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF521494B2300666F22 /* ReceiptsViewModel.swift */; };
 		EC603FF821494B2E00666F22 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF721494B2E00666F22 /* ScheduleViewController.swift */; };
@@ -185,6 +188,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
+		EC45A170216B549600E14A55 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		EC45A172216B558A00E14A55 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewCell.swift; sourceTree = "<group>"; };
 		EC603FC12149357700666F22 /* Analog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Analog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC603FC42149357700666F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -197,8 +203,8 @@
 		EC603FE4214949CB00666F22 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		EC603FEB21494AE200666F22 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		EC603FED21494AF200666F22 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
-		EC603FEF21494AFE00666F22 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		EC603FF121494B0800666F22 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		EC603FEF21494AFE00666F22 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		EC603FF121494B0800666F22 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		EC603FF321494B1A00666F22 /* ReceiptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewController.swift; sourceTree = "<group>"; };
 		EC603FF521494B2300666F22 /* ReceiptsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewModel.swift; sourceTree = "<group>"; };
 		EC603FF721494B2E00666F22 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
@@ -475,7 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				EC603FEA21494AD400666F22 /* More */,
-				EC603FE921494ACE00666F22 /* Profile */,
+				EC603FE921494ACE00666F22 /* Leaderboard */,
 				EC603FE821494AC800666F22 /* Receipts */,
 				EC603FE721494ABF00666F22 /* Schedule */,
 				EC603FE621494ABA00666F22 /* Tickets */,
@@ -511,13 +517,13 @@
 			path = Receipts;
 			sourceTree = "<group>";
 		};
-		EC603FE921494ACE00666F22 /* Profile */ = {
+		EC603FE921494ACE00666F22 /* Leaderboard */ = {
 			isa = PBXGroup;
 			children = (
-				EC603FEF21494AFE00666F22 /* ProfileViewController.swift */,
-				EC603FF121494B0800666F22 /* ProfileViewModel.swift */,
+				EC603FEF21494AFE00666F22 /* LeaderboardViewController.swift */,
+				EC603FF121494B0800666F22 /* LeaderboardViewModel.swift */,
 			);
-			path = Profile;
+			path = Leaderboard;
 			sourceTree = "<group>";
 		};
 		EC603FEA21494AD400666F22 /* More */ = {
@@ -596,6 +602,7 @@
 				ECC5CA58214FAD940082E2E9 /* Ticket.swift */,
 				ECC91173215E4DA70085295A /* Purchase.swift */,
 				ECBE0D8D21679127001725D6 /* Token.swift */,
+				EC45A170216B549600E14A55 /* Leaderboard.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -618,6 +625,7 @@
 				EC66020D215546A3004716F7 /* Ticket.swift */,
 				ECBD74A62158D0BD0097C9A6 /* Receipt.swift */,
 				ECC91177215E4F1F0085295A /* Purchase.swift */,
+				EC45A172216B558A00E14A55 /* Leaderboard.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -689,6 +697,7 @@
 				EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */,
 				ECC91175215E4DCE0085295A /* PurchaseCollectionViewCell.swift */,
 				ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */,
+				EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1156,7 +1165,7 @@
 				EC604004214951FF00666F22 /* RegisterViewController.swift in Sources */,
 				EC603FE5214949CB00666F22 /* HomeTabBarViewController.swift in Sources */,
 				EC603FEE21494AF200666F22 /* MoreViewModel.swift in Sources */,
-				EC603FF021494AFE00666F22 /* ProfileViewController.swift in Sources */,
+				EC603FF021494AFE00666F22 /* LeaderboardViewController.swift in Sources */,
 				ECC911922160309C0085295A /* UpdateUserViewController.swift in Sources */,
 				ECC91170215E4C5D0085295A /* PurchasesViewController.swift in Sources */,
 				ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */,
@@ -1172,7 +1181,7 @@
 				ECC91184215E5AD00085295A /* ShopViewModel.swift in Sources */,
 				EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */,
 				ECC9117E215E59A30085295A /* HelpViewController.swift in Sources */,
-				EC603FF221494B0800666F22 /* ProfileViewModel.swift in Sources */,
+				EC603FF221494B0800666F22 /* LeaderboardViewModel.swift in Sources */,
 				EC603FE12149492000666F22 /* LoginViewModel.swift in Sources */,
 				EC6040062149521900666F22 /* RegisterViewModel.swift in Sources */,
 				EC60400221494EF700666F22 /* Font.swift in Sources */,
@@ -1201,6 +1210,7 @@
 				EC6040682149561700666F22 /* Product.swift in Sources */,
 				ECC91174215E4DA70085295A /* Purchase.swift in Sources */,
 				ECBE0D8E21679127001725D6 /* Token.swift in Sources */,
+				EC45A171216B549600E14A55 /* Leaderboard.swift in Sources */,
 				EC60406B2149561700666F22 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1216,6 +1226,7 @@
 				ECC91178215E4F1F0085295A /* Purchase.swift in Sources */,
 				EC604072214956BF00666F22 /* Product.swift in Sources */,
 				EC9F983C214E4C5700C39F96 /* User.swift in Sources */,
+				EC45A173216B558A00E14A55 /* Leaderboard.swift in Sources */,
 				EC604077214956CE00666F22 /* ClipCardError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1224,6 +1235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC45A16F216B531800E14A55 /* LeaderboardTableViewCell.swift in Sources */,
 				ECC911962160EB3F0085295A /* UIView.swift in Sources */,
 				ECC9118A215FB91E0085295A /* ProductCollectionViewCell.swift in Sources */,
 				ECC9118C21602AFD0085295A /* InputView.swift in Sources */,
@@ -1445,13 +1457,13 @@
 					"$(PROJECT_DIR)/MobilePayAPI/Sources",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Analog;
+				PRODUCT_BUNDLE_IDENTIFIER = DK.AnalogIO.DigitalCoffeeCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "099456e7-1924-4a2d-b2f0-2fdafb00de82";
 				PROVISIONING_PROFILE_SPECIFIER = Analog_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1460,6 +1472,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y5U9T77F2K;
 				INFOPLIST_FILE = Analog/Application/Info.plist;
@@ -1472,13 +1485,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MobilePayAPI/Sources",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Analog;
+				PRODUCT_BUNDLE_IDENTIFIER = DK.AnalogIO.DigitalCoffeeCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "099456e7-1924-4a2d-b2f0-2fdafb00de82";
-				PROVISIONING_PROFILE_SPECIFIER = Analog_Dev;
+				PROVISIONING_PROFILE_SPECIFIER = Analog_prod;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -16,7 +16,7 @@ class HomeTabBarViewController: UITabBarController {
         TabBarConfig(title: "Tickets", icon: #imageLiteral(resourceName: "Tickets")),
         TabBarConfig(title: "Schedule", icon: #imageLiteral(resourceName: "Schedule")),
         TabBarConfig(title: "Receipts", icon: #imageLiteral(resourceName: "Receipts")),
-        TabBarConfig(title: "Profile", icon: #imageLiteral(resourceName: "Profile")),
+        TabBarConfig(title: "Leaderboard", icon: #imageLiteral(resourceName: "leaderboard_icon")),
         TabBarConfig(title: "More", icon: #imageLiteral(resourceName: "More")),
     ]
 
@@ -36,7 +36,7 @@ class HomeTabBarViewController: UITabBarController {
             UINavigationController(rootViewController: TicketsViewController(viewModel: TicketsViewModel())),
             UINavigationController(rootViewController: ScheduleViewController()),
             UINavigationController(rootViewController: ReceiptsViewController(viewModel: ReceiptsViewModel())),
-            UINavigationController(rootViewController: ProfileViewController()),
+            UINavigationController(rootViewController: LeaderboardViewController(viewModel: LeaderboardViewModel())),
             UINavigationController(rootViewController: MoreViewController(viewModel: MoreViewModel())),
         ]
         controllers.enumerated().forEach { (index, vc) in

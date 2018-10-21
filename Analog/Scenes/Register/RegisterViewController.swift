@@ -102,7 +102,8 @@ class RegisterViewController: UIViewController {
     @objc func didTapRegisterButton(sender: UIButton) {
         guard let name = nameField.text, name != "",
               let email = emailField.text, email != "",
-              passwordInput.password.count == 4 else {
+              passwordInput.password.count == 4,
+              programmes.count > 0 else {
             print("Fill in required fields...")
             return
         }

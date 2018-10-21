@@ -14,16 +14,20 @@ import Entities
 public class ClipCardAPI: API {
     
     #if DEBUG
-    public var baseUrl: String = "https://frederikjorgensen.dk/coffeecard/api/"
+    public var baseUrl: String = "https://analogio.dk/beta/clippy/api/"
     #else
-    public var baseUrl: String = "https://analogio.dk/coffeecard/api/"
+    public var baseUrl: String = "https://analogio.dk/beta/clippy/api/"
     #endif
 
     let token: String?
+
+    //API Version
+    let version = "1.0"
     
     private lazy var headers: HTTPHeaders = {
         var headers: HTTPHeaders = [:]
-        if let token = token { headers["Authorization"] = token }
+        if let token = token { headers["Authorization"] = "bearer " + token }
+        headers["api-version"] = version
         return headers
     }()
     
