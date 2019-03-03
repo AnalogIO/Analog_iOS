@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */; };
+		EC1770DA222C434E004247F2 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1770D9222C434E004247F2 /* InputViewController.swift */; };
 		EC45A171216B549600E14A55 /* LeaderboardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A170216B549600E14A55 /* LeaderboardUser.swift */; };
 		EC45A173216B558A00E14A55 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A172216B558A00E14A55 /* Leaderboard.swift */; };
 		EC603FC52149357700666F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FC42149357700666F22 /* AppDelegate.swift */; };
@@ -182,6 +183,7 @@
 
 /* Begin PBXFileReference section */
 		EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewModel.swift; sourceTree = "<group>"; };
+		EC1770D9222C434E004247F2 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		EC45A170216B549600E14A55 /* LeaderboardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardUser.swift; sourceTree = "<group>"; };
 		EC45A172216B558A00E14A55 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
@@ -354,6 +356,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC1770D8222C42DE004247F2 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				EC1770D9222C434E004247F2 /* InputViewController.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		EC51B8DB215927BB00DF5EB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +466,7 @@
 		EC603FE22149492600666F22 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				EC1770D8222C42DE004247F2 /* Input */,
 				EC604003214951FF00666F22 /* RegisterViewController.swift */,
 				EC6040052149521900666F22 /* RegisterViewModel.swift */,
 			);
@@ -1117,6 +1128,7 @@
 				EC6040062149521900666F22 /* RegisterViewModel.swift in Sources */,
 				EC60400221494EF700666F22 /* Font.swift in Sources */,
 				EC6DAAF2221DC362008D0A76 /* UIColor.swift in Sources */,
+				EC1770DA222C434E004247F2 /* InputViewController.swift in Sources */,
 				EC603FF821494B2E00666F22 /* ProfileViewController.swift in Sources */,
 				ECC9117A215E53620085295A /* SettingsViewController.swift in Sources */,
 				EC6DAAED221DB953008D0A76 /* LeaderboardTableViewCell.swift in Sources */,

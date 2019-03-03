@@ -69,6 +69,7 @@ public class PasswordInput: UIView {
     public func reset() {
         inputFields.forEach { $0.text = nil }
         currentInput = 0
+        password = ""
     }
 
     @discardableResult
@@ -138,8 +139,7 @@ private enum Views {
         inputField.layer.cornerRadius = 10
         inputField.textAlignment = .center
         inputField.isEnabled = false
-        inputField.layer.shadowOpacity = 0.7
-        inputField.layer.shadowOffset = CGSize(width: 1, height: 2)
+        inputField.addShadow()
         inputField.font = UIFont.systemFont(ofSize: 20)
         inputField.textColor = Color.milk
         inputField.textAlignment = .center

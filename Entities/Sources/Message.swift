@@ -10,4 +10,18 @@ import Foundation
 
 public struct Message: Codable {
     public let message: String
+
+    enum RootKeys: String, CodingKey {
+        case value
+    }
+
+    enum ValueKeys: String, CodingKey {
+        case message
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: RootKeys.self)
+        let valueContainer = try container.nestedContainer(keyedBy: ValueKeys.self, forKey: .value)
+        message = try valueContainer.decode(String.self, forKey: .message)
+    }
 }

@@ -24,8 +24,6 @@ class RegisterViewModel {
         }
     }
 
-    func viewDidLoad() {}
-
     func register(name: String, email: String, password: String) {
         registerState = .loading
         let api = ClipCardAPI()

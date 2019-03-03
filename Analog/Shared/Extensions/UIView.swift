@@ -24,4 +24,9 @@ extension UIView {
         }
         return view
     }
+
+    public func addShadow(opacity: Float = 0.4, offset: CGSize = CGSize(width: 3, height: 3)) {
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowOffset = offset
+    }
 }

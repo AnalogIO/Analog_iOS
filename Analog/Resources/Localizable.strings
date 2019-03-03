@@ -17,6 +17,12 @@
 "register_email_placeholder" = "Enter email";
 "register_button_register" = "Submit";
 "register_title" = "Register";
+"register_got_account" = "Already got an account? Click here to login";
+"register_continue" = "Continue";
+"register_enter_email" = "Enter your email";
+"register_enter_name" = "Enter your name";
+"register_enter_password" = "Create PIN";
+"register_confirm_password" = "Confirm PIN";
 
 /* ONBOARDING SCENE */
 
