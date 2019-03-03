@@ -14,17 +14,27 @@ public protocol PasswordInputDelegate: class {
 
 public class PasswordInput: UIView {
 
-    private let stackView = Views.stackView()
     public weak var delegate: PasswordInputDelegate?
-    private var currentInput = 0
-    public var password = ""
-    private var numberOfInputFields: Int
-    private var inputFields:[UITextField] = []
 
-    public init(numberOfInputFields: Int) {
+    private let stackView = Views.stackView()
+    private(set) var password: String = ""
+    private var inputFields: [UITextField] = []
+    private var currentInput: Int = 0 {
+        didSet {
+            self.updateView()
+        }
+    }
+
+    private var numberOfInputFields: Int
+    private let sideMargin: CGFloat
+
+    public init(numberOfInputFields: Int, sideMargin: CGFloat = 0) {
         self.numberOfInputFields = numberOfInputFields
+        self.sideMargin = sideMargin
         super.init(frame: .zero)
         defineLayout()
+        configureSubviews()
+        updateView()
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -36,23 +46,43 @@ public class PasswordInput: UIView {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: sideMargin),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -sideMargin),
         ])
-        configureSubviews()
     }
 
     func configureSubviews() {
         addSubview(stackView)
         for _ in 1...self.numberOfInputFields {
-            let inputField = UITextField()
-            inputField.borderStyle = .roundedRect
-            inputField.textAlignment = .center
-            inputField.isEnabled = false
-            inputField.font = UIFont.systemFont(ofSize: 40)
+            let inputField = Views.textField()
             stackView.addArrangedSubview(inputField)
-            self.inputFields.append(inputField)
+            inputFields.append(inputField)
         }
+    }
+
+    private func updateView() {
+        inputFields.forEach { $0.backgroundColor = Color.espresso }
+        if currentInput >= inputFields.count || !isFirstResponder { return }
+        inputFields[currentInput].backgroundColor = Color.milk
+    }
+
+    public func reset() {
+        inputFields.forEach { $0.text = nil }
+        currentInput = 0
+    }
+
+    @discardableResult
+    public override func becomeFirstResponder() -> Bool {
+        super.becomeFirstResponder()
+        updateView()
+        return true
+    }
+
+    @discardableResult
+    public override func resignFirstResponder() -> Bool {
+        super.resignFirstResponder()
+        updateView()
+        return true
     }
 
     open override var canBecomeFirstResponder : Bool {
@@ -73,7 +103,7 @@ extension PasswordInput: UIKeyInput {
 
     public func insertText(_ text: String) {
         if currentInput >= numberOfInputFields { return }
-        self.inputFields[currentInput].text = "‌\u{2022}"
+        self.inputFields[currentInput].text = "‌\u{25cf}"
         self.password += text
         currentInput += 1
         if currentInput == numberOfInputFields {
@@ -98,5 +128,21 @@ private enum Views {
         stackView.spacing = 20
         stackView.axis = .horizontal
         return stackView
+    }
+
+    static func textField() -> UITextField {
+        let inputField = UITextField()
+        inputField.borderStyle = .none
+        inputField.layer.borderColor = Color.espresso.cgColor
+        inputField.layer.borderWidth = 5
+        inputField.layer.cornerRadius = 10
+        inputField.textAlignment = .center
+        inputField.isEnabled = false
+        inputField.layer.shadowOpacity = 0.7
+        inputField.layer.shadowOffset = CGSize(width: 1, height: 2)
+        inputField.font = UIFont.systemFont(ofSize: 20)
+        inputField.textColor = Color.milk
+        inputField.textAlignment = .center
+        return inputField
     }
 }

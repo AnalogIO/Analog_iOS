@@ -7,10 +7,13 @@
 //
 
 import UIKit
-import Views
+import Entities
 
 class UpdateUserViewController: UIViewController {
     let input = Views.inputView()
+    let viewModel: UpdateUserViewModel
+
+    lazy var indicator = ActivityIndication(container: view)
 
     var type: UserFieldType {
         didSet {
@@ -18,9 +21,12 @@ class UpdateUserViewController: UIViewController {
         }
     }
 
-    init(type: UserFieldType) {
+    init(viewModel: UpdateUserViewModel, type: UserFieldType) {
+        self.viewModel = viewModel
         self.type = type
         super.init(nibName: nil, bundle: nil)
+        input.delegate = self
+        viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -35,6 +41,7 @@ class UpdateUserViewController: UIViewController {
         setupTargets()
 
         updateView()
+        viewModel.viewDidLoad()
     }
 
     private func defineLayout() {
@@ -47,7 +54,8 @@ class UpdateUserViewController: UIViewController {
         ])
     }
 
-    private func setupTargets() {}
+    private func setupTargets() {
+    }
 
     private func updateView() {
         input.titleLabel.text = "Change \(type.rawValue)"
@@ -69,4 +77,27 @@ public enum UserFieldType: String {
     case pin
     case programme
     case email
+}
+
+extension UpdateUserViewController: InputViewDelegate {
+    func didPressButton(value: String) {
+        viewModel.updateUser(type: type, value: value)
+    }
+}
+
+extension UpdateUserViewController: UpdateUserViewModelDelegate {
+    func didUpdateUserState(state: State<User>) {
+        switch state {
+        case .loaded(let user):
+            indicator.stop()
+            print(user)
+        case .error(let error):
+            indicator.stop()
+            print(error.localizedDescription)
+        case .loading:
+            indicator.start()
+        default:
+            break
+        }
+    }
 }

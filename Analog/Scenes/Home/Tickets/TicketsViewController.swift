@@ -9,7 +9,6 @@
 import UIKit
 import ShiftPlanningAPI
 import Entities
-import Views
 
 class TicketsViewController: UIViewController {
 
@@ -37,7 +36,6 @@ class TicketsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Tickets"
         view.backgroundColor = Color.background
 
         defineLayout()
@@ -72,7 +70,7 @@ extension TicketsViewController: TicketsViewModelDelegate {
             indicator.start()
         case .error(let error):
             indicator.stop()
-            print(error.localizedDescription)
+            displayMessage(title: "Error", message: error.localizedDescription, actions: [.Ok])
         default:
             break
         }

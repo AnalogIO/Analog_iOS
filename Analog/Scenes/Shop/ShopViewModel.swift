@@ -10,11 +10,11 @@ import Foundation
 import ClipCardAPI
 import Entities
 import Client
-import Views
 import MobilePayAPI
 
 protocol ShopViewModelDelegate: class {
     func didSetFetchProductsState(state: State<[ProductCellConfig]>)
+    func didSetFetchOrderIdState(state: State<MPOrder>)
 }
 
 class ShopViewModel {
@@ -24,6 +24,12 @@ class ShopViewModel {
     private var fetchProductsState: State<[ProductCellConfig]> = .unknown {
         didSet {
             delegate?.didSetFetchProductsState(state: fetchProductsState)
+        }
+    }
+
+    private var fetchOrderIdState: State<MPOrder> = .unknown {
+        didSet {
+            delegate?.didSetFetchOrderIdState(state: fetchOrderIdState)
         }
     }
 
@@ -37,8 +43,26 @@ class ShopViewModel {
     }
 
     private func initiatePurchase(product: Product) {
-        let payment: MobilePayPayment = MobilePayPayment(orderId: UUID().uuidString, productPrice: Float(product.price))
-        MobilePayManager.sharedInstance().beginMobilePayment(with: payment, error: { print($0) })
+        fetchOrderId(productId: product.id, completion: { response in
+            switch response {
+            case .success(let order):
+                let payment: MobilePayPayment = MobilePayPayment(orderId: "\(order.orderId)", productPrice: Float(product.price))
+                MobilePayManager.sharedInstance().beginMobilePayment(with: payment, error: {
+                    self.fetchOrderIdState = .error($0)
+                    return
+                })
+                self.fetchOrderIdState = .loaded(order)
+            case .error(let error):
+                self.fetchOrderIdState = .error(error)
+            }
+        })
+    }
+
+    private func fetchOrderId(productId: Int, completion: @escaping ((Response<MPOrder, ClipCardError>) -> Void)) {
+        fetchOrderIdState = .loading
+        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
+        let parameters = ["productId": productId]
+        MobilePay.initiatePurchase().response(using: api, method: .post, parameters: parameters, response: completion)
     }
 
     private func fetchProducts() {

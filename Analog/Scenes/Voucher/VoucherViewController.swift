@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Views
 import Entities
 
 class VoucherViewController: UIViewController {

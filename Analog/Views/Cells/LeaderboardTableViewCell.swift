@@ -17,9 +17,11 @@ public class LeaderboardTableViewCell: UITableViewCell {
 }
 
 public struct LeaderboardTableViewCellConfig {
-    let name: String
+    public let name: String
+    public let score: Int
 
-    init(name: String) {
+    public init(name: String, score: Int) {
         self.name = name
+        self.score = score
     }
 }

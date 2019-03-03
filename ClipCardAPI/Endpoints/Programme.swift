@@ -14,4 +14,8 @@ extension Programme {
     public static func getAll() -> Request<[Programme], ClipCardError> {
         return Request(path: "programmes")
     }
+
+    public static func get(id: Int) -> Request<Programme, ClipCardError> {
+        return Request(path: "programmes/\(id)")
+    }
 }

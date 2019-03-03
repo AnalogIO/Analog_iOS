@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Views
 import Entities
 
 class RegisterViewController: UIViewController {
@@ -18,16 +17,9 @@ class RegisterViewController: UIViewController {
     private let nameField = Views.nameField()
     private let emailField = Views.emailField()
     private let passwordInput = Views.passwordInput()
-    private let programmePicker = Views.programmePicker()
     private let registerButton = Views.registerButton()
 
     let margin: CGFloat = 16
-
-    var programmes: [Programme] = [] {
-        didSet {
-            programmePicker.reloadAllComponents()
-        }
-    }
 
     let viewModel: RegisterViewModel
 
@@ -35,8 +27,6 @@ class RegisterViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
-        programmePicker.delegate = self
-        programmePicker.dataSource = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -80,13 +70,10 @@ class RegisterViewController: UIViewController {
         stackView.addArrangedSubview(.spacing(margin))
         stackView.addArrangedSubview(passwordInput)
         stackView.addArrangedSubview(.spacing(margin))
-        stackView.addArrangedSubview(programmePicker)
-        stackView.addArrangedSubview(.spacing(500, required: false))
         stackView.addArrangedSubview(registerButton)
 
         NSLayoutConstraint.activate([
             passwordInput.heightAnchor.constraint(equalToConstant: 100),
-            programmePicker.heightAnchor.constraint(equalToConstant: 200),
             registerButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -102,13 +89,11 @@ class RegisterViewController: UIViewController {
     @objc func didTapRegisterButton(sender: UIButton) {
         guard let name = nameField.text, name != "",
               let email = emailField.text, email != "",
-              passwordInput.password.count == 4,
-              programmes.count > 0 else {
+              passwordInput.password.count == 4 else {
             print("Fill in required fields...")
             return
         }
-        let programme = programmes[programmePicker.selectedRow(inComponent: 0)]
-        viewModel.register(name: name, email: email, password: passwordInput.password, programme: programme)
+        viewModel.register(name: name, email: email, password: passwordInput.password)
     }
 
     @objc private func didTapBackground(sender: UITapGestureRecognizer) {
@@ -129,35 +114,6 @@ extension RegisterViewController: RegisterViewModelDelegate {
         default:
             break
         }
-    }
-
-    func didSetFetchProgrammesState(state: State<[Programme]>) {
-        switch state {
-        case .loading:
-            print("Loading...")
-        case .loaded(let value):
-            programmes = value
-        case .error(let error):
-            print(error)
-        default:
-            break
-        }
-    }
-}
-
-extension RegisterViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return programmes[row].fullName
-    }
-}
-
-extension RegisterViewController: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return programmes.count
     }
 }
 
@@ -211,17 +167,12 @@ private enum Views {
         return view
     }
 
-    static func programmePicker() -> UIPickerView {
-        let view = UIPickerView()
-        return view
-    }
-
     static func registerButton() -> UIButton {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 25
-        button.backgroundColor = Color.buttonBackground
-        button.setTitleColor(Color.buttonText, for: .normal)
+        button.backgroundColor = Color.espresso
+        button.setTitleColor(Color.milk, for: .normal)
         button.titleLabel?.font = Font.boldFont(size: 17)
         button.setTitle(NSLocalizedString("register_button_register", comment: ""), for: .normal)
         return button

@@ -1,5 +1,5 @@
 //
-//  Leaderboard.swift
+//  LeaderboardUser.swift
 //  Entities
 //
 //  Created by Frederik Christensen on 08/10/2018.
@@ -8,4 +8,7 @@
 
 import Foundation
 
-public struct Leaderboard: Codable {}
+public struct LeaderboardUser: Codable {
+    public let name: String
+    public let score: Int
+}

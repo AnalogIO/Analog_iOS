@@ -8,6 +8,9 @@
 
 import UIKit
 import MobilePayAPI
+import ClipCardAPI
+import Client
+import Entities
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         setupMobilePay()
+        setupNavigationBar()
 
         startSession()
         window?.makeKeyAndVisible()
@@ -42,9 +46,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
     }
 
+    func setupNavigationBar() {
+        UINavigationBar.appearance().barTintColor = Color.espresso
+        UINavigationBar.appearance().isTranslucent = false
+    }
+
+    func completePurchase(transactionId: String, orderId: String) {
+        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
+        let parameters = ["transactionId": transactionId, "orderId": orderId]
+        MobilePay.completePurchase().response(using: api, method: .post, parameters: parameters, headers: [:], response: { response in
+            switch response {
+            case .success:
+                print("MobilePay payment finished successfully!")
+            case .error(let error):
+                print(error.localizedDescription)
+            }
+        })
+    }
+
     func handleMobilePayPaymentWithUrl(url: URL) {
-        MobilePayManager.sharedInstance().handleMobilePayPayment(with: url, success: { success in
-            print("MobilePay purchase succeeded!")
+        MobilePayManager.sharedInstance().handleMobilePayPayment(with: url, success: { response in
+            let transactionId = response?.transactionId ?? ""
+            let orderId = response?.orderId ?? ""
+            DispatchQueue.global(qos: .background).async {
+                self.completePurchase(transactionId: transactionId, orderId: orderId)
+            }
         }, error: { error in
             print("MobilePay purchase failed: \(error.localizedDescription)")
         }, cancel: { cancel in

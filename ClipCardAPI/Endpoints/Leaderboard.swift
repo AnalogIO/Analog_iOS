@@ -10,8 +10,14 @@ import Foundation
 import Entities
 import Client
 
-extension Leaderboard {
-    public static func get() -> Request<Leaderboard, ClipCardError> {
-        return Request(path: "leaderboard")
+public enum Leaderboard {
+    public static func get(type: LeaderboardType) -> Request<[LeaderboardUser], ClipCardError> {
+        return Request(path: "leaderboard?preset=\(type.rawValue)")
     }
+}
+
+public enum LeaderboardType: Int {
+    case month = 0
+    case semester = 1
+    case all = 2
 }

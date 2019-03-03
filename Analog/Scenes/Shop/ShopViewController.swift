@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Views
 import Entities
 
 class ShopViewController: UIViewController {
@@ -64,6 +63,21 @@ class ShopViewController: UIViewController {
 }
 
 extension ShopViewController: ShopViewModelDelegate {
+    func didSetFetchOrderIdState(state: State<MPOrder>) {
+        switch state {
+        case .loaded(let order):
+            indicator.stop()
+            print(order.orderId)
+        case .loading:
+            indicator.start()
+        case .error(let error):
+            indicator.stop()
+            displayMessage(title: "Missing application", message: error.localizedDescription, actions: [.Ok])
+        default:
+            break
+        }
+    }
+
     func didSetFetchProductsState(state: State<[ProductCellConfig]>) {
         switch state {
         case .loaded(let configs):

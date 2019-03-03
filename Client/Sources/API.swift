@@ -11,7 +11,7 @@ import Alamofire
 open class API {
     let baseUrl: String
     var defaultHeaders: HTTPHeaders = [:]
-    
+
     public init(baseUrl: String) {
         self.baseUrl = baseUrl
     }
@@ -35,6 +35,7 @@ open class API {
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { (response: DataResponse<Data>) in
+                self.interceptResponse(response: response)
                 switch response.result {
                 case .success(let data):
                     do {
@@ -68,6 +69,7 @@ open class API {
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { (response: DataResponse<Data>) in
+                self.interceptResponse(response: response)
                 switch response.result {
                 case .success:
                     result(.success)
@@ -85,4 +87,6 @@ open class API {
                 }
         }
     }
+
+    open func interceptResponse(response: DataResponse<Data>) {}
 }

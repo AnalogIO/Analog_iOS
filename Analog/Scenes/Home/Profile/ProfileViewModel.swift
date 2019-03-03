@@ -1,5 +1,5 @@
 //
-//  ScheduleViewModel.swift
+//  ProfileViewModel.swift
 //  Analog
 //
 //  Created by Frederik Christensen on 12/09/2018.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class ScheduleViewModel {
+class ProfileViewModel {
     
 }

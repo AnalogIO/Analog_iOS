@@ -13,6 +13,6 @@ public struct ClipCardError: APIError {
     let message: String
 
     public var errorDescription: String? {
-        return NSLocalizedString(message, comment: "ClipCardError")
+        return NSLocalizedString("Server: \(message)", comment: "ClipCardError")
     }
 }

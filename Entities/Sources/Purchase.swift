@@ -12,7 +12,7 @@ public struct Purchase: Codable {
     public let id: Int
     public let productName: String
     public let productId: Int
-    public let transactionId: String
+    public let transactionId: String?
     public let price: Int
     public let numberOfTickets: Int
     public let orderId: String

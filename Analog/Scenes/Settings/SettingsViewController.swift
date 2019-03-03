@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Views
 import Entities
 
 class SettingsViewController: UIViewController {
@@ -16,9 +15,9 @@ class SettingsViewController: UIViewController {
 
     lazy var sections: [StaticSection] = [
         StaticSection(cellConfigs: [
-            StaticTableViewCellConfig(title: "Name", detail: UserDefaults.standard.string(forKey: "name"), click: didTapChangeName),
-            StaticTableViewCellConfig(title: "Email", detail: UserDefaults.standard.string(forKey: "email"), click: didTapChangeEmail),
-            StaticTableViewCellConfig(title: "Programme", detail: UserDefaults.standard.string(forKey: "programme"), click: didTapChangeProgramme),
+            StaticTableViewCellConfig(title: "Name", detail: UserDefaults.standard.string(forKey: UserFieldType.name.rawValue), click: didTapChangeName),
+            StaticTableViewCellConfig(title: "Email", detail: UserDefaults.standard.string(forKey: UserFieldType.email.rawValue), click: didTapChangeEmail),
+            StaticTableViewCellConfig(title: "Programme", detail: UserDefaults.standard.string(forKey: UserFieldType.programme.rawValue), click: didTapChangeProgramme),
             StaticTableViewCellConfig(title: "Change PIN", detail: "‌\u{2022}‌\u{2022}‌\u{2022}‌\u{2022}", click: didTapChangePin),
         ]),
         StaticSection(cellConfigs: [
@@ -57,6 +56,11 @@ class SettingsViewController: UIViewController {
         viewModel.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
     private func defineLayout() {
         view.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -88,7 +92,7 @@ class SettingsViewController: UIViewController {
     }
 
     private func navigateToUpdateUser(type: UserFieldType) {
-        let vc = UpdateUserViewController(type: type)
+        let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(), type: type)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

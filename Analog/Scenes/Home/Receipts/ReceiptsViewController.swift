@@ -9,7 +9,6 @@
 import UIKit
 import ShiftPlanningAPI
 import Entities
-import Views
 
 class ReceiptsViewController: UIViewController {
 
@@ -72,7 +71,7 @@ extension ReceiptsViewController: ReceiptsViewModelDelegate {
             indicator.start()
         case .error(let error):
             indicator.stop()
-            print(error.localizedDescription)
+            displayMessage(title: "Error", message: error.localizedDescription, actions: [.Ok])
         default:
             break
         }

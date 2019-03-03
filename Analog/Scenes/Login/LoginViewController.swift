@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Views
 import Entities
 
 class LoginViewController: UIViewController {
@@ -16,13 +15,14 @@ class LoginViewController: UIViewController {
     private let stackView = Views.stackView()
     private let passwordInput = Views.passwordInput()
     private let imageView = Views.imageView()
-    private let forgotPinButton = Views.forgotPinButton()
+    private let createUserButton = Views.createUserButton()
     private let emailField = Views.emailField()
     private lazy var indicator = ActivityIndication(container: view)
 
     private let viewModel: LoginViewModel
 
-    private let margin: CGFloat = 16
+    private let sideMargin: CGFloat = 16
+    private let passwordMargin: CGFloat = 20
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -48,10 +48,10 @@ class LoginViewController: UIViewController {
     private func defineLayout() {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: margin),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -margin),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -margin),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: margin),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideMargin),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideMargin),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
         ])
         
         scrollView.addSubview(stackView)
@@ -65,29 +65,34 @@ class LoginViewController: UIViewController {
 
         // Add arranged subviews to the stack view
         stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(.spacing(margin))
+        stackView.addArrangedSubview(.spacing(16))
         stackView.addArrangedSubview(emailField)
-        stackView.addArrangedSubview(.spacing(margin))
+        stackView.addArrangedSubview(.spacing(25))
         stackView.addArrangedSubview(passwordInput)
-        stackView.addArrangedSubview(.spacing(margin))
-        stackView.addArrangedSubview(forgotPinButton)
+        stackView.addArrangedSubview(.spacing(16))
+        stackView.addArrangedSubview(createUserButton)
 
         NSLayoutConstraint.activate([
-            passwordInput.heightAnchor.constraint(equalToConstant: 100),
+            passwordInput.heightAnchor.constraint(equalToConstant: 90),
             imageView.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
 
     private func setupTargets() {
-        forgotPinButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+        createUserButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapBackground))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
 
+    private func navigateToRegister() {
+        let registerVC = RegisterViewController(viewModel: RegisterViewModel())
+        present(registerVC, animated: true, completion: nil)
+    }
+
     @objc private func didTapForgotPassword(sender: UIButton) {
-        print("Forgot password clicked...")
+        navigateToRegister()
     }
 
     @objc private func didTapBackground(sender: UITapGestureRecognizer) {
@@ -112,6 +117,7 @@ extension LoginViewController: LoginViewModelDelegate {
             present(vc, animated: true, completion: nil)
         case .error(let error):
             indicator.stop()
+            passwordInput.reset()
             displayMessage(title: "Error", message: error.localizedDescription, actions: [.Ok])
         default:
             break
@@ -143,11 +149,13 @@ private enum Views {
     static func scrollView() -> UIScrollView {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.clipsToBounds = false
+        scrollView.layer.masksToBounds = false
         return scrollView
     }
 
     static func passwordInput() -> PasswordInput {
-        let view = PasswordInput(numberOfInputFields: 4)
+        let view = PasswordInput(numberOfInputFields: 4, sideMargin: 15)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
@@ -159,10 +167,12 @@ private enum Views {
         return view
     }
 
-    static func forgotPinButton() -> UIButton {
+    static func createUserButton() -> UIButton {
         let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("login_button_forgot_pin", comment: ""), for: .normal)
+        button.setTitle(NSLocalizedString("login_button_create_user", comment: ""), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(Color.espresso, for: .normal)
+        button.titleLabel?.font = Font.font(size: 18)
         return button
     }
 
@@ -170,8 +180,11 @@ private enum Views {
         let textField = UITextField()
         textField.font = Font.font(size: 18)
         textField.keyboardType = UIKeyboardType.emailAddress
-        textField.borderStyle = .roundedRect
+        textField.borderStyle = .none
+        textField.tintColor = Color.espresso
+        textField.backgroundColor = .clear
         textField.textAlignment = .center
+        textField.textColor = Color.espresso
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = UserDefaults.standard.string(forKey: "email") ?? ""
         textField.placeholder = NSLocalizedString("login_email_placeholder", comment: "")

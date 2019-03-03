@@ -9,8 +9,9 @@
 import UIKit
 
 public enum Color {
-    public static let background = UIColor.groupTableViewBackground
-    public static let text = UIColor.black
-    public static let buttonBackground = UIColor.lightGray
-    public static let buttonText = UIColor.black
+    public static let background = UIColor.white
+    public static let espresso = UIColor(hexString: "#38251a")
+    public static let cortado = UIColor(hexString: "#775440")
+    public static let milk = UIColor(hexString: "#ffffff")
+    public static let yellow = UIColor(hexString: "#fed521")
 }

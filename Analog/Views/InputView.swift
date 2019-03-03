@@ -8,13 +8,20 @@
 
 import Foundation
 
+public protocol InputViewDelegate: class {
+    func didPressButton(value: String)
+}
+
 public class InputView: UIView {
+
+    public weak var delegate: InputViewDelegate?
 
     private let scrollView = Views.scrollView()
     private let stackView = Views.stackView()
     public let titleLabel = Views.titleLabel()
     public let descriptionLabel = Views.descriptionLabel()
     public let textField = Views.textField()
+    private let submitButton = Views.submitButton()
 
     private let textFieldHeight: CGFloat = 45
 
@@ -53,6 +60,8 @@ public class InputView: UIView {
         stackView.addArrangedSubview(textField)
         stackView.addArrangedSubview(.spacing(16))
         stackView.addArrangedSubview(descriptionLabel)
+        stackView.addArrangedSubview(.spacing(16))
+        stackView.addArrangedSubview(submitButton)
 
         textField.layer.cornerRadius = textFieldHeight / 2
         NSLayoutConstraint.activate([
@@ -60,7 +69,13 @@ public class InputView: UIView {
         ])
     }
 
-    private func setupTargets() {}
+    private func setupTargets() {
+        submitButton.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
+    }
+
+    @objc private func didPressButton(sender: UIButton) {
+        delegate?.didPressButton(value: textField.text ?? "")
+    }
 }
 
 private enum Views {
@@ -106,5 +121,12 @@ private enum Views {
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
+    }
+
+    static func submitButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Submit", for: .normal)
+        return button
     }
 }

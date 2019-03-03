@@ -1,5 +1,5 @@
 //
-//  ScheduleViewController.swift
+//  ProfileViewController.swift
 //  Analog
 //
 //  Created by Frederik Christensen on 12/09/2018.
@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ScheduleViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Schedule"
+        title = "Profile"
         view.backgroundColor = Color.background
     }
+}
+
+private enum Views {
+
 }

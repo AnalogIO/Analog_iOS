@@ -10,7 +10,6 @@ import Foundation
 import ClipCardAPI
 import Entities
 import Client
-import Views
 
 protocol VoucherViewModelDelegate: class {}
 

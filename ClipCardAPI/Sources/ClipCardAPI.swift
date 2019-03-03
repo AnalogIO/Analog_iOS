@@ -14,20 +14,16 @@ import Entities
 public class ClipCardAPI: API {
     
     #if DEBUG
-    public var baseUrl: String = "https://analogio.dk/beta/clippy/api/"
+    public var baseUrl: String = "https://analogio.dk/beta/clippy/api/v1/"
     #else
-    public var baseUrl: String = "https://analogio.dk/beta/clippy/api/"
+    public var baseUrl: String = "https://analogio.dk/beta/clippy/api/v1/"
     #endif
 
     let token: String?
 
-    //API Version
-    let version = "1.0"
-    
     private lazy var headers: HTTPHeaders = {
         var headers: HTTPHeaders = [:]
         if let token = token { headers["Authorization"] = "bearer " + token }
-        headers["api-version"] = version
         return headers
     }()
     
@@ -35,5 +31,11 @@ public class ClipCardAPI: API {
         self.token = token
         super.init(baseUrl: baseUrl)
         setDefaultHeaders(headers: headers)
+    }
+
+    override public func interceptResponse(response: DataResponse<Data>) {
+        let code: String = "\(response.response?.statusCode.description ?? "")"
+        let status: String = "\(response.result)"
+        print("\(status): \(code)")
     }
 }

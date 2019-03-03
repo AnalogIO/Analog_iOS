@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC45A16F216B531800E14A55 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */; };
-		EC45A171216B549600E14A55 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A170216B549600E14A55 /* Leaderboard.swift */; };
+		EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */; };
+		EC45A171216B549600E14A55 /* LeaderboardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A170216B549600E14A55 /* LeaderboardUser.swift */; };
 		EC45A173216B558A00E14A55 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A172216B558A00E14A55 /* Leaderboard.swift */; };
-		EC51B8DA215926B500DF5EB1 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */; };
 		EC603FC52149357700666F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FC42149357700666F22 /* AppDelegate.swift */; };
 		EC603FCC2149357800666F22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC603FCB2149357800666F22 /* Assets.xcassets */; };
 		EC603FCF2149357800666F22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC603FCD2149357800666F22 /* LaunchScreen.storyboard */; };
@@ -24,8 +23,8 @@
 		EC603FF221494B0800666F22 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF121494B0800666F22 /* LeaderboardViewModel.swift */; };
 		EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF321494B1A00666F22 /* ReceiptsViewController.swift */; };
 		EC603FF621494B2300666F22 /* ReceiptsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF521494B2300666F22 /* ReceiptsViewModel.swift */; };
-		EC603FF821494B2E00666F22 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF721494B2E00666F22 /* ScheduleViewController.swift */; };
-		EC603FFA21494B3B00666F22 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF921494B3B00666F22 /* ScheduleViewModel.swift */; };
+		EC603FF821494B2E00666F22 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF721494B2E00666F22 /* ProfileViewController.swift */; };
+		EC603FFA21494B3B00666F22 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FF921494B3B00666F22 /* ProfileViewModel.swift */; };
 		EC603FFC21494B5A00666F22 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FFB21494B5A00666F22 /* TicketsViewController.swift */; };
 		EC603FFE21494B6400666F22 /* TicketsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FFD21494B6400666F22 /* TicketsViewModel.swift */; };
 		EC60400021494EEE00666F22 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FFF21494EEE00666F22 /* Color.swift */; };
@@ -38,9 +37,6 @@
 		EC6040222149556A00666F22 /* ClipCardAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6040202149556A00666F22 /* ClipCardAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC6040252149556A00666F22 /* ClipCardAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60401E2149556A00666F22 /* ClipCardAPI.framework */; };
 		EC6040262149556A00666F22 /* ClipCardAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC60401E2149556A00666F22 /* ClipCardAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC6040332149557000666F22 /* Views.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6040312149557000666F22 /* Views.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EC6040362149557000666F22 /* Views.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60402F2149557000666F22 /* Views.framework */; };
-		EC6040372149557000666F22 /* Views.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC60402F2149557000666F22 /* Views.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC6040442149559200666F22 /* Client.h in Headers */ = {isa = PBXBuildFile; fileRef = EC6040422149559200666F22 /* Client.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC6040472149559200666F22 /* Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6040402149559200666F22 /* Client.framework */; };
 		EC6040482149559200666F22 /* Client.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EC6040402149559200666F22 /* Client.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -69,10 +65,21 @@
 		EC60409D214960A800666F22 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60409C214960A800666F22 /* Alamofire.framework */; };
 		EC60409E2149677400666F22 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60409C214960A800666F22 /* Alamofire.framework */; };
 		EC60409F214967B400666F22 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC60409C214960A800666F22 /* Alamofire.framework */; };
+		EC6394FA21B1BB2D003D9641 /* MobilePay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6394F921B1BB2D003D9641 /* MobilePay.swift */; };
+		EC6394FC21B1BBE2003D9641 /* MPOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6394FB21B1BBE2003D9641 /* MPOrder.swift */; };
 		EC66020E215546A3004716F7 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC66020D215546A3004716F7 /* Ticket.swift */; };
 		EC66021521554ED7004716F7 /* ClipCardAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC604076214956CE00666F22 /* ClipCardAPI.swift */; };
+		EC6DAAE8221DB953008D0A76 /* TicketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */; };
+		EC6DAAE9221DB953008D0A76 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */; };
+		EC6DAAEA221DB953008D0A76 /* StaticTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */; };
+		EC6DAAEB221DB953008D0A76 /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91175215E4DCE0085295A /* PurchaseCollectionViewCell.swift */; };
+		EC6DAAEC221DB953008D0A76 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */; };
+		EC6DAAED221DB953008D0A76 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */; };
+		EC6DAAEE221DB953008D0A76 /* PasswordInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */; };
+		EC6DAAEF221DB953008D0A76 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9118B21602AFD0085295A /* InputView.swift */; };
+		EC6DAAF0221DB953008D0A76 /* TitleSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */; };
+		EC6DAAF2221DC362008D0A76 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DAAF1221DC362008D0A76 /* UIColor.swift */; };
 		EC9F982A214B8BC300C39F96 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9829214B8BC300C39F96 /* APIError.swift */; };
-		EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */; };
 		EC9F982E214BCA2700C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982D214BCA2700C39F96 /* Cafe.swift */; };
 		EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982F214BCB1500C39F96 /* Cafe.swift */; };
 		EC9F9834214E3A4E00C39F96 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC9F9833214E3A4E00C39F96 /* Localizable.strings */; };
@@ -86,9 +93,7 @@
 		EC9F9847214EA49000C39F96 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9846214EA49000C39F96 /* UIView.swift */; };
 		EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */; };
 		EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */; };
-		ECBD74A22157D8410097C9A6 /* TicketCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A12157D8410097C9A6 /* TicketCollectionViewCell.swift */; };
 		ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC660216215550E9004716F7 /* ActivityIndication.swift */; };
-		ECBD74A521584C270097C9A6 /* ReceiptCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */; };
 		ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD74A62158D0BD0097C9A6 /* Receipt.swift */; };
 		ECBE0D8E21679127001725D6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE0D8D21679127001725D6 /* Token.swift */; };
 		ECBE0DE42167CF11001725D6 /* MobilePayAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBE0DE22167CF11001725D6 /* MobilePayAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -106,7 +111,6 @@
 		ECC91170215E4C5D0085295A /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9116F215E4C5D0085295A /* PurchasesViewController.swift */; };
 		ECC91172215E4C690085295A /* PurchasesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91171215E4C690085295A /* PurchasesViewModel.swift */; };
 		ECC91174215E4DA70085295A /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91173215E4DA70085295A /* Purchase.swift */; };
-		ECC91176215E4DCE0085295A /* PurchaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91175215E4DCE0085295A /* PurchaseCollectionViewCell.swift */; };
 		ECC91178215E4F1F0085295A /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91177215E4F1F0085295A /* Purchase.swift */; };
 		ECC9117A215E53620085295A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91179215E53620085295A /* SettingsViewController.swift */; };
 		ECC9117C215E53E80085295A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9117B215E53E80085295A /* SettingsViewModel.swift */; };
@@ -116,10 +120,7 @@
 		ECC91184215E5AD00085295A /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91183215E5AD00085295A /* ShopViewModel.swift */; };
 		ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91185215E5ADB0085295A /* VoucherViewController.swift */; };
 		ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91187215E5AE50085295A /* VoucherViewModel.swift */; };
-		ECC9118A215FB91E0085295A /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */; };
-		ECC9118C21602AFD0085295A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9118B21602AFD0085295A /* InputView.swift */; };
 		ECC911922160309C0085295A /* UpdateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC911912160309C0085295A /* UpdateUserViewController.swift */; };
-		ECC911962160EB3F0085295A /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC911952160EB3F0085295A /* UIView.swift */; };
 		ECEC48792162397B00CE18D2 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECEC48782162397B00CE18D2 /* PrivacyViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,13 +138,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = EC60401D2149556A00666F22;
 			remoteInfo = ClipCardAPI;
-		};
-		EC6040342149557000666F22 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC603FB92149357700666F22 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC60402E2149557000666F22;
-			remoteInfo = Views;
 		};
 		EC6040452149559200666F22 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -178,7 +172,6 @@
 				EC6040142149556000666F22 /* Entities.framework in Embed Frameworks */,
 				EC6040262149556A00666F22 /* ClipCardAPI.framework in Embed Frameworks */,
 				ECBE0DE82167CF11001725D6 /* MobilePayAPI.framework in Embed Frameworks */,
-				EC6040372149557000666F22 /* Views.framework in Embed Frameworks */,
 				EC604059214955A200666F22 /* ShiftPlanningAPI.framework in Embed Frameworks */,
 				EC6040482149559200666F22 /* Client.framework in Embed Frameworks */,
 			);
@@ -188,8 +181,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewModel.swift; sourceTree = "<group>"; };
 		EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
-		EC45A170216B549600E14A55 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		EC45A170216B549600E14A55 /* LeaderboardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardUser.swift; sourceTree = "<group>"; };
 		EC45A172216B558A00E14A55 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		EC51B8D9215926B500DF5EB1 /* StaticTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticTableViewCell.swift; sourceTree = "<group>"; };
 		EC603FC12149357700666F22 /* Analog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Analog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,8 +201,8 @@
 		EC603FF121494B0800666F22 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		EC603FF321494B1A00666F22 /* ReceiptsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewController.swift; sourceTree = "<group>"; };
 		EC603FF521494B2300666F22 /* ReceiptsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsViewModel.swift; sourceTree = "<group>"; };
-		EC603FF721494B2E00666F22 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		EC603FF921494B3B00666F22 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		EC603FF721494B2E00666F22 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EC603FF921494B3B00666F22 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		EC603FFB21494B5A00666F22 /* TicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewController.swift; sourceTree = "<group>"; };
 		EC603FFD21494B6400666F22 /* TicketsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsViewModel.swift; sourceTree = "<group>"; };
 		EC603FFF21494EEE00666F22 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -221,9 +215,6 @@
 		EC60401E2149556A00666F22 /* ClipCardAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ClipCardAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6040202149556A00666F22 /* ClipCardAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClipCardAPI.h; sourceTree = "<group>"; };
 		EC6040212149556A00666F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EC60402F2149557000666F22 /* Views.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Views.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC6040312149557000666F22 /* Views.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Views.h; sourceTree = "<group>"; };
-		EC6040322149557000666F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6040402149559200666F22 /* Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6040422149559200666F22 /* Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
 		EC6040432149559200666F22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -247,8 +238,12 @@
 		EC60408F2149584D00666F22 /* RequestNoContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNoContent.swift; sourceTree = "<group>"; };
 		EC6040902149584D00666F22 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		EC60409C214960A800666F22 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		EC6394F921B1BB2D003D9641 /* MobilePay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePay.swift; sourceTree = "<group>"; };
+		EC6394FB21B1BBE2003D9641 /* MPOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPOrder.swift; sourceTree = "<group>"; };
 		EC66020D215546A3004716F7 /* Ticket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
 		EC660216215550E9004716F7 /* ActivityIndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndication.swift; sourceTree = "<group>"; };
+		EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleView.swift; sourceTree = "<group>"; };
+		EC6DAAF1221DC362008D0A76 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EC9F9829214B8BC300C39F96 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInput.swift; sourceTree = "<group>"; };
 		EC9F982D214BCA2700C39F96 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
@@ -296,7 +291,6 @@
 		ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC9118B21602AFD0085295A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		ECC911912160309C0085295A /* UpdateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
-		ECC911952160EB3F0085295A /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		ECEC48782162397B00CE18D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -308,7 +302,6 @@
 				EC6040132149556000666F22 /* Entities.framework in Frameworks */,
 				EC6040252149556A00666F22 /* ClipCardAPI.framework in Frameworks */,
 				ECBE0DE72167CF11001725D6 /* MobilePayAPI.framework in Frameworks */,
-				EC6040362149557000666F22 /* Views.framework in Frameworks */,
 				EC604058214955A200666F22 /* ShiftPlanningAPI.framework in Frameworks */,
 				EC6040472149559200666F22 /* Client.framework in Frameworks */,
 				ECBE0DF22167CF9F001725D6 /* libMobilePayManager1.8.1.a in Frameworks */,
@@ -329,13 +322,6 @@
 				EC60409821495C1100666F22 /* Entities.framework in Frameworks */,
 				EC60409721495C0A00666F22 /* Client.framework in Frameworks */,
 				EC60409F214967B400666F22 /* Alamofire.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC60402B2149557000666F22 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,7 +370,6 @@
 				EC603FC32149357700666F22 /* Analog */,
 				EC60400D2149556000666F22 /* Entities */,
 				EC60401F2149556A00666F22 /* ClipCardAPI */,
-				EC6040302149557000666F22 /* Views */,
 				EC6040412149559200666F22 /* Client */,
 				EC604052214955A200666F22 /* ShiftPlanningAPI */,
 				ECBE0DE12167CF11001725D6 /* MobilePayAPI */,
@@ -399,7 +384,6 @@
 				EC603FC12149357700666F22 /* Analog.app */,
 				EC60400C2149556000666F22 /* Entities.framework */,
 				EC60401E2149556A00666F22 /* ClipCardAPI.framework */,
-				EC60402F2149557000666F22 /* Views.framework */,
 				EC6040402149559200666F22 /* Client.framework */,
 				EC604051214955A200666F22 /* ShiftPlanningAPI.framework */,
 				ECBE0DE02167CF11001725D6 /* MobilePayAPI.framework */,
@@ -410,6 +394,7 @@
 		EC603FC32149357700666F22 /* Analog */ = {
 			isa = PBXGroup;
 			children = (
+				EC6DAAE7221DB90F008D0A76 /* Views */,
 				EC51B8DB215927BB00DF5EB1 /* Resources */,
 				EC603FDC2149381400666F22 /* Scenes */,
 				EC603FDB2149365900666F22 /* Application */,
@@ -483,7 +468,7 @@
 				EC603FEA21494AD400666F22 /* More */,
 				EC603FE921494ACE00666F22 /* Leaderboard */,
 				EC603FE821494AC800666F22 /* Receipts */,
-				EC603FE721494ABF00666F22 /* Schedule */,
+				EC603FE721494ABF00666F22 /* Profile */,
 				EC603FE621494ABA00666F22 /* Tickets */,
 				EC603FE4214949CB00666F22 /* HomeTabBarViewController.swift */,
 			);
@@ -499,13 +484,13 @@
 			path = Tickets;
 			sourceTree = "<group>";
 		};
-		EC603FE721494ABF00666F22 /* Schedule */ = {
+		EC603FE721494ABF00666F22 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				EC603FF721494B2E00666F22 /* ScheduleViewController.swift */,
-				EC603FF921494B3B00666F22 /* ScheduleViewModel.swift */,
+				EC603FF721494B2E00666F22 /* ProfileViewController.swift */,
+				EC603FF921494B3B00666F22 /* ProfileViewModel.swift */,
 			);
-			path = Schedule;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		EC603FE821494AC800666F22 /* Receipts */ = {
@@ -556,16 +541,6 @@
 			path = ClipCardAPI;
 			sourceTree = "<group>";
 		};
-		EC6040302149557000666F22 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				EC60407A2149577E00666F22 /* Sources */,
-				EC6040312149557000666F22 /* Views.h */,
-				EC6040322149557000666F22 /* Info.plist */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		EC6040412149559200666F22 /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,7 +577,8 @@
 				ECC5CA58214FAD940082E2E9 /* Ticket.swift */,
 				ECC91173215E4DA70085295A /* Purchase.swift */,
 				ECBE0D8D21679127001725D6 /* Token.swift */,
-				EC45A170216B549600E14A55 /* Leaderboard.swift */,
+				EC45A170216B549600E14A55 /* LeaderboardUser.swift */,
+				EC6394FB21B1BBE2003D9641 /* MPOrder.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -626,19 +602,9 @@
 				ECBD74A62158D0BD0097C9A6 /* Receipt.swift */,
 				ECC91177215E4F1F0085295A /* Purchase.swift */,
 				EC45A172216B558A00E14A55 /* Leaderboard.swift */,
+				EC6394F921B1BB2D003D9641 /* MobilePay.swift */,
 			);
 			path = Endpoints;
-			sourceTree = "<group>";
-		};
-		EC60407A2149577E00666F22 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				ECC911932160EAF70085295A /* Shared */,
-				EC66020F215548C8004716F7 /* Cells */,
-				EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */,
-				ECC9118B21602AFD0085295A /* InputView.swift */,
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		EC60407B214957B000666F22 /* Sources */ = {
@@ -702,12 +668,24 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		EC6DAAE7221DB90F008D0A76 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC66020F215548C8004716F7 /* Cells */,
+				EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */,
+				ECC9118B21602AFD0085295A /* InputView.swift */,
+				EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		EC9F9835214E3D1200C39F96 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				EC9F9836214E3D2200C39F96 /* String.swift */,
 				EC9F9846214EA49000C39F96 /* UIView.swift */,
 				ECC5CA5A214FB25B0082E2E9 /* UIViewController.swift */,
+				EC6DAAF1221DC362008D0A76 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -792,24 +770,9 @@
 			isa = PBXGroup;
 			children = (
 				ECC911912160309C0085295A /* UpdateUserViewController.swift */,
+				EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */,
 			);
 			path = UpdateUser;
-			sourceTree = "<group>";
-		};
-		ECC911932160EAF70085295A /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				ECC911942160EB340085295A /* Extensions */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		ECC911942160EB340085295A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				ECC911952160EB3F0085295A /* UIView.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		ECEC4877216230E900CE18D2 /* Privacy */ = {
@@ -836,14 +799,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC6040222149556A00666F22 /* ClipCardAPI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC60402C2149557000666F22 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC6040332149557000666F22 /* Views.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,7 +848,6 @@
 			dependencies = (
 				EC6040122149556000666F22 /* PBXTargetDependency */,
 				EC6040242149556A00666F22 /* PBXTargetDependency */,
-				EC6040352149557000666F22 /* PBXTargetDependency */,
 				EC6040462149559200666F22 /* PBXTargetDependency */,
 				EC604057214955A200666F22 /* PBXTargetDependency */,
 				ECBE0DE62167CF11001725D6 /* PBXTargetDependency */,
@@ -937,24 +891,6 @@
 			name = ClipCardAPI;
 			productName = ClipCardAPI;
 			productReference = EC60401E2149556A00666F22 /* ClipCardAPI.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		EC60402E2149557000666F22 /* Views */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC6040382149557000666F22 /* Build configuration list for PBXNativeTarget "Views" */;
-			buildPhases = (
-				EC60402A2149557000666F22 /* Sources */,
-				EC60402B2149557000666F22 /* Frameworks */,
-				EC60402C2149557000666F22 /* Headers */,
-				EC60402D2149557000666F22 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Views;
-			productName = Views;
-			productReference = EC60402F2149557000666F22 /* Views.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EC60403F2149559200666F22 /* Client */ = {
@@ -1033,10 +969,6 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
 					};
-					EC60402E2149557000666F22 = {
-						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1000;
-					};
 					EC60403F2149559200666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
@@ -1066,7 +998,6 @@
 				EC603FC02149357700666F22 /* Analog */,
 				EC60400B2149556000666F22 /* Entities */,
 				EC60401D2149556A00666F22 /* ClipCardAPI */,
-				EC60402E2149557000666F22 /* Views */,
 				EC60403F2149559200666F22 /* Client */,
 				EC604050214955A200666F22 /* ShiftPlanningAPI */,
 				ECBE0DDF2167CF11001725D6 /* MobilePayAPI */,
@@ -1095,13 +1026,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EC60401C2149556A00666F22 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC60402D2149557000666F22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1158,38 +1082,49 @@
 				EC9F9837214E3D2200C39F96 /* String.swift in Sources */,
 				EC603FEC21494AE200666F22 /* MoreViewController.swift in Sources */,
 				ECC91180215E5A7B0085295A /* HelpViewModel.swift in Sources */,
+				EC6DAAEF221DB953008D0A76 /* InputView.swift in Sources */,
 				EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */,
 				ECEC48792162397B00CE18D2 /* PrivacyViewController.swift in Sources */,
 				ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */,
+				EC6DAAEC221DB953008D0A76 /* ProductCollectionViewCell.swift in Sources */,
+				EC6DAAEE221DB953008D0A76 /* PasswordInput.swift in Sources */,
 				EC603FDF2149491000666F22 /* LoginViewController.swift in Sources */,
 				EC604004214951FF00666F22 /* RegisterViewController.swift in Sources */,
 				EC603FE5214949CB00666F22 /* HomeTabBarViewController.swift in Sources */,
 				EC603FEE21494AF200666F22 /* MoreViewModel.swift in Sources */,
 				EC603FF021494AFE00666F22 /* LeaderboardViewController.swift in Sources */,
 				ECC911922160309C0085295A /* UpdateUserViewController.swift in Sources */,
+				EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */,
 				ECC91170215E4C5D0085295A /* PurchasesViewController.swift in Sources */,
 				ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */,
 				EC603FC52149357700666F22 /* AppDelegate.swift in Sources */,
 				ECC91182215E5AC70085295A /* ShopViewController.swift in Sources */,
 				EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */,
-				EC603FFA21494B3B00666F22 /* ScheduleViewModel.swift in Sources */,
+				EC603FFA21494B3B00666F22 /* ProfileViewModel.swift in Sources */,
 				EC9F9847214EA49000C39F96 /* UIView.swift in Sources */,
 				EC60400021494EEE00666F22 /* Color.swift in Sources */,
+				EC6DAAE9221DB953008D0A76 /* ReceiptCollectionViewCell.swift in Sources */,
 				EC603FFE21494B6400666F22 /* TicketsViewModel.swift in Sources */,
 				ECC9117C215E53E80085295A /* SettingsViewModel.swift in Sources */,
 				ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */,
 				ECC91184215E5AD00085295A /* ShopViewModel.swift in Sources */,
 				EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */,
+				EC6DAAE8221DB953008D0A76 /* TicketCollectionViewCell.swift in Sources */,
+				EC6DAAEB221DB953008D0A76 /* PurchaseCollectionViewCell.swift in Sources */,
 				ECC9117E215E59A30085295A /* HelpViewController.swift in Sources */,
 				EC603FF221494B0800666F22 /* LeaderboardViewModel.swift in Sources */,
 				EC603FE12149492000666F22 /* LoginViewModel.swift in Sources */,
 				EC6040062149521900666F22 /* RegisterViewModel.swift in Sources */,
 				EC60400221494EF700666F22 /* Font.swift in Sources */,
-				EC603FF821494B2E00666F22 /* ScheduleViewController.swift in Sources */,
+				EC6DAAF2221DC362008D0A76 /* UIColor.swift in Sources */,
+				EC603FF821494B2E00666F22 /* ProfileViewController.swift in Sources */,
 				ECC9117A215E53620085295A /* SettingsViewController.swift in Sources */,
+				EC6DAAED221DB953008D0A76 /* LeaderboardTableViewCell.swift in Sources */,
 				EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */,
 				ECC91172215E4C690085295A /* PurchasesViewModel.swift in Sources */,
+				EC6DAAEA221DB953008D0A76 /* StaticTableViewCell.swift in Sources */,
 				ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */,
+				EC6DAAF0221DB953008D0A76 /* TitleSubtitleView.swift in Sources */,
 				EC603FF621494B2300666F22 /* ReceiptsViewModel.swift in Sources */,
 				EC603FFC21494B5A00666F22 /* TicketsViewController.swift in Sources */,
 			);
@@ -1208,9 +1143,10 @@
 				ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */,
 				EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */,
 				EC6040682149561700666F22 /* Product.swift in Sources */,
+				EC6394FC21B1BBE2003D9641 /* MPOrder.swift in Sources */,
 				ECC91174215E4DA70085295A /* Purchase.swift in Sources */,
 				ECBE0D8E21679127001725D6 /* Token.swift in Sources */,
-				EC45A171216B549600E14A55 /* Leaderboard.swift in Sources */,
+				EC45A171216B549600E14A55 /* LeaderboardUser.swift in Sources */,
 				EC60406B2149561700666F22 /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1224,26 +1160,11 @@
 				ECBD74A72158D0BD0097C9A6 /* Receipt.swift in Sources */,
 				EC66020E215546A3004716F7 /* Ticket.swift in Sources */,
 				ECC91178215E4F1F0085295A /* Purchase.swift in Sources */,
+				EC6394FA21B1BB2D003D9641 /* MobilePay.swift in Sources */,
 				EC604072214956BF00666F22 /* Product.swift in Sources */,
 				EC9F983C214E4C5700C39F96 /* User.swift in Sources */,
 				EC45A173216B558A00E14A55 /* Leaderboard.swift in Sources */,
 				EC604077214956CE00666F22 /* ClipCardError.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC60402A2149557000666F22 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EC45A16F216B531800E14A55 /* LeaderboardTableViewCell.swift in Sources */,
-				ECC911962160EB3F0085295A /* UIView.swift in Sources */,
-				ECC9118A215FB91E0085295A /* ProductCollectionViewCell.swift in Sources */,
-				ECC9118C21602AFD0085295A /* InputView.swift in Sources */,
-				EC51B8DA215926B500DF5EB1 /* StaticTableViewCell.swift in Sources */,
-				ECC91176215E4DCE0085295A /* PurchaseCollectionViewCell.swift in Sources */,
-				EC9F982C214BBBBD00C39F96 /* PasswordInput.swift in Sources */,
-				ECBD74A521584C270097C9A6 /* ReceiptCollectionViewCell.swift in Sources */,
-				ECBD74A22157D8410097C9A6 /* TicketCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,11 +1211,6 @@
 			isa = PBXTargetDependency;
 			target = EC60401D2149556A00666F22 /* ClipCardAPI */;
 			targetProxy = EC6040232149556A00666F22 /* PBXContainerItemProxy */;
-		};
-		EC6040352149557000666F22 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC60402E2149557000666F22 /* Views */;
-			targetProxy = EC6040342149557000666F22 /* PBXContainerItemProxy */;
 		};
 		EC6040462149559200666F22 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1625,67 +1541,6 @@
 			};
 			name = Release;
 		};
-		EC6040392149557000666F22 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Y5U9T77F2K;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Views/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Views;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		EC60403A2149557000666F22 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Y5U9T77F2K;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Views/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.analogio.Views;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		EC60404A2149559200666F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1926,15 +1781,6 @@
 			buildConfigurations = (
 				EC6040282149556A00666F22 /* Debug */,
 				EC6040292149556A00666F22 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC6040382149557000666F22 /* Build configuration list for PBXNativeTarget "Views" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC6040392149557000666F22 /* Debug */,
-				EC60403A2149557000666F22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

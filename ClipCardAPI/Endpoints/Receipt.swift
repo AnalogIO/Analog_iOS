@@ -12,6 +12,6 @@ import Client
 
 public enum Receipt {
     public static func getAll() -> Request<[Ticket], ClipCardError> {
-        return Request(path: "tickets/used")
+        return Request(path: "tickets?used=true")
     }
 }

@@ -20,6 +20,10 @@ extension User {
     }
 
     public static func get() -> Request<User, ClipCardError> {
-        return Request(path: "account/user")
+        return Request(path: "account")
+    }
+
+    public static func update() -> Request<User, ClipCardError> {
+        return Request(path: "account")
     }
 }

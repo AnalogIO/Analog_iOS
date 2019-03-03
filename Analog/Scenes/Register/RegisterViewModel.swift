@@ -11,7 +11,6 @@ import Entities
 import ClipCardAPI
 
 protocol RegisterViewModelDelegate: class {
-    func didSetFetchProgrammesState(state: State<[Programme]>)
     func didSetRegisterState(state: State<Message>)
 }
 
@@ -19,43 +18,22 @@ class RegisterViewModel {
 
     public weak var delegate: RegisterViewModelDelegate?
 
-    var fetchProgrammesState: State<[Programme]> = .unknown {
-        didSet {
-            delegate?.didSetFetchProgrammesState(state: fetchProgrammesState)
-        }
-    }
-
     var registerState: State<Message> = .unknown {
         didSet {
             delegate?.didSetRegisterState(state: registerState)
         }
     }
 
-    func viewDidLoad() {
-        fetchProgrammes()
-    }
+    func viewDidLoad() {}
 
-    func fetchProgrammes() {
-        fetchProgrammesState = .loading
-        let api = ClipCardAPI()
-        Programme.getAll().response(using: api, method: .get) { response in
-            switch response {
-            case .success(let value):
-                self.fetchProgrammesState = .loaded(value)
-            case .error(let error):
-                self.fetchProgrammesState = .error(error)
-            }
-        }
-    }
-
-    func register(name: String, email: String, password: String, programme: Programme) {
+    func register(name: String, email: String, password: String) {
         registerState = .loading
         let api = ClipCardAPI()
         let parameters = [
             "name": name,
             "email": email,
             "password": password.sha256(),
-            "programmeId": "\(programme.id)",
+            "programmeId": "1",
         ]
         User.register().response(using: api, method: .post, parameters: parameters, headers: [:]) { response in
             switch response {

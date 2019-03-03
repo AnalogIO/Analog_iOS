@@ -8,7 +8,7 @@
 
 /* LOGIN SCENE */
 
-"login_button_forgot_pin" = "Forgot PIN?";
+"login_button_create_user" = "No user? No problem! Make one HERE";
 "login_email_placeholder" = "Enter email";
 
 /* REGISTER SCENE */

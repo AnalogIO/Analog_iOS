@@ -82,8 +82,9 @@ class LoginViewModel {
     }
 
     private func persistUserData(user: User) {
-        UserDefaults.standard.set(user.name, forKey: "name")
-        UserDefaults.standard.set(user.email, forKey: "email")
-        UserDefaults.standard.set(user.programme, forKey: "programme")
+        print(user)
+        UserDefaults.standard.set(user.name, forKey: UserFieldType.name.rawValue)
+        UserDefaults.standard.set(user.email, forKey: UserFieldType.email.rawValue)
+        UserDefaults.standard.set(user.programmeId, forKey: UserFieldType.programme.rawValue)
     }
 }

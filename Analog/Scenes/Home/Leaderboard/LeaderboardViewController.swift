@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Views
 import Entities
 
 class LeaderboardViewController: UIViewController {
@@ -29,6 +28,7 @@ class LeaderboardViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         tableView.delegate = self
         tableView.dataSource = self
+        viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -49,7 +49,15 @@ class LeaderboardViewController: UIViewController {
         viewModel.viewWillAppear()
     }
 
-    private func defineLayout() {}
+    private func defineLayout() {
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
 
     private func setupTargets() {}
 }

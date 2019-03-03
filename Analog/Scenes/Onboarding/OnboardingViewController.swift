@@ -128,8 +128,8 @@ private enum Views {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 12
-        button.backgroundColor = Color.buttonBackground
-        button.setTitleColor(Color.buttonText, for: .normal)
+        button.backgroundColor = Color.espresso
+        button.setTitleColor(Color.milk, for: .normal)
         button.titleLabel?.font = Font.boldFont(size: 17)
         button.setTitle(NSLocalizedString("onboarding_register_button", comment: ""), for: .normal)
         return button
@@ -139,8 +139,8 @@ private enum Views {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 12
-        button.backgroundColor = Color.buttonBackground
-        button.setTitleColor(Color.buttonText, for: .normal)
+        button.backgroundColor = Color.espresso
+        button.setTitleColor(Color.milk, for: .normal)
         button.titleLabel?.font = Font.boldFont(size: 17)
         button.setTitle(NSLocalizedString("onboarding_login_button", comment: ""), for: .normal)
         return button

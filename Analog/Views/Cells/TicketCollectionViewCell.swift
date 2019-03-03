@@ -11,7 +11,7 @@ import UIKit
 public class TicketCollectionViewCell: UICollectionViewCell {
     public static let reuseIdentifier: String = "TicketCell"
 
-    private let label = Views.label()
+    private let label = Views.title()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,7 +40,7 @@ public class TicketCollectionViewCell: UICollectionViewCell {
 }
 
 private enum Views {
-    static func label() -> UILabel {
+    static func title() -> UILabel {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 30)

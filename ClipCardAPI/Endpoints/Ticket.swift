@@ -13,6 +13,6 @@ import Client
 
 extension Ticket {
     public static func getAll() -> Request<[Ticket], ClipCardError> {
-        return Request(path: "tickets/unused")
+        return Request(path: "tickets?used=false")
     }
 }
