@@ -169,7 +169,7 @@ private enum Views {
 
     static func createUserButton() -> UIButton {
         let button = UIButton(type: .system)
-        button.setTitle(NSLocalizedString("login_button_create_user", comment: ""), for: .normal)
+        button.setTitle(.localized(.loginButtonCreateUser), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(Color.espresso, for: .normal)
         button.titleLabel?.font = Font.font(size: 18)
@@ -187,7 +187,7 @@ private enum Views {
         textField.textColor = Color.espresso
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = UserDefaults.standard.string(forKey: "email") ?? ""
-        textField.placeholder = NSLocalizedString("login_email_placeholder", comment: "")
+        textField.placeholder = .localized(.loginEmailPlaceholder)
         return textField
     }
 }

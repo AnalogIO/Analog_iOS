@@ -110,7 +110,8 @@ private enum Views {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Font.boldFont(size: 28)
         label.textAlignment = .center
-        label.text = NSLocalizedString("onboarding_title", comment: "")
+        #warning("localization needed")
+        label.text = "Welcome"
         return label
     }
 
@@ -120,7 +121,8 @@ private enum Views {
         label.font = Font.font(size: 17)
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.text = NSLocalizedString("onboarding_description", comment: "")
+        #warning("localization needed")
+        label.text = "This is the café analog app"
         return label
     }
 
@@ -131,7 +133,8 @@ private enum Views {
         button.backgroundColor = Color.espresso
         button.setTitleColor(Color.milk, for: .normal)
         button.titleLabel?.font = Font.boldFont(size: 17)
-        button.setTitle(NSLocalizedString("onboarding_register_button", comment: ""), for: .normal)
+        #warning("localization needed")
+        button.setTitle("Sign up", for: .normal)
         return button
     }
 
@@ -142,7 +145,8 @@ private enum Views {
         button.backgroundColor = Color.espresso
         button.setTitleColor(Color.milk, for: .normal)
         button.titleLabel?.font = Font.boldFont(size: 17)
-        button.setTitle(NSLocalizedString("onboarding_login_button", comment: ""), for: .normal)
+        #warning("localization needed")
+        button.setTitle("Login", for: .normal)
         return button
     }
 }

@@ -57,8 +57,11 @@ private enum Views {
     static func inputView() -> InputView {
         let view = InputView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        #warning("localization needed")
         view.titleLabel.text = "Redeem Voucher"
-        view.descriptionLabel.text = NSLocalizedString("voucher_description", comment: "")
+        #warning("localization needed")
+        view.descriptionLabel.text = "Voucher description"
+        #warning("localization needed")
         view.textField.placeholder = "Enter code"
         return view
     }

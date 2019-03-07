@@ -151,11 +151,11 @@ class InputViewController: UIViewController {
     private func updateView() {
         switch type {
         case .email:
-            titleLabel.text = NSLocalizedString("register_enter_email", comment: "")
+            titleLabel.text = .localized(.createUserEmailTitle)
         case .name:
-            titleLabel.text = NSLocalizedString("register_enter_name", comment: "")
+            titleLabel.text = .localized(.createUserNameTitle)
         case .password:
-            titleLabel.text = NSLocalizedString("register_enter_password", comment: "")
+            titleLabel.text = .localized(.createUserPinTitle)
         }
     }
 
@@ -172,7 +172,7 @@ class InputViewController: UIViewController {
 extension InputViewController: PasswordInputDelegate {
     func didFinish(_ code: String) {
         guard let password = password else {
-            titleLabel.text = NSLocalizedString("register_confirm_password", comment: "")
+            titleLabel.text = .localized(.createUserPinConfirmTitle)
             passwordInput.reset()
             self.password = code
             return
@@ -215,7 +215,7 @@ private enum Views {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 10
         button.backgroundColor = Color.yellow
-        button.setTitle(NSLocalizedString("register_continue", comment: ""), for: .normal)
+        button.setTitle(.localized(.createUserContinueButton), for: .normal)
         button.setTitleColor(Color.milk, for: .normal)
         button.titleLabel?.font = Font.boldFont(size: 18)
         button.addShadow()
@@ -225,7 +225,7 @@ private enum Views {
     static func loginButton() -> UIButton {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle(NSLocalizedString("register_got_account", comment: ""), for: .normal)
+        button.setTitle(.localized(.createUserAlreadyGotAccount), for: .normal)
         button.setTitleColor(Color.cortado, for: .normal)
         button.titleLabel?.font = Font.font(size: 16)
         return button

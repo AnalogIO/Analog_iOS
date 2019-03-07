@@ -1,6 +1,6 @@
 //
 //  TicketCollectionViewCell.swift
-//  Views
+//  Analog
 //
 //  Created by Frederik Christensen on 26/05/2018.
 //  Copyright © 2018 Frederik Christensen. All rights reserved.

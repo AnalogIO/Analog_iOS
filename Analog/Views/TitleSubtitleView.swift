@@ -1,6 +1,6 @@
 //
 //  TitleSubtitleView.swift
-//  Views
+//  Analog
 //
 //  Created by Frederik Christensen on 20/02/2019.
 //  Copyright © 2019 analogio. All rights reserved.

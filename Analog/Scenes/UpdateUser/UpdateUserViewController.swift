@@ -58,8 +58,10 @@ class UpdateUserViewController: UIViewController {
     }
 
     private func updateView() {
+        #warning("localization needed")
         input.titleLabel.text = "Change \(type.rawValue)"
-        input.descriptionLabel.text = NSLocalizedString("update_\(type.rawValue)_description", comment: "")
+        #warning("localization needed")
+        input.descriptionLabel.text = "update description"
         input.textField.text = UserDefaults.standard.string(forKey: type.rawValue)
     }
 }

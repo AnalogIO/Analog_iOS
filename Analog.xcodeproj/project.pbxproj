@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */; };
 		EC1770DA222C434E004247F2 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1770D9222C434E004247F2 /* InputViewController.swift */; };
+		EC2A7EA422314F9C008AD03C /* GeneratedLocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */; };
+		EC2A7EA522314F9C008AD03C /* da-DK.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC2A7EA122314F9C008AD03C /* da-DK.lproj */; };
+		EC2A7EA622314F9C008AD03C /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC2A7EA222314F9C008AD03C /* en.lproj */; };
+		EC2A7EA722314F9C008AD03C /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A7EA322314F9C008AD03C /* Localizable.swift */; };
 		EC45A171216B549600E14A55 /* LeaderboardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A170216B549600E14A55 /* LeaderboardUser.swift */; };
 		EC45A173216B558A00E14A55 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A172216B558A00E14A55 /* Leaderboard.swift */; };
 		EC603FC52149357700666F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC603FC42149357700666F22 /* AppDelegate.swift */; };
@@ -83,7 +87,6 @@
 		EC9F982A214B8BC300C39F96 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9829214B8BC300C39F96 /* APIError.swift */; };
 		EC9F982E214BCA2700C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982D214BCA2700C39F96 /* Cafe.swift */; };
 		EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982F214BCB1500C39F96 /* Cafe.swift */; };
-		EC9F9834214E3A4E00C39F96 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC9F9833214E3A4E00C39F96 /* Localizable.strings */; };
 		EC9F9837214E3D2200C39F96 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9836214E3D2200C39F96 /* String.swift */; };
 		EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9839214E402B00C39F96 /* KeyChainService.swift */; };
 		EC9F983C214E4C5700C39F96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983B214E4C5700C39F96 /* User.swift */; };
@@ -184,6 +187,10 @@
 /* Begin PBXFileReference section */
 		EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewModel.swift; sourceTree = "<group>"; };
 		EC1770D9222C434E004247F2 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedLocalizedStrings.swift; sourceTree = "<group>"; };
+		EC2A7EA122314F9C008AD03C /* da-DK.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "da-DK.lproj"; sourceTree = "<group>"; };
+		EC2A7EA222314F9C008AD03C /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
+		EC2A7EA322314F9C008AD03C /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		EC45A170216B549600E14A55 /* LeaderboardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardUser.swift; sourceTree = "<group>"; };
 		EC45A172216B558A00E14A55 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
@@ -250,7 +257,6 @@
 		EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInput.swift; sourceTree = "<group>"; };
 		EC9F982D214BCA2700C39F96 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		EC9F982F214BCB1500C39F96 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
-		EC9F9833214E3A4E00C39F96 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EC9F9836214E3D2200C39F96 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		EC9F9838214E3D9800C39F96 /* Analog-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Analog-Bridging-Header.h"; sourceTree = "<group>"; };
 		EC9F9839214E402B00C39F96 /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
@@ -364,11 +370,21 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
+		EC2A7E9F22314A09008AD03C /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				EC2A7EA122314F9C008AD03C /* da-DK.lproj */,
+				EC2A7EA222314F9C008AD03C /* en.lproj */,
+				EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */,
+				EC2A7EA322314F9C008AD03C /* Localizable.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		EC51B8DB215927BB00DF5EB1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				EC603FCB2149357800666F22 /* Assets.xcassets */,
-				EC9F9833214E3A4E00C39F96 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -404,6 +420,7 @@
 		EC603FC32149357700666F22 /* Analog */ = {
 			isa = PBXGroup;
 			children = (
+				EC2A7E9F22314A09008AD03C /* Localization */,
 				EC6DAAE7221DB90F008D0A76 /* Views */,
 				EC51B8DB215927BB00DF5EB1 /* Resources */,
 				EC603FDC2149381400666F22 /* Scenes */,
@@ -1021,8 +1038,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2A7EA622314F9C008AD03C /* en.lproj in Resources */,
 				EC603FD8214935EC00666F22 /* Cartfile in Resources */,
-				EC9F9834214E3A4E00C39F96 /* Localizable.strings in Resources */,
+				EC2A7EA522314F9C008AD03C /* da-DK.lproj in Resources */,
 				ECC91169215E4B4F0085295A /* README.md in Resources */,
 				EC603FCF2149357800666F22 /* LaunchScreen.storyboard in Resources */,
 				EC603FCC2149357800666F22 /* Assets.xcassets in Resources */,
@@ -1112,6 +1130,7 @@
 				ECC91182215E5AC70085295A /* ShopViewController.swift in Sources */,
 				EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */,
 				EC603FFA21494B3B00666F22 /* ProfileViewModel.swift in Sources */,
+				EC2A7EA722314F9C008AD03C /* Localizable.swift in Sources */,
 				EC9F9847214EA49000C39F96 /* UIView.swift in Sources */,
 				EC60400021494EEE00666F22 /* Color.swift in Sources */,
 				EC6DAAE9221DB953008D0A76 /* ReceiptCollectionViewCell.swift in Sources */,
@@ -1136,6 +1155,7 @@
 				ECC91172215E4C690085295A /* PurchasesViewModel.swift in Sources */,
 				EC6DAAEA221DB953008D0A76 /* StaticTableViewCell.swift in Sources */,
 				ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */,
+				EC2A7EA422314F9C008AD03C /* GeneratedLocalizedStrings.swift in Sources */,
 				EC6DAAF0221DB953008D0A76 /* TitleSubtitleView.swift in Sources */,
 				EC603FF621494B2300666F22 /* ReceiptsViewModel.swift in Sources */,
 				EC603FFC21494B5A00666F22 /* TicketsViewController.swift in Sources */,
