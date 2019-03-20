@@ -11,14 +11,14 @@ import Entities
 import ClipCardAPI
 
 protocol RegisterViewModelDelegate: class {
-    func didSetRegisterState(state: State<Message>)
+    func didSetRegisterState(state: State<ValueMessage>)
 }
 
 class RegisterViewModel {
 
     public weak var delegate: RegisterViewModelDelegate?
 
-    var registerState: State<Message> = .unknown {
+    var registerState: State<ValueMessage> = .unknown {
         didSet {
             delegate?.didSetRegisterState(state: registerState)
         }

@@ -15,7 +15,7 @@ extension User {
         return Request(path: "account/login")
     }
 
-    public static func register() -> Request<Message, ClipCardError> {
+    public static func register() -> Request<ValueMessage, ClipCardError> {
         return Request(path: "account/register")
     }
 

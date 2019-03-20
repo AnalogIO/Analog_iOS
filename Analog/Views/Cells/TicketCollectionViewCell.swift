@@ -11,12 +11,13 @@ import UIKit
 public class TicketCollectionViewCell: UICollectionViewCell {
     public static let reuseIdentifier: String = "TicketCell"
 
-    private let label = Views.title()
+    private let title = Views.title()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
         configureViews()
         self.layer.cornerRadius = 10
+        self.addShadow()
         self.backgroundColor = .white
     }
     
@@ -25,28 +26,28 @@ public class TicketCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureViews() {
-        addSubview(label)
+        addSubview(title)
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            title.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            title.centerXAnchor.constraint(equalTo: centerXAnchor),
+            title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])
     }
     
     public func configure(config: TicketCellConfig) {
-        label.text = config.name
+        title.text = config.name
     }
 }
 
 private enum Views {
     static func title() -> UILabel {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.minimumScaleFactor = 0.1
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+        let title = UILabel()
+        title.textAlignment = .center
+        title.font = Font.font(size: 24)
+        title.minimumScaleFactor = 0.1
+        title.translatesAutoresizingMaskIntoConstraints = false
+        return title
     }
 }
 

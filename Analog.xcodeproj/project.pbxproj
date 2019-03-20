@@ -84,6 +84,7 @@
 		EC6DAAEF221DB953008D0A76 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9118B21602AFD0085295A /* InputView.swift */; };
 		EC6DAAF0221DB953008D0A76 /* TitleSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */; };
 		EC6DAAF2221DC362008D0A76 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DAAF1221DC362008D0A76 /* UIColor.swift */; };
+		EC77532022429E9300B7F83C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77531F22429E9300B7F83C /* Message.swift */; };
 		EC9F982A214B8BC300C39F96 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9829214B8BC300C39F96 /* APIError.swift */; };
 		EC9F982E214BCA2700C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982D214BCA2700C39F96 /* Cafe.swift */; };
 		EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982F214BCB1500C39F96 /* Cafe.swift */; };
@@ -93,7 +94,7 @@
 		EC9F983E214E4D1D00C39F96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983D214E4D1D00C39F96 /* User.swift */; };
 		EC9F9840214E680E00C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F983F214E680E00C39F96 /* Programme.swift */; };
 		EC9F9842214E684400C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9841214E684400C39F96 /* Programme.swift */; };
-		EC9F9844214E7CA900C39F96 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9843214E7CA900C39F96 /* Message.swift */; };
+		EC9F9844214E7CA900C39F96 /* ValueMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9843214E7CA900C39F96 /* ValueMessage.swift */; };
 		EC9F9847214EA49000C39F96 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9846214EA49000C39F96 /* UIView.swift */; };
 		EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */; };
 		EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */; };
@@ -253,6 +254,7 @@
 		EC660216215550E9004716F7 /* ActivityIndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndication.swift; sourceTree = "<group>"; };
 		EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleView.swift; sourceTree = "<group>"; };
 		EC6DAAF1221DC362008D0A76 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		EC77531F22429E9300B7F83C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EC9F9829214B8BC300C39F96 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInput.swift; sourceTree = "<group>"; };
 		EC9F982D214BCA2700C39F96 /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
@@ -264,7 +266,7 @@
 		EC9F983D214E4D1D00C39F96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EC9F983F214E680E00C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 		EC9F9841214E684400C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
-		EC9F9843214E7CA900C39F96 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EC9F9843214E7CA900C39F96 /* ValueMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueMessage.swift; sourceTree = "<group>"; };
 		EC9F9846214EA49000C39F96 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
@@ -601,12 +603,13 @@
 				EC9F982F214BCB1500C39F96 /* Cafe.swift */,
 				EC9F983D214E4D1D00C39F96 /* User.swift */,
 				EC9F983F214E680E00C39F96 /* Programme.swift */,
-				EC9F9843214E7CA900C39F96 /* Message.swift */,
+				EC9F9843214E7CA900C39F96 /* ValueMessage.swift */,
 				ECC5CA58214FAD940082E2E9 /* Ticket.swift */,
 				ECC91173215E4DA70085295A /* Purchase.swift */,
 				ECBE0D8D21679127001725D6 /* Token.swift */,
 				EC45A170216B549600E14A55 /* LeaderboardUser.swift */,
 				EC6394FB21B1BBE2003D9641 /* MPOrder.swift */,
+				EC77531F22429E9300B7F83C /* Message.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1171,13 +1174,14 @@
 				EC9F983E214E4D1D00C39F96 /* User.swift in Sources */,
 				EC6040692149561700666F22 /* Employees.swift in Sources */,
 				EC60406C2149561700666F22 /* Shift.swift in Sources */,
-				EC9F9844214E7CA900C39F96 /* Message.swift in Sources */,
+				EC9F9844214E7CA900C39F96 /* ValueMessage.swift in Sources */,
 				ECC5CA59214FAD940082E2E9 /* Ticket.swift in Sources */,
 				EC9F9830214BCB1500C39F96 /* Cafe.swift in Sources */,
 				EC6040682149561700666F22 /* Product.swift in Sources */,
 				EC6394FC21B1BBE2003D9641 /* MPOrder.swift in Sources */,
 				ECC91174215E4DA70085295A /* Purchase.swift in Sources */,
 				ECBE0D8E21679127001725D6 /* Token.swift in Sources */,
+				EC77532022429E9300B7F83C /* Message.swift in Sources */,
 				EC45A171216B549600E14A55 /* LeaderboardUser.swift in Sources */,
 				EC60406B2149561700666F22 /* State.swift in Sources */,
 			);

@@ -89,7 +89,7 @@ extension RegisterViewController: InputViewControllerDelegate {
 }
 
 extension RegisterViewController: RegisterViewModelDelegate {
-    func didSetRegisterState(state: State<Message>) {
+    func didSetRegisterState(state: State<ValueMessage>) {
         switch state {
         case .loading:
             print("Loading...")

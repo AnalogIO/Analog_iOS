@@ -23,5 +23,11 @@ import Foundation
   public static var loginButtonCreateUser: Localizable { get { return Localizable(String(format: NSLocalizedString("login_button_create_user", comment: ""), locale: Locale.current)) } } 
   /// Indtast email
   public static var loginEmailPlaceholder: Localizable { get { return Localizable(String(format: NSLocalizedString("login_email_placeholder", comment: ""), locale: Locale.current)) } } 
+  /// Bekræft PIN
+  public static var updateUserPinConfirmTitle: Localizable { get { return Localizable(String(format: NSLocalizedString("update_user_pin_confirm_title", comment: ""), locale: Locale.current)) } } 
+  /// Indtast PIN
+  public static var updateUserPinTitle: Localizable { get { return Localizable(String(format: NSLocalizedString("update_user_pin_title", comment: ""), locale: Locale.current)) } } 
+  /// Gem
+  public static var updateUserSaveButton: Localizable { get { return Localizable(String(format: NSLocalizedString("update_user_save_button", comment: ""), locale: Locale.current)) } } 
 }
 // swiftlint:enable identifier_name line_length type_body_length

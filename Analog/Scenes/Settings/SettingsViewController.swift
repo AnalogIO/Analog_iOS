@@ -15,14 +15,12 @@ class SettingsViewController: UIViewController {
 
     lazy var sections: [StaticSection] = [
         StaticSection(cellConfigs: [
-            StaticTableViewCellConfig(title: "Name", detail: UserDefaults.standard.string(forKey: UserFieldType.name.rawValue), click: didTapChangeName),
-            StaticTableViewCellConfig(title: "Email", detail: UserDefaults.standard.string(forKey: UserFieldType.email.rawValue), click: didTapChangeEmail),
-            StaticTableViewCellConfig(title: "Programme", detail: UserDefaults.standard.string(forKey: UserFieldType.programme.rawValue), click: didTapChangeProgramme),
+            StaticTableViewCellConfig(title: "Name", detail: UserDefaults.standard.string(forKey: UpdateType.name.rawValue), click: didTapChangeName),
+            StaticTableViewCellConfig(title: "Email", detail: UserDefaults.standard.string(forKey: UpdateType.email.rawValue), click: didTapChangeEmail),
             StaticTableViewCellConfig(title: "Change PIN", detail: "‌\u{2022}‌\u{2022}‌\u{2022}‌\u{2022}", click: didTapChangePin),
         ]),
         StaticSection(cellConfigs: [
             StaticTableViewCellConfig(title: "Face-ID", type: .switch, switchAction: didTapFaceId),
-            StaticTableViewCellConfig(title: "Swipe confirmation", type: .switch, switchAction: didTapSwipeConfirmation),
         ]),
         StaticSection(cellConfigs: [
             StaticTableViewCellConfig(title: "Privacy", click: didTapPrivacy),
@@ -84,15 +82,15 @@ class SettingsViewController: UIViewController {
     private func didTapChangeName() { navigateToUpdateUser(type: .name) }
     private func didTapChangeEmail() { navigateToUpdateUser(type: .email) }
     private func didTapChangePin() { navigateToUpdateUser(type: .pin) }
-    private func didTapChangeProgramme() { navigateToUpdateUser(type: .programme) }
 
     private func didTapPrivacy() {
         let vc = PrivacyViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    private func navigateToUpdateUser(type: UserFieldType) {
-        let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(), type: type)
+    private func navigateToUpdateUser(type: UpdateType) {
+        //let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(), type: type)
+        let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(),type: type)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

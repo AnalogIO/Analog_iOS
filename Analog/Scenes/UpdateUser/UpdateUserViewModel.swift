@@ -26,7 +26,7 @@ class UpdateUserViewModel {
 
     public func viewDidLoad() {}
 
-    public func updateUser(type: UserFieldType, value: String) {
+    public func updateUser(type: UpdateType, value: String) {
         updateUserState = .loading
         let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
         let parameters = [
@@ -44,8 +44,7 @@ class UpdateUserViewModel {
     }
 
     private func persistUserData(user: User) {
-        UserDefaults.standard.set(user.name, forKey: UserFieldType.name.rawValue)
-        UserDefaults.standard.set(user.email, forKey: UserFieldType.email.rawValue)
-        UserDefaults.standard.set(user.programmeId, forKey: UserFieldType.programme.rawValue)
+        UserDefaults.standard.set(user.name, forKey: UpdateType.name.rawValue)
+        UserDefaults.standard.set(user.email, forKey: UpdateType.email.rawValue)
     }
 }

@@ -17,7 +17,6 @@ class MoreViewController: UIViewController {
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_purchases"), title: "Purchases", click: navigateToPurchases),
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_settings"), title: "Settings", click: navigateToSettings),
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_help"), title: "Help (FAQ)", click: navigateToHelp),
-            StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_shop"), title: "Shop", click: navigateToShop),
             StaticTableViewCellConfig(icon: UIImage(imageLiteralResourceName: "more_voucher"), title: "Redeem Voucher", click: navigateToVoucher)
         ]),
         StaticSection(cellConfigs: [
