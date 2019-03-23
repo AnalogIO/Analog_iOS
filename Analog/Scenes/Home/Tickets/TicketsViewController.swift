@@ -12,6 +12,8 @@ import Entities
 
 class TicketsViewController: UIViewController {
 
+    let collectionViewSideMargin: CGFloat = 50
+
     let collectionView = Views.collectionView()
     let viewModel: TicketsViewModel
     var ticketConfigs: [TicketCellConfig] = [] {
@@ -36,7 +38,8 @@ class TicketsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.background
+        setupNavbarLogo()
+        view.backgroundColor = Color.grey
 
         defineLayout()
         setupTargets()
@@ -61,6 +64,21 @@ class TicketsViewController: UIViewController {
 }
 
 extension TicketsViewController: TicketsViewModelDelegate {
+    func didSetFetchOrderIdState(state: State<MPOrder>) {
+        switch state {
+        case .loaded(let order):
+            indicator.stop()
+            print(order.orderId)
+        case .loading:
+            indicator.start()
+        case .error(let error):
+            indicator.stop()
+            displayMessage(title: "Missing application", message: error.localizedDescription, actions: [.Ok])
+        default:
+            break
+        }
+    }
+    
     func didSetFetchTicketsState(state: State<[TicketCellConfig]>) {
         switch state {
         case .loaded(let configs):
@@ -100,20 +118,22 @@ extension TicketsViewController: UICollectionViewDataSource {
 
 extension TicketsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 20, left: collectionViewSideMargin, bottom: 20, right: collectionViewSideMargin)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width-16*2, height: collectionView.bounds.height*0.3)
+        let width = collectionView.bounds.width-(collectionViewSideMargin*2)
+        return CGSize(width: width, height: width*0.52)
     }
 }
 
 private enum Views {
     static func collectionView() -> UICollectionView {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 30
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = Color.background
+        collectionView.backgroundColor = .clear
         collectionView.register(TicketCollectionViewCell.self, forCellWithReuseIdentifier: TicketCollectionViewCell.reuseIdentifier)
         return collectionView
     }

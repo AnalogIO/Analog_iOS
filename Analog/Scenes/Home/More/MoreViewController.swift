@@ -37,8 +37,8 @@ class MoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "More"
         view.backgroundColor = Color.background
+        setupNavbarLogo()
 
         defineLayout()
         setupTargets()

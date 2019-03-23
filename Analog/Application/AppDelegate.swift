@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setupNavigationBar() {
         UINavigationBar.appearance().barTintColor = Color.espresso
+        UINavigationBar.appearance().tintColor = Color.milk
         UINavigationBar.appearance().isTranslucent = false
     }
 

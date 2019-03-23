@@ -64,7 +64,7 @@ class UpdateUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.backgroundGray
+        view.backgroundColor = Color.grey
         passwordInput.delegate = self
 
         defineLayout()
@@ -235,14 +235,6 @@ private enum Views {
         label.textAlignment = .center
         label.textColor = Color.espresso
         return label
-    }
-}
-
-
-
-extension UpdateUserViewController: InputViewDelegate {
-    func didPressButton(value: String) {
-        viewModel.updateUser(type: type, value: value)
     }
 }
 

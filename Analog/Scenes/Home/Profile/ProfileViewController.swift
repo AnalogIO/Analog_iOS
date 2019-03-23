@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Profile"
+        setupNavbarLogo()
         view.backgroundColor = Color.background
     }
 }

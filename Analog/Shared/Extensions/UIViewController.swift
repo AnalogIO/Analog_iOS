@@ -32,4 +32,10 @@ extension UIViewController {
         }
         present(alert, animated: true, completion: completion)
     }
+
+    func setupNavbarLogo() {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "analog_logo_navbar"))
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
+    }
 }

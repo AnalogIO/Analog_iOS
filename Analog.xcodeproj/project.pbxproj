@@ -81,9 +81,9 @@
 		EC6DAAEC221DB953008D0A76 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */; };
 		EC6DAAED221DB953008D0A76 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A16E216B531800E14A55 /* LeaderboardTableViewCell.swift */; };
 		EC6DAAEE221DB953008D0A76 /* PasswordInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */; };
-		EC6DAAEF221DB953008D0A76 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC9118B21602AFD0085295A /* InputView.swift */; };
 		EC6DAAF0221DB953008D0A76 /* TitleSubtitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */; };
 		EC6DAAF2221DC362008D0A76 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DAAF1221DC362008D0A76 /* UIColor.swift */; };
+		EC7259AB2246544F00C670E7 /* TicketButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7259AA2246544F00C670E7 /* TicketButtonView.swift */; };
 		EC77532022429E9300B7F83C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77531F22429E9300B7F83C /* Message.swift */; };
 		EC9F982A214B8BC300C39F96 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9829214B8BC300C39F96 /* APIError.swift */; };
 		EC9F982E214BCA2700C39F96 /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F982D214BCA2700C39F96 /* Cafe.swift */; };
@@ -254,6 +254,7 @@
 		EC660216215550E9004716F7 /* ActivityIndication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndication.swift; sourceTree = "<group>"; };
 		EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleView.swift; sourceTree = "<group>"; };
 		EC6DAAF1221DC362008D0A76 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		EC7259AA2246544F00C670E7 /* TicketButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketButtonView.swift; sourceTree = "<group>"; };
 		EC77531F22429E9300B7F83C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EC9F9829214B8BC300C39F96 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordInput.swift; sourceTree = "<group>"; };
@@ -299,7 +300,6 @@
 		ECC91185215E5ADB0085295A /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
 		ECC91187215E5AE50085295A /* VoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewModel.swift; sourceTree = "<group>"; };
 		ECC91189215FB91E0085295A /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		ECC9118B21602AFD0085295A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		ECC911912160309C0085295A /* UpdateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
 		ECEC48782162397B00CE18D2 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -702,9 +702,9 @@
 		EC6DAAE7221DB90F008D0A76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC7259AA2246544F00C670E7 /* TicketButtonView.swift */,
 				EC66020F215548C8004716F7 /* Cells */,
 				EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */,
-				ECC9118B21602AFD0085295A /* InputView.swift */,
 				EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */,
 			);
 			path = Views;
@@ -1114,7 +1114,6 @@
 				EC9F9837214E3D2200C39F96 /* String.swift in Sources */,
 				EC603FEC21494AE200666F22 /* MoreViewController.swift in Sources */,
 				ECC91180215E5A7B0085295A /* HelpViewModel.swift in Sources */,
-				EC6DAAEF221DB953008D0A76 /* InputView.swift in Sources */,
 				EC603FF421494B1A00666F22 /* ReceiptsViewController.swift in Sources */,
 				ECEC48792162397B00CE18D2 /* PrivacyViewController.swift in Sources */,
 				ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */,
@@ -1133,6 +1132,7 @@
 				ECC91182215E5AC70085295A /* ShopViewController.swift in Sources */,
 				EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */,
 				EC603FFA21494B3B00666F22 /* ProfileViewModel.swift in Sources */,
+				EC7259AB2246544F00C670E7 /* TicketButtonView.swift in Sources */,
 				EC2A7EA722314F9C008AD03C /* Localizable.swift in Sources */,
 				EC9F9847214EA49000C39F96 /* UIView.swift in Sources */,
 				EC60400021494EEE00666F22 /* Color.swift in Sources */,

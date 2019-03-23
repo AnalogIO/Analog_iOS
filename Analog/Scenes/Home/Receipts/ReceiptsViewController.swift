@@ -36,7 +36,7 @@ class ReceiptsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Receipts"
+        setupNavbarLogo()
         view.backgroundColor = Color.background
 
         defineLayout()

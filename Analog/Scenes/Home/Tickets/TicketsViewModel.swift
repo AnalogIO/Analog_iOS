@@ -8,11 +8,13 @@
 
 import Foundation
 import ClipCardAPI
+import MobilePayAPI
 import Entities
 import Client
 
 protocol TicketsViewModelDelegate: class {
     func didSetFetchTicketsState(state: State<[TicketCellConfig]>)
+    func didSetFetchOrderIdState(state: State<MPOrder>)
 }
 
 class TicketsViewModel {
@@ -25,6 +27,12 @@ class TicketsViewModel {
         }
     }
 
+    private var fetchOrderIdState: State<MPOrder> = .unknown {
+        didSet {
+            delegate?.didSetFetchOrderIdState(state: fetchOrderIdState)
+        }
+    }
+
     public func viewWillAppear() {
         fetchTickets()
     }
@@ -32,6 +40,29 @@ class TicketsViewModel {
     public func didSelectItem(at index: Int) {
         let ticket = tickets[index]
         print(ticket)
+    }
+
+    private func initiatePurchase(product: Product) {
+        fetchOrderId(productId: product.id, completion: { response in
+            switch response {
+            case .success(let order):
+                let payment: MobilePayPayment = MobilePayPayment(orderId: "\(order.orderId)", productPrice: Float(product.price))
+                MobilePayManager.sharedInstance().beginMobilePayment(with: payment, error: {
+                    self.fetchOrderIdState = .error($0)
+                    return
+                })
+                self.fetchOrderIdState = .loaded(order)
+            case .error(let error):
+                self.fetchOrderIdState = .error(error)
+            }
+        })
+    }
+
+    private func fetchOrderId(productId: Int, completion: @escaping ((Response<MPOrder, ClipCardError>) -> Void)) {
+        fetchOrderIdState = .loading
+        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
+        let parameters = ["productId": productId]
+        MobilePay.initiatePurchase().response(using: api, method: .post, parameters: parameters, response: completion)
     }
 
     private func fetchTickets() {

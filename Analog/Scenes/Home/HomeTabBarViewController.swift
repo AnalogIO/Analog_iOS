@@ -28,10 +28,11 @@ class HomeTabBarViewController: UITabBarController {
 
     func configureNavigationBar() {
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.navigationItem.title = self.tabBarConfigs.first?.title ?? ""
     }
 
     func configureTabBar() {
+        tabBar.tintColor = Color.espresso
+        tabBar.barTintColor = Color.milk
         let controllers: [UIViewController] = [
             UINavigationController(rootViewController: TicketsViewController(viewModel: TicketsViewModel())),
             UINavigationController(rootViewController: ProfileViewController()),

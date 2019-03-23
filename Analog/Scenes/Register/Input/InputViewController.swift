@@ -60,7 +60,7 @@ class InputViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.backgroundGray
+        view.backgroundColor = Color.grey
         passwordInput.delegate = self
 
         defineLayout()

@@ -37,7 +37,7 @@ class LeaderboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Leaderboard"
+        setupNavbarLogo()
         view.backgroundColor = Color.background
 
         defineLayout()
