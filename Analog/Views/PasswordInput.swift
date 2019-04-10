@@ -55,6 +55,8 @@ public class PasswordInput: UIView {
         addSubview(stackView)
         for _ in 1...self.numberOfInputFields {
             let inputField = Views.textField()
+            inputField.translatesAutoresizingMaskIntoConstraints = false
+            inputField.heightAnchor.constraint(equalTo: inputField.widthAnchor, multiplier: 1.4).isActive = true
             stackView.addArrangedSubview(inputField)
             inputFields.append(inputField)
         }
@@ -123,7 +125,7 @@ extension PasswordInput: UIKeyInput {
 private enum Views {
     static func stackView() -> UIStackView {
         let stackView = UIStackView()
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         stackView.spacing = 20

@@ -22,11 +22,11 @@ public extension String {
         return { return NSString(format: $0, locale: $2, arguments: $1) as String }
     }
     
-    public static func localized(_ key: Localizable) -> String {
+    static func localized(_ key: Localizable) -> String {
         return key.contents
     }
     
-    public static func localizedFormat(_ key: Localizable, _ arguments: CVarArg...) -> String {
+    static func localizedFormat(_ key: Localizable, _ arguments: CVarArg...) -> String {
         return withVaList(arguments) { vaListHandler(key.contents, $0, nil) } as String
     }
 }
@@ -36,11 +36,11 @@ public extension NSString {
         return { return NSString(format: $0, locale: $2, arguments: $1) }
     }
     
-    @objc public static func localized(_ key: Localizable) -> NSString {
+    @objc static func localized(_ key: Localizable) -> NSString {
         return NSString(string: key.contents)
     }
     
-    public static func localizedFormat(_ key: Localizable, _ arguments: CVarArg...) -> NSString {
+    static func localizedFormat(_ key: Localizable, _ arguments: CVarArg...) -> NSString {
         return withVaList(arguments) { vaListHandler(key.contents, $0, nil) }
     }
 }

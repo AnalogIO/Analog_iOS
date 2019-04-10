@@ -37,7 +37,7 @@ class MoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.background
+        view.backgroundColor = UIColor.groupTableViewBackground
         setupNavbarLogo()
 
         defineLayout()
@@ -129,7 +129,7 @@ private enum Views {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(StaticTableViewCell.self, forCellReuseIdentifier: StaticTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
-        tableView.backgroundColor = Color.background
+        tableView.backgroundColor = .clear
         return tableView
     }
 }

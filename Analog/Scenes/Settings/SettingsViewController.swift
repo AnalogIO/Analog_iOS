@@ -46,7 +46,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Settings"
-        view.backgroundColor = Color.background
+        view.backgroundColor = UIColor.groupTableViewBackground
 
         defineLayout()
         setupTargets()
@@ -126,7 +126,7 @@ private enum Views {
     static func tableView() -> UITableView {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = Color.background
+        tableView.backgroundColor = .clear
         tableView.register(StaticTableViewCell.self, forCellReuseIdentifier: StaticTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
         return tableView
