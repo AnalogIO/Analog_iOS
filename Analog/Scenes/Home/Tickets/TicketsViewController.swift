@@ -20,7 +20,6 @@ class TicketsViewController: UIViewController {
     let viewModel: TicketsViewModel
     var coffeecardConfigs: [CoffeecardCellConfig] = [] {
         didSet {
-            coffeecardConfigs.sort { $0.ticketsLeft > $1.ticketsLeft }
             self.collectionView.reloadData()
         }
     }

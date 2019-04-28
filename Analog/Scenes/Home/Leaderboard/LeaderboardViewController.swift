@@ -15,7 +15,6 @@ class LeaderboardViewController: UIViewController {
 
     var cellConfigs: [LeaderboardCollectionViewCellConfig] = [] {
         didSet {
-            cellConfigs.sort { $0.score > $1.score }
             collectionView.reloadData()
         }
     }

@@ -16,6 +16,12 @@ protocol LeaderboardViewModelDelegate: class {
 }
 
 class LeaderboardViewModel {
+    var users: [LeaderboardUser] = [] {
+        didSet {
+            users.sort { $0.score > $1.score }
+        }
+    }
+
     weak var delegate: LeaderboardViewModelDelegate?
 
     private var fetchLeaderboardState: State<[LeaderboardCollectionViewCellConfig]> = .unknown {
@@ -33,7 +39,8 @@ class LeaderboardViewModel {
         Leaderboard.get(type: .all).response(using: api, method: .get) { response in
             switch response {
             case .success(let users):
-                let cellConfigs: [LeaderboardCollectionViewCellConfig] = users.map { LeaderboardCollectionViewCellConfig(name: $0.name, score: $0.score) }
+                self.users = users
+                let cellConfigs: [LeaderboardCollectionViewCellConfig] = self.users.map { LeaderboardCollectionViewCellConfig(name: $0.name, score: $0.score) }
                 self.fetchLeaderboardState = .loaded(cellConfigs)
             case .error(let error):
                 self.fetchLeaderboardState = .error(error)

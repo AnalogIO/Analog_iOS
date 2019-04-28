@@ -25,7 +25,11 @@ protocol TicketsViewModelDelegate: class {
 }
 
 class TicketsViewModel {
-    private var coffeecards: [Coffeecard] = []
+    private var coffeecards: [Coffeecard] = [] {
+        didSet {
+            coffeecards.sort { $0.ticketsLeft > $1.ticketsLeft }
+        }
+    }
     public weak var delegate: TicketsViewModelDelegate?
 
     private var fetchCoffeecardsState: State<[CoffeecardCellConfig]> = .unknown {
@@ -98,6 +102,7 @@ class TicketsViewModel {
         let parameters = ["productId": productId]
         Ticket.use().response(using: api, method: .post, parameters: parameters) { response in
             self.delegate?.resetSwipeButton()
+            self.selectedIndex = nil
             switch response {
             case .success(let ticket):
                 self.useTicketState = .loaded(ticket)
@@ -138,7 +143,7 @@ class TicketsViewModel {
             switch response {
             case .success(let coffeecards):
                 self.coffeecards = coffeecards
-                let configs = coffeecards.map { CoffeecardCellConfig(name: $0.name, ticketsLeft: $0.ticketsLeft, didPressShop: self.didPressShop, didPressSelect: self.didPressSelect) }
+                let configs = self.coffeecards.map { CoffeecardCellConfig(name: $0.name, ticketsLeft: $0.ticketsLeft, didPressShop: self.didPressShop, didPressSelect: self.didPressSelect) }
                 self.fetchCoffeecardsState = .loaded(configs)
             case .error(let error):
                 self.fetchCoffeecardsState = .error(error)
