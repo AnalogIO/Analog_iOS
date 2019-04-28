@@ -29,13 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func startSession() {
-        if UserDefaults.standard.string(forKey: "email") != nil {
+        /*if UserDefaults.standard.string(forKey: "email") != nil {
             //LOGIN SCENE
             window?.rootViewController = LoginViewController(viewModel: LoginViewModel())
         } else {
             //ONBOARDING SCENE
             window?.rootViewController = OnboardingViewController(viewModel: OnboardingViewModel())
-        }
+        }*/
+        window?.rootViewController = LoginViewController(viewModel: LoginViewModel())
     }
 
     func setupMobilePay() {
@@ -49,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupNavigationBar() {
         UINavigationBar.appearance().barTintColor = Color.espresso
         UINavigationBar.appearance().tintColor = Color.milk
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.milk]
         UINavigationBar.appearance().isTranslucent = false
     }
 
@@ -58,9 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobilePay.completePurchase().response(using: api, method: .post, parameters: parameters, headers: [:], response: { response in
             switch response {
             case .success:
-                print("MobilePay payment finished successfully!")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mobilepay_transaction_success"), object: nil)
             case .error(let error):
-                print(error.localizedDescription)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "mobilepay_transaction_error"), object: error)
             }
         })
     }

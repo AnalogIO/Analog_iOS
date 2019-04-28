@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Entities
 
 extension UIViewController {
 
@@ -33,9 +34,9 @@ extension UIViewController {
         present(alert, animated: true, completion: completion)
     }
 
-    func setupNavbarLogo() {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "analog_logo_navbar"))
-        imageView.contentMode = .scaleAspectFit
-        navigationItem.titleView = imageView
+    func present(receipt: Ticket) {
+        let popover = ReceiptPopover(receipt: receipt)
+        popover.modalPresentationStyle = .custom
+        present(popover, animated: true, completion: nil)
     }
 }

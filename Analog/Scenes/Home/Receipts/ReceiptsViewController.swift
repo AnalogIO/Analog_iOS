@@ -12,9 +12,16 @@ import Entities
 
 class ReceiptsViewController: UIViewController {
 
+    let segmentControl = Views.segmentedControl()
     let collectionView = Views.collectionView()
+
     let viewModel: ReceiptsViewModel
     var receiptConfigs: [ReceiptCellConfig] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
+    var purchaseConfigs: [PurchaseCellConfig] = [] {
         didSet {
             self.collectionView.reloadData()
         }
@@ -36,8 +43,8 @@ class ReceiptsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavbarLogo()
-        view.backgroundColor = Color.background
+        title = "Receipts"
+        view.backgroundColor = Color.grey
 
         defineLayout()
         setupTargets()
@@ -49,19 +56,56 @@ class ReceiptsViewController: UIViewController {
     }
 
     func defineLayout() {
+        view.addSubview(segmentControl)
+        NSLayoutConstraint.activate([
+            segmentControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            segmentControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            segmentControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+        ])
+
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 20),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
 
-    func setupTargets() {}
+    func setupTargets() {
+        segmentControl.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+    }
+
+    @objc func valueChanged(sender: UISegmentedControl) {
+        viewModel.didSelectSegment(index: sender.selectedSegmentIndex)
+    }
 }
 
 extension ReceiptsViewController: ReceiptsViewModelDelegate {
+
+    func setSelectedSegment(index: Int) {
+        segmentControl.selectedSegmentIndex = index
+    }
+
+    func showReceipt(receipt: Ticket) {
+        present(receipt: receipt)
+    }
+
+    func didSetFetchPurchasesState(state: State<[PurchaseCellConfig]>) {
+        switch state {
+        case .loaded(let configs):
+            indicator.stop()
+            self.purchaseConfigs = configs
+        case .loading:
+            indicator.start()
+        case .error(let error):
+            indicator.stop()
+            print(error.localizedDescription)
+        default:
+            break
+        }
+    }
+
     func didSetFetchReceiptsState(state: State<[ReceiptCellConfig]>) {
         switch state {
         case .loaded(let configs):
@@ -89,33 +133,49 @@ extension ReceiptsViewController: UICollectionViewDataSource {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return receiptConfigs.count
+        return segmentControl.selectedSegmentIndex == 0 ? receiptConfigs.count : purchaseConfigs.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReceiptCollectionViewCell.reuseIdentifier, for: indexPath) as! ReceiptCollectionViewCell
-        let config = receiptConfigs[indexPath.row]
-        cell.configure(config: config)
-        return cell
+        if segmentControl.selectedSegmentIndex == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReceiptCollectionViewCell.reuseIdentifier, for: indexPath) as! ReceiptCollectionViewCell
+            let config = receiptConfigs[indexPath.row]
+            cell.configure(config: config)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PurchaseCollectionViewCell.reuseIdentifier, for: indexPath) as! PurchaseCollectionViewCell
+            let config = purchaseConfigs[indexPath.row]
+            cell.configure(config: config)
+            return cell
+        }
     }
 }
 
 extension ReceiptsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width-16*2, height: collectionView.bounds.height*0.3)
+        return CGSize(width: collectionView.bounds.width-16*2, height: 60)
     }
 }
 
 private enum Views {
     static func collectionView() -> UICollectionView {
         let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumInteritemSpacing = 20
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = Color.background
+        collectionView.backgroundColor = .clear
         collectionView.register(ReceiptCollectionViewCell.self, forCellWithReuseIdentifier: ReceiptCollectionViewCell.reuseIdentifier)
+        collectionView.register(PurchaseCollectionViewCell.self, forCellWithReuseIdentifier: PurchaseCollectionViewCell.reuseIdentifier)
         return collectionView
+    }
+
+    static func segmentedControl() -> UISegmentedControl {
+        let view = UISegmentedControl(items: ["Receipts", "Purchases"])
+        view.tintColor = Color.espresso
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }
 }

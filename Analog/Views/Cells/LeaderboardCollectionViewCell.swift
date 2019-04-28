@@ -1,18 +1,18 @@
 //
-//  ReceiptCollectionViewCell.swift
+//  LeaderboardCollectionViewCell.swift
 //  Analog
 //
-//  Created by Frederik Christensen on 24/09/2018.
+//  Created by Frederik Christensen on 08/10/2018.
 //  Copyright © 2018 analogio. All rights reserved.
 //
 
 import UIKit
 
-public class ReceiptCollectionViewCell: UICollectionViewCell {
-    public static let reuseIdentifier: String = "ReceiptCell"
+public class LeaderboardCollectionViewCell: UICollectionViewCell {
+    public static let reuseIdentifier: String = "LeaderboardCell"
 
     private let label = Views.label()
-    private let dateLabel = Views.dateLabel()
+    private let scoreLabel = Views.scoreLabel()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,16 +34,16 @@ public class ReceiptCollectionViewCell: UICollectionViewCell {
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])
 
-        addSubview(dateLabel)
+        addSubview(scoreLabel)
         NSLayoutConstraint.activate([
-            dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            scoreLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            scoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
     }
 
-    public func configure(config: ReceiptCellConfig) {
+    public func configure(config: LeaderboardCollectionViewCellConfig) {
         label.text = config.name
-        dateLabel.text = config.date
+        scoreLabel.text = "\(config.score)"
     }
 }
 
@@ -57,7 +57,7 @@ private enum Views {
         return label
     }
 
-    static func dateLabel() -> UILabel {
+    static func scoreLabel() -> UILabel {
         let label = UILabel()
         label.textAlignment = .right
         label.font = Font.font(size: 20)
@@ -67,12 +67,12 @@ private enum Views {
     }
 }
 
-public struct ReceiptCellConfig {
+public struct LeaderboardCollectionViewCellConfig {
     let name: String
-    let date: String
+    let score: Int
 
-    public init(name: String, date: String) {
+    init(name: String, score: Int) {
         self.name = name
-        self.date = date
+        self.score = score
     }
 }

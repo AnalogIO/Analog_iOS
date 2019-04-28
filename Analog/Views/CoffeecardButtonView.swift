@@ -1,5 +1,5 @@
 //
-//  TicketButtonView.swift
+//  CoffeecardButtonView.swift
 //  Analog
 //
 //  Created by Frederik Christensen on 23/03/2019.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol TicketButtonViewDelegate: class {
-    func didPressBuyTickets()
-    func didPressSelectTicket()
+public protocol CoffeecardButtonViewDelegate: class {
+    func didPressBuyCoffeecards()
+    func didPressSelectCoffeecard()
 }
 
 public enum ButtonType {
@@ -18,9 +18,9 @@ public enum ButtonType {
     case select
 }
 
-public class TicketButtonView: UIView {
+public class CoffeecardButtonView: UIView {
 
-    weak var delegate: TicketButtonViewDelegate?
+    weak var delegate: CoffeecardButtonViewDelegate?
 
     let circleMargin: CGFloat = 15
 
@@ -86,9 +86,9 @@ public class TicketButtonView: UIView {
     @objc private func didPressButton(sender: UIButton) {
         switch type {
         case .buy:
-            delegate?.didPressBuyTickets()
+            delegate?.didPressBuyCoffeecards()
         case .select:
-            delegate?.didPressSelectTicket()
+            delegate?.didPressSelectCoffeecard()
         }
     }
 }

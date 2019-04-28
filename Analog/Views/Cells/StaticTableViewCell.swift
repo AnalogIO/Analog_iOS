@@ -56,6 +56,7 @@ public class StaticTableViewCell: UITableViewCell {
         case .normal:
             accessoryType = .disclosureIndicator
         case .switch:
+            selectionStyle = .none
             switchButton.alpha = 1
         case .escape:
             centerLabel.textColor = .red

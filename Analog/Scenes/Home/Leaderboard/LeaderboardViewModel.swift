@@ -12,13 +12,13 @@ import Entities
 import Client
 
 protocol LeaderboardViewModelDelegate: class {
-    func didSetFetchLeaderboardState(state: State<[LeaderboardTableViewCellConfig]>)
+    func didSetFetchLeaderboardState(state: State<[LeaderboardCollectionViewCellConfig]>)
 }
 
 class LeaderboardViewModel {
     weak var delegate: LeaderboardViewModelDelegate?
 
-    private var fetchLeaderboardState: State<[LeaderboardTableViewCellConfig]> = .unknown {
+    private var fetchLeaderboardState: State<[LeaderboardCollectionViewCellConfig]> = .unknown {
         didSet {
             delegate?.didSetFetchLeaderboardState(state: fetchLeaderboardState)
         }
@@ -33,7 +33,7 @@ class LeaderboardViewModel {
         Leaderboard.get(type: .all).response(using: api, method: .get) { response in
             switch response {
             case .success(let users):
-                let cellConfigs: [LeaderboardTableViewCellConfig] = users.map { LeaderboardTableViewCellConfig(name: $0.name, score: $0.score) }
+                let cellConfigs: [LeaderboardCollectionViewCellConfig] = users.map { LeaderboardCollectionViewCellConfig(name: $0.name, score: $0.score) }
                 self.fetchLeaderboardState = .loaded(cellConfigs)
             case .error(let error):
                 self.fetchLeaderboardState = .error(error)

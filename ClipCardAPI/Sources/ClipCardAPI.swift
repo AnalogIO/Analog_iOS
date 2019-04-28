@@ -33,9 +33,9 @@ public class ClipCardAPI: API {
         setDefaultHeaders(headers: headers)
     }
 
-    override public func interceptResponse(response: DataResponse<Data>) {
+    override public func interceptResponse(response: DataResponse<Data>, url: URL) {
         let code: String = "\(response.response?.statusCode.description ?? "")"
         let status: String = "\(response.result)"
-        print("\(status): \(code)")
+        print("Received response from: \(url) - \(status): \(code)")
     }
 }

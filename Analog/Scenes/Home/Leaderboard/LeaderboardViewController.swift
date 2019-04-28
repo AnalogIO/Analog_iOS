@@ -11,11 +11,12 @@ import Entities
 
 class LeaderboardViewController: UIViewController {
 
-    let tableView = Views.tableView()
+    let collectionView = Views.collectionView()
 
-    var cellConfigs: [LeaderboardTableViewCellConfig] = [] {
+    var cellConfigs: [LeaderboardCollectionViewCellConfig] = [] {
         didSet {
-            tableView.reloadData()
+            cellConfigs.sort { $0.score > $1.score }
+            collectionView.reloadData()
         }
     }
     
@@ -26,8 +27,8 @@ class LeaderboardViewController: UIViewController {
     init(viewModel: LeaderboardViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        tableView.delegate = self
-        tableView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         viewModel.delegate = self
     }
 
@@ -37,8 +38,8 @@ class LeaderboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavbarLogo()
-        view.backgroundColor = Color.background
+        title = "Leaderboard"
+        view.backgroundColor = Color.grey
 
         defineLayout()
         setupTargets()
@@ -50,39 +51,47 @@ class LeaderboardViewController: UIViewController {
     }
 
     private func defineLayout() {
-        view.addSubview(tableView)
+        view.addSubview(collectionView)
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 
     private func setupTargets() {}
 }
 
-extension LeaderboardViewController: UITableViewDelegate {}
-
-extension LeaderboardViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+extension LeaderboardViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellConfigs.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: LeaderboardTableViewCell.reuseIdentifier, for: indexPath) as! LeaderboardTableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LeaderboardCollectionViewCell.reuseIdentifier, for: indexPath) as! LeaderboardCollectionViewCell
         let config = cellConfigs[indexPath.row]
         cell.configure(config: config)
         return cell
     }
 }
 
+extension LeaderboardViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width-16*2, height: 60)
+    }
+}
+
 extension LeaderboardViewController: LeaderboardViewModelDelegate {
-    func didSetFetchLeaderboardState(state: State<[LeaderboardTableViewCellConfig]>) {
+    func didSetFetchLeaderboardState(state: State<[LeaderboardCollectionViewCellConfig]>) {
         switch state {
         case .loaded(let configs):
             indicator.stop()
@@ -99,11 +108,14 @@ extension LeaderboardViewController: LeaderboardViewModelDelegate {
 }
 
 private enum Views {
-    static func tableView() -> UITableView {
-        let view = UITableView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.tableFooterView = UIView()
-        view.register(LeaderboardTableViewCell.self, forCellReuseIdentifier: LeaderboardTableViewCell.reuseIdentifier)
-        return view
+    static func collectionView() -> UICollectionView {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumInteritemSpacing = 20
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        collectionView.clipsToBounds = false
+        collectionView.register(LeaderboardCollectionViewCell.self, forCellWithReuseIdentifier: LeaderboardCollectionViewCell.reuseIdentifier)
+        return collectionView
     }
 }

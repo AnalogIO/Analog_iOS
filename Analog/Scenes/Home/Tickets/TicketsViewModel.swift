@@ -13,17 +13,24 @@ import Entities
 import Client
 
 protocol TicketsViewModelDelegate: class {
-    func didSetFetchTicketsState(state: State<[TicketCellConfig]>)
+    func didSetFetchCoffeecardsState(state: State<[CoffeecardCellConfig]>)
     func didSetFetchOrderIdState(state: State<MPOrder>)
+    func didSetUseTicketState(state: State<Ticket>)
+    func index(for cell: CoffeecardCollectionViewCell) -> Int?
+    func showSwipeButton(animated: Bool)
+    func hideSwipeButton(animated: Bool)
+    func reloadData()
+    func resetSwipeButton()
+    func showReceipt(receipt: Ticket)
 }
 
 class TicketsViewModel {
-    private var tickets: [Ticket] = []
+    private var coffeecards: [Coffeecard] = []
     public weak var delegate: TicketsViewModelDelegate?
 
-    private var fetchTicketsState: State<[TicketCellConfig]> = .unknown {
+    private var fetchCoffeecardsState: State<[CoffeecardCellConfig]> = .unknown {
         didSet {
-            delegate?.didSetFetchTicketsState(state: fetchTicketsState)
+            delegate?.didSetFetchCoffeecardsState(state: fetchCoffeecardsState)
         }
     }
 
@@ -33,20 +40,79 @@ class TicketsViewModel {
         }
     }
 
+    private var useTicketState: State<Ticket> = .unknown {
+        didSet {
+            delegate?.didSetUseTicketState(state: useTicketState)
+        }
+    }
+
+    private var selectedIndex: Int? = nil {
+        didSet {
+            if selectedIndex == nil {
+                delegate?.hideSwipeButton(animated: true)
+            } else {
+                delegate?.showSwipeButton(animated: true)
+            }
+            delegate?.reloadData()
+        }
+    }
+
+    private var selectedCoffeecard: Coffeecard? {
+        if let index = selectedIndex, coffeecards.count > index {
+            return coffeecards[index]
+        } else {
+            return nil
+        }
+    }
+
     public func viewWillAppear() {
         fetchTickets()
     }
 
-    public func didSelectItem(at index: Int) {
-        let ticket = tickets[index]
-        print(ticket)
+    public func viewDidDisappear() {
+        selectedIndex = nil
     }
 
-    private func initiatePurchase(product: Product) {
-        fetchOrderId(productId: product.id, completion: { response in
+    public func didSwipe() {
+        guard let coffeecard = selectedCoffeecard else { return }
+        useTicket(productId: coffeecard.productId)
+    }
+
+    public func didPressShop(in cell: CoffeecardCollectionViewCell) {
+        guard let index = delegate?.index(for: cell) else { return }
+        let coffeecard = coffeecards[index]
+        initiatePurchase(coffeecard: coffeecard)
+    }
+
+    public func didPressSelect(in cell: CoffeecardCollectionViewCell) {
+        selectedIndex = delegate?.index(for: cell)
+    }
+
+    public func isCellSelected(index: Int) -> Bool {
+        return index == selectedIndex
+    }
+
+    private func useTicket(productId: Int) {
+        useTicketState = .loading
+        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
+        let parameters = ["productId": productId]
+        Ticket.use().response(using: api, method: .post, parameters: parameters) { response in
+            self.delegate?.resetSwipeButton()
+            switch response {
+            case .success(let ticket):
+                self.useTicketState = .loaded(ticket)
+                self.fetchTickets()
+            case .error(let error):
+                self.useTicketState = .error(error)
+            }
+        }
+    }
+
+    private func initiatePurchase(coffeecard: Coffeecard) {
+        fetchOrderId(productId: coffeecard.productId, completion: { response in
             switch response {
             case .success(let order):
-                let payment: MobilePayPayment = MobilePayPayment(orderId: "\(order.orderId)", productPrice: Float(product.price))
+                let payment: MobilePayPayment = MobilePayPayment(orderId: "\(order.orderId)", productPrice: Float(coffeecard.price))
                 MobilePayManager.sharedInstance().beginMobilePayment(with: payment, error: {
                     self.fetchOrderIdState = .error($0)
                     return
@@ -65,17 +131,17 @@ class TicketsViewModel {
         MobilePay.initiatePurchase().response(using: api, method: .post, parameters: parameters, response: completion)
     }
 
-    private func fetchTickets() {
-        fetchTicketsState = .loading
+    func fetchTickets() {
+        fetchCoffeecardsState = .loading
         let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        Ticket.getAll().response(using: api, method: .get) { response in
+        Coffeecard.getAll().response(using: api, method: .get) { response in
             switch response {
-            case .success(let tickets):
-                self.tickets = tickets
-                let configs = tickets.map { TicketCellConfig(name: $0.productName) }
-                self.fetchTicketsState = .loaded(configs)
+            case .success(let coffeecards):
+                self.coffeecards = coffeecards
+                let configs = coffeecards.map { CoffeecardCellConfig(name: $0.name, ticketsLeft: $0.ticketsLeft, didPressShop: self.didPressShop, didPressSelect: self.didPressSelect) }
+                self.fetchCoffeecardsState = .loaded(configs)
             case .error(let error):
-                self.fetchTicketsState = .error(error)
+                self.fetchCoffeecardsState = .error(error)
             }
         }
     }

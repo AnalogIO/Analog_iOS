@@ -35,7 +35,7 @@ open class API {
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { (response: DataResponse<Data>) in
-                self.interceptResponse(response: response)
+                self.interceptResponse(response: response, url: url)
                 switch response.result {
                 case .success(let data):
                     do {
@@ -69,7 +69,7 @@ open class API {
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { (response: DataResponse<Data>) in
-                self.interceptResponse(response: response)
+                self.interceptResponse(response: response, url: url)
                 switch response.result {
                 case .success:
                     result(.success)
@@ -88,5 +88,5 @@ open class API {
         }
     }
 
-    open func interceptResponse(response: DataResponse<Data>) {}
+    open func interceptResponse(response: DataResponse<Data>, url: URL) {}
 }

@@ -16,5 +16,7 @@ protocol VoucherViewModelDelegate: class {}
 class VoucherViewModel {
     public weak var delegate: VoucherViewModelDelegate?
 
-    public func viewDidLoad() {}
+    public func didPressSendButton(code: String) {
+        print("Using voucher: \(code)")
+    }
 }

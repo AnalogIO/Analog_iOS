@@ -118,7 +118,7 @@ extension LoginViewController: LoginViewModelDelegate {
         case .error(let error):
             indicator.stop()
             passwordInput.reset()
-            displayMessage(title: "Error", message: error.localizedDescription, actions: [.Ok])
+            print(error.localizedDescription)
         default:
             break
         }

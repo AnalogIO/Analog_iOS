@@ -12,7 +12,11 @@ import Entities
 import Client
 
 extension Ticket {
-    public static func getAll() -> Request<[Ticket], ClipCardError> {
-        return Request(path: "tickets?used=false")
+    public static func getAll(used: Bool) -> Request<[Ticket], ClipCardError> {
+        return Request(path: "tickets?used=\(used)")
+    }
+
+    public static func use() -> Request<Ticket, ClipCardError> {
+        return Request(path: "tickets/use")
     }
 }
