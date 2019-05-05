@@ -101,8 +101,6 @@
 		EC9F9842214E684400C39F96 /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9841214E684400C39F96 /* Programme.swift */; };
 		EC9F9844214E7CA900C39F96 /* ValueMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9843214E7CA900C39F96 /* ValueMessage.swift */; };
 		EC9F9847214EA49000C39F96 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9846214EA49000C39F96 /* UIView.swift */; };
-		EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */; };
-		EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */; };
 		ECBD74A32157DE4A0097C9A6 /* ActivityIndication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC660216215550E9004716F7 /* ActivityIndication.swift */; };
 		ECBE0D8E21679127001725D6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE0D8D21679127001725D6 /* Token.swift */; };
 		ECBE0DE42167CF11001725D6 /* MobilePayAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBE0DE22167CF11001725D6 /* MobilePayAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -270,8 +268,6 @@
 		EC9F9841214E684400C39F96 /* Programme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 		EC9F9843214E7CA900C39F96 /* ValueMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueMessage.swift; sourceTree = "<group>"; };
 		EC9F9846214EA49000C39F96 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
-		EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		ECBD74A12157D8410097C9A6 /* CoffeecardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeecardCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECBD74A421584C270097C9A6 /* ReceiptCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECBE0D8D21679127001725D6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -452,7 +448,6 @@
 			children = (
 				ECC91190216030730085295A /* UpdateUser */,
 				ECC9116E215E4C360085295A /* Voucher */,
-				EC9F9845214EA21100C39F96 /* Onboarding */,
 				EC603FE32149493E00666F22 /* Home */,
 				EC603FE22149492600666F22 /* Register */,
 				EC603FDD214948F400666F22 /* Login */,
@@ -708,15 +703,6 @@
 				EC6DAAF1221DC362008D0A76 /* UIColor.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		EC9F9845214EA21100C39F96 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				EC9F9848214EA67200C39F96 /* OnboardingViewController.swift */,
-				EC9F984A214EA67C00C39F96 /* OnboardingViewModel.swift */,
-			);
-			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		ECBE0DE12167CF11001725D6 /* MobilePayAPI */ = {
@@ -1071,7 +1057,6 @@
 				EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */,
 				ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */,
 				EC603FC52149357700666F22 /* AppDelegate.swift in Sources */,
-				EC9F9849214EA67200C39F96 /* OnboardingViewController.swift in Sources */,
 				EC603FFA21494B3B00666F22 /* ProfileViewModel.swift in Sources */,
 				EC7259AB2246544F00C670E7 /* CoffeecardButtonView.swift in Sources */,
 				EC2A7EA722314F9C008AD03C /* Localizable.swift in Sources */,
@@ -1080,7 +1065,6 @@
 				EC6DAAE9221DB953008D0A76 /* ReceiptCollectionViewCell.swift in Sources */,
 				EC603FFE21494B6400666F22 /* TicketsViewModel.swift in Sources */,
 				ECC5CA5B214FB25B0082E2E9 /* UIViewController.swift in Sources */,
-				EC9F984B214EA67C00C39F96 /* OnboardingViewModel.swift in Sources */,
 				EC6DAAE8221DB953008D0A76 /* CoffeecardCollectionViewCell.swift in Sources */,
 				EC6DAAEB221DB953008D0A76 /* PurchaseCollectionViewCell.swift in Sources */,
 				EC97260E2275A5A400E3EF37 /* FadeAnimationController.swift in Sources */,

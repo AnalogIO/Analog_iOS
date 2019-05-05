@@ -118,6 +118,7 @@ class NumberKeyboard: UIView {
     private func empty() -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
         return view
     }
 
@@ -127,31 +128,16 @@ class NumberKeyboard: UIView {
         view.layer.cornerRadius = 4
         view.setImage(#imageLiteral(resourceName: "keyboard_back").withRenderingMode(.alwaysTemplate), for: .normal)
         view.tintColor = Color.espresso
+        view.backgroundColor = Color.milk
         view.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
 
-        /*let image = UIImageView(image: #imageLiteral(resourceName: "keyboard_back").withRenderingMode(.alwaysTemplate))
-        image.tintColor = Color.espresso
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-
-        let spacing: CGFloat = 10
-        view.addSubview(image)
-        NSLayoutConstraint.activate([
-            image.topAnchor.constraint(equalTo: view.topAnchor, constant: spacing),
-            image.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -spacing),
-            image.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -spacing),
-            image.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: spacing),
-        ])
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapBack))
-        view.addGestureRecognizer(tap)*/
         return view
     }
 
     private func button(text: String) -> UIView {
         let view = KeyboardButton(value: text)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Color.grey
+        view.backgroundColor = Color.milk
         view.layer.cornerRadius = 4
         view.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return view

@@ -40,7 +40,7 @@ class LeaderboardViewModel {
             switch response {
             case .success(let users):
                 self.users = users
-                let cellConfigs: [LeaderboardCollectionViewCellConfig] = self.users.map { LeaderboardCollectionViewCellConfig(name: $0.name, score: $0.score) }
+                let cellConfigs: [LeaderboardCollectionViewCellConfig] = self.users.enumerated().map { LeaderboardCollectionViewCellConfig(name: $1.name, score: $1.score, number: $0 + 1) }
                 self.fetchLeaderboardState = .loaded(cellConfigs)
             case .error(let error):
                 self.fetchLeaderboardState = .error(error)

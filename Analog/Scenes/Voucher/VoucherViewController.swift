@@ -55,6 +55,13 @@ class VoucherViewController: UIViewController {
         updateView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.inputField.becomeFirstResponder()
+        })
+    }
+
     private func defineLayout() {
         view.addSubview(scrollView)
         NSLayoutConstraint.activate([

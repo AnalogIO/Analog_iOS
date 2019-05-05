@@ -33,6 +33,7 @@ class UpdateUserViewController: UIViewController {
     private let saveButton = Views.saveButton()
     private let inputField = Views.inputField()
     private let passwordInput = Views.passwordInput()
+    private let keyboard = Views.numberKeyboard()
 
     private let topMargin: CGFloat = 30
     private let sideMargin: CGFloat = 25
@@ -66,6 +67,7 @@ class UpdateUserViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Color.grey
         passwordInput.delegate = self
+        keyboard.delegate = passwordInput
 
         defineLayout()
         setupTargets()
@@ -73,23 +75,27 @@ class UpdateUserViewController: UIViewController {
         updateView()
     }
 
-    private func defineLayout() {
-        view.addSubview(scrollView)
-        NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideMargin),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideMargin),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topMargin),
-            ])
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        inputField.becomeFirstResponder()
+    }
 
-        scrollView.addSubview(stackView)
+    private func defineLayout() {
+        view.addSubview(keyboard)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            ])
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboard.heightAnchor.constraint(equalToConstant: 220),
+            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+
+        view.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideMargin),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideMargin),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topMargin),
+            stackView.bottomAnchor.constraint(equalTo: keyboard.topAnchor, constant: -20),
+        ])
 
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(.spacing(25))
@@ -100,6 +106,8 @@ class UpdateUserViewController: UIViewController {
         case .pin:
             definePasswordLayout()
         }
+
+        stackView.addArrangedSubview(.emptySpace())
     }
 
     private func defineTextInputLayout() {
@@ -146,10 +154,13 @@ class UpdateUserViewController: UIViewController {
         switch type {
         case .email:
             titleLabel.text = .localized(.createUserEmailTitle)
+            keyboard.isHidden = true
         case .name:
             titleLabel.text = .localized(.createUserNameTitle)
+            keyboard.isHidden = true
         case .pin:
             titleLabel.text = .localized(.updateUserPinTitle)
+            keyboard.isHidden = false
         }
     }
 
@@ -186,6 +197,7 @@ private enum Views {
         stackView.axis = .vertical
         stackView.spacing = 0
         stackView.alignment = .center
+        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }
@@ -200,6 +212,12 @@ private enum Views {
 
     static func passwordInput() -> PasswordInput {
         let view = PasswordInput(numberOfInputFields: 4)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+
+    static func numberKeyboard() -> NumberKeyboard {
+        let view = NumberKeyboard()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }

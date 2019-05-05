@@ -42,7 +42,17 @@ public class LeaderboardCollectionViewCell: UICollectionViewCell {
     }
 
     public func configure(config: LeaderboardCollectionViewCellConfig) {
-        label.text = config.name
+        switch config.number {
+        case 1:
+            label.text = "\u{1F947} " + config.name
+        case 2:
+            label.text = "\u{1F948} " + config.name
+        case 3:
+            label.text = "\u{1F949} " + config.name
+        default:
+            label.text = config.name
+        }
+
         scoreLabel.text = "\(config.score)"
     }
 }
@@ -70,9 +80,11 @@ private enum Views {
 public struct LeaderboardCollectionViewCellConfig {
     let name: String
     let score: Int
+    let number: Int
 
-    init(name: String, score: Int) {
+    init(name: String, score: Int, number: Int) {
         self.name = name
         self.score = score
+        self.number = number
     }
 }

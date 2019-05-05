@@ -20,6 +20,7 @@ extension UIView {
         } else {
             let constraint = view.heightAnchor.constraint(lessThanOrEqualToConstant: height)
             constraint.priority = priority
+            view.setContentHuggingPriority(.defaultLow, for: .vertical)
             constraint.isActive = true
         }
         return view

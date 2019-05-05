@@ -23,7 +23,7 @@ class InputViewController: UIViewController {
 
     public weak var delegate: InputViewControllerDelegate?
 
-    private let scrollView = Views.scrollView()
+    private let keyboard = Views.numberKeyboard()
     private let stackView = Views.stackView()
     private let titleLabel = Views.titleLabel()
     private let nextButton = Views.nextButton()
@@ -32,7 +32,7 @@ class InputViewController: UIViewController {
     private let imageView = Views.imageView()
     private let passwordInput = Views.passwordInput()
 
-    private let topMargin: CGFloat = 30
+    private let topMargin: CGFloat = 10
     private let sideMargin: CGFloat = 25
     private let nextButtonMargin: CGFloat = 30
     private let inputFieldHeight: CGFloat = 50
@@ -62,6 +62,7 @@ class InputViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Color.grey
         passwordInput.delegate = self
+        keyboard.delegate = passwordInput
 
         defineLayout()
         setupTargets()
@@ -69,24 +70,31 @@ class InputViewController: UIViewController {
         updateView()
     }
 
-    private func defineLayout() {
-        view.addSubview(scrollView)
-        NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideMargin),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideMargin),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topMargin),
-            ])
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.inputField.becomeFirstResponder()
+        })
+    }
 
-        scrollView.addSubview(stackView)
+    private func defineLayout() {
+        view.addSubview(keyboard)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboard.heightAnchor.constraint(equalToConstant: 220),
+            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
+        view.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideMargin),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideMargin),
+            stackView.bottomAnchor.constraint(equalTo: keyboard.topAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topMargin),
+        ])
+
+        stackView.addArrangedSubview(.spacing(20, required: false))
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(.spacing(40))
         stackView.addArrangedSubview(titleLabel)
@@ -103,8 +111,10 @@ class InputViewController: UIViewController {
         stackView.addArrangedSubview(loginButton)
 
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: imageViewHeight),
+            imageView.heightAnchor.constraint(equalToConstant: imageViewHeight)
         ])
+
+        stackView.addArrangedSubview(.emptySpace())
     }
 
     private func defineTextInputLayout() {
@@ -152,10 +162,13 @@ class InputViewController: UIViewController {
         switch type {
         case .email:
             titleLabel.text = .localized(.createUserEmailTitle)
+            keyboard.isHidden = true
         case .name:
             titleLabel.text = .localized(.createUserNameTitle)
+            keyboard.isHidden = true
         case .password:
             titleLabel.text = .localized(.createUserPinTitle)
+            keyboard.isHidden = false
         }
     }
 
@@ -196,12 +209,10 @@ private enum Views {
         return stackView
     }
 
-    static func scrollView() -> UIScrollView {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.clipsToBounds = false
-        scrollView.layer.masksToBounds = false
-        return scrollView
+    static func numberKeyboard() -> NumberKeyboard {
+        let view = NumberKeyboard()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }
 
     static func passwordInput() -> PasswordInput {
@@ -248,6 +259,9 @@ private enum Views {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Font.boldFont(size: 28)
         label.textAlignment = .center
+        label.minimumScaleFactor = 0.1
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 0
         label.textColor = Color.espresso
         return label
     }

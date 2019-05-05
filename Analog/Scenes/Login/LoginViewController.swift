@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.background
+        view.backgroundColor = Color.grey
 
         defineLayout()
         setupTargets()

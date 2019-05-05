@@ -13,7 +13,7 @@ import Client
 public class ShiftPlanningAPI: API {
 
     #if DEBUG
-    public var baseUrl: String = "https://analogio.dk/beta/publicshiftplanning/api/"
+    public var baseUrl: String = "https://analogio.dk/publicshiftplanning/api/"
     #else
     public var baseUrl: String = "https://analogio.dk/publicshiftplanning/api/"
     #endif

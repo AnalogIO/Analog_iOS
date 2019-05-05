@@ -29,13 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func startSession() {
-        /*if UserDefaults.standard.string(forKey: "email") != nil {
-            //LOGIN SCENE
-            window?.rootViewController = LoginViewController(viewModel: LoginViewModel())
-        } else {
-            //ONBOARDING SCENE
-            window?.rootViewController = OnboardingViewController(viewModel: OnboardingViewModel())
-        }*/
         window?.rootViewController = LoginViewController(viewModel: LoginViewModel())
     }
 
