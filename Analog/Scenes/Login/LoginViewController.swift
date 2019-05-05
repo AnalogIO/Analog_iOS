@@ -72,6 +72,7 @@ class LoginViewController: UIViewController {
         NSLayoutConstraint.activate([
             passwordInput.heightAnchor.constraint(equalToConstant: 90),
             emailField.heightAnchor.constraint(equalToConstant: 20),
+            createUserButton.heightAnchor.constraint(equalToConstant: 20),
             imageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }

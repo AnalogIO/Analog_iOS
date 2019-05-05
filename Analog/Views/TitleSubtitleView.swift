@@ -12,6 +12,7 @@ public class TitleSubtitleView: UIView {
 
     let title = Views.title()
     let number = Views.number()
+    let stackView = Views.stackView()
 
     init() {
         super.init(frame: .zero)
@@ -24,28 +25,36 @@ public class TitleSubtitleView: UIView {
     }
 
     private func defineLayout() {
-        addSubview(title)
+        addSubview(stackView)
         NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: topAnchor),
-            title.leadingAnchor.constraint(equalTo: leadingAnchor),
-            title.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
 
-        addSubview(number)
-        NSLayoutConstraint.activate([
-            number.topAnchor.constraint(equalTo: title.bottomAnchor),
-            number.leadingAnchor.constraint(equalTo: leadingAnchor),
-            number.trailingAnchor.constraint(equalTo: trailingAnchor),
-            number.bottomAnchor.constraint(equalTo: bottomAnchor),
-        ])
+        stackView.addArrangedSubview(title)
+        stackView.addArrangedSubview(number)
     }
 }
 
 private enum Views {
+    static func stackView() -> UIStackView {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.alignment = .fill
+        view.distribution = .fill
+        view.spacing = 5
+        return view
+    }
+
     static func title() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Font.font(size: 18)
+        label.font = Font.font(size: 22)
+        label.minimumScaleFactor = 0.2
+        label.adjustsFontSizeToFitWidth = true
         label.textColor = Color.espresso
         label.textAlignment = .center
         return label
@@ -54,9 +63,10 @@ private enum Views {
     static func number() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = Font.font(size: 60)
+        label.minimumScaleFactor = 0.2
         label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
-        label.font = Font.font(size: 40)
+        label.numberOfLines = 0
         label.textColor = Color.espresso
         label.textAlignment = .center
         return label

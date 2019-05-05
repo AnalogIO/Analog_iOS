@@ -22,7 +22,7 @@ public class CoffeecardButtonView: UIView {
 
     weak var delegate: CoffeecardButtonViewDelegate?
 
-    let circleMargin: CGFloat = 15
+    let circleMargin: CGFloat = 10
 
     let button = Views.button()
     let circleView = Views.circleView()

@@ -122,17 +122,19 @@ class NumberKeyboard: UIView {
     }
 
     private func back() -> UIView {
-        let view = UIView()
+        let view = UIButton(type: .system)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 4
+        view.setImage(#imageLiteral(resourceName: "keyboard_back").withRenderingMode(.alwaysTemplate), for: .normal)
+        view.tintColor = Color.espresso
+        view.addTarget(self, action: #selector(didTapBack), for: .touchUpInside)
 
-        let image = UIImageView(image: #imageLiteral(resourceName: "keyboard_back").withRenderingMode(.alwaysTemplate))
+        /*let image = UIImageView(image: #imageLiteral(resourceName: "keyboard_back").withRenderingMode(.alwaysTemplate))
         image.tintColor = Color.espresso
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
 
         let spacing: CGFloat = 10
-
         view.addSubview(image)
         NSLayoutConstraint.activate([
             image.topAnchor.constraint(equalTo: view.topAnchor, constant: spacing),
@@ -142,62 +144,43 @@ class NumberKeyboard: UIView {
         ])
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapBack))
-        view.addGestureRecognizer(tap)
+        view.addGestureRecognizer(tap)*/
         return view
     }
 
     private func button(text: String) -> UIView {
-        let view = ButtonView(value: text)
+        let view = KeyboardButton(value: text)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = Color.grey
         view.layer.cornerRadius = 4
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapButton))
-        view.addGestureRecognizer(tap)
+        view.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         return view
     }
 
-    @objc private func didTapBack(sender: UITapGestureRecognizer) {
+    @objc private func didTapBack(sender: UIButton) {
         delegate?.didTapDelete()
     }
 
-    @objc private func didTapButton(sender: UITapGestureRecognizer) {
-        guard let view = sender.view as? ButtonView else { return }
-        delegate?.didTap(key: view.value)
+    @objc private func didTapButton(sender: KeyboardButton) {
+        delegate?.didTap(key: sender.value)
     }
 }
 
-private class ButtonView: UIView {
+private class KeyboardButton: UIButton {
 
     let value: String
-
-    let label: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Font.font(size: 24)
-        label.textColor = Color.espresso
-        label.textAlignment = .center
-        return label
-    }()
 
     init(value: String) {
         self.value = value
         super.init(frame: .zero)
 
-        defineLayout()
-        label.text = value
+        setTitle(value, for: .normal)
+        setTitleColor(Color.espresso, for: .normal)
+        titleLabel?.font = Font.font(size: 24)
+        titleLabel?.textAlignment = .center
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    private func defineLayout() {
-        addSubview(label)
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor),
-        ])
     }
 }

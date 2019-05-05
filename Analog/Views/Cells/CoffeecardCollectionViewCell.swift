@@ -17,7 +17,7 @@ public class CoffeecardCollectionViewCell: UICollectionViewCell {
     private let coffeecardButtonView = Views.coffeecardButtonView()
 
     private let topMargin: CGFloat = 15
-    private let stackViewMargin: CGFloat = 10
+    private let stackViewMargin: CGFloat = 15
 
     private var didPressShop: ((CoffeecardCollectionViewCell) -> Void)? = nil
     private var didPressSelect: ((CoffeecardCollectionViewCell) -> Void)? = nil

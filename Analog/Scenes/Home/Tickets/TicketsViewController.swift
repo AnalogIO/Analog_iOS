@@ -12,7 +12,7 @@ import Entities
 
 class TicketsViewController: UIViewController {
 
-    let collectionViewSideMargin: CGFloat = 50
+    let collectionViewSideMargin: CGFloat = 30
 
     let collectionView = Views.collectionView()
     let swipeButton = Views.swipeButton()

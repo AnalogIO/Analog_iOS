@@ -16,6 +16,11 @@ public class PasswordInput: UIView {
 
     public weak var delegate: PasswordInputDelegate?
 
+    public var isSelected = true {
+        didSet {
+            updateView()
+        }
+    }
     private let stackView = Views.stackView()
     private(set) var password: String = ""
     private var inputFields: [UITextField] = []
@@ -64,7 +69,7 @@ public class PasswordInput: UIView {
 
     private func updateView() {
         inputFields.forEach { $0.backgroundColor = Color.espresso }
-        if currentInput >= inputFields.count { return }
+        if currentInput >= inputFields.count || !isSelected { return }
         inputFields[currentInput].backgroundColor = Color.milk
     }
 
