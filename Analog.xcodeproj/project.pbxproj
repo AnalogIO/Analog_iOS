@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */; };
 		EC1770DA222C434E004247F2 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1770D9222C434E004247F2 /* InputViewController.swift */; };
+		EC255331227ECFB600E193A1 /* NumberKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC255330227ECFB600E193A1 /* NumberKeyboard.swift */; };
 		EC2A7EA422314F9C008AD03C /* GeneratedLocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */; };
 		EC2A7EA522314F9C008AD03C /* da-DK.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC2A7EA122314F9C008AD03C /* da-DK.lproj */; };
 		EC2A7EA622314F9C008AD03C /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC2A7EA222314F9C008AD03C /* en.lproj */; };
@@ -182,6 +183,7 @@
 /* Begin PBXFileReference section */
 		EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewModel.swift; sourceTree = "<group>"; };
 		EC1770D9222C434E004247F2 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		EC255330227ECFB600E193A1 /* NumberKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyboard.swift; sourceTree = "<group>"; };
 		EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedLocalizedStrings.swift; sourceTree = "<group>"; };
 		EC2A7EA122314F9C008AD03C /* da-DK.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "da-DK.lproj"; sourceTree = "<group>"; };
 		EC2A7EA222314F9C008AD03C /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 				EC6DAAE5221DB767008D0A76 /* TitleSubtitleView.swift */,
 				EC9725FF22733AAE00E3EF37 /* SwipeButton.swift */,
 				EC9726112275E8B700E3EF37 /* RankView.swift */,
+				EC255330227ECFB600E193A1 /* NumberKeyboard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 				EC6DAAED221DB953008D0A76 /* LeaderboardCollectionViewCell.swift in Sources */,
 				EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */,
 				EC6DAAEA221DB953008D0A76 /* StaticTableViewCell.swift in Sources */,
+				EC255331227ECFB600E193A1 /* NumberKeyboard.swift in Sources */,
 				ECC91186215E5ADB0085295A /* VoucherViewController.swift in Sources */,
 				EC2A7EA422314F9C008AD03C /* GeneratedLocalizedStrings.swift in Sources */,
 				EC6DAAF0221DB953008D0A76 /* TitleSubtitleView.swift in Sources */,

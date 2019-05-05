@@ -11,9 +11,9 @@ import Entities
 
 class LoginViewController: UIViewController {
 
-    private let scrollView = Views.scrollView()
     private let stackView = Views.stackView()
     private let passwordInput = Views.passwordInput()
+    private let keyboard = Views.numberKeyboard()
     private let imageView = Views.imageView()
     private let createUserButton = Views.createUserButton()
     private let emailField = Views.emailField()
@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         passwordInput.delegate = self
+        keyboard.delegate = passwordInput
         viewModel.delegate = self
     }
 
@@ -46,35 +47,32 @@ class LoginViewController: UIViewController {
     }
 
     private func defineLayout() {
-        view.addSubview(scrollView)
+        view.addSubview(keyboard)
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideMargin),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideMargin),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-        ])
-        
-        scrollView.addSubview(stackView)
-        NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboard.heightAnchor.constraint(equalToConstant: 220),
+            keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
-        // Add arranged subviews to the stack view
+        view.addSubview(stackView)
+        NSLayoutConstraint.activate([
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            stackView.bottomAnchor.constraint(equalTo: keyboard.topAnchor, constant: -20),
+        ])
+
         stackView.addArrangedSubview(imageView)
-        stackView.addArrangedSubview(.spacing(16))
         stackView.addArrangedSubview(emailField)
-        stackView.addArrangedSubview(.spacing(25))
         stackView.addArrangedSubview(passwordInput)
-        stackView.addArrangedSubview(.spacing(16))
         stackView.addArrangedSubview(createUserButton)
+        stackView.addArrangedSubview(.emptySpace())
 
         NSLayoutConstraint.activate([
             passwordInput.heightAnchor.constraint(equalToConstant: 90),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
+            emailField.heightAnchor.constraint(equalToConstant: 20),
+            imageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 
@@ -140,22 +138,22 @@ private enum Views {
     static func stackView() -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 0
+        stackView.spacing = 20
         stackView.alignment = .fill
+        stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }
 
-    static func scrollView() -> UIScrollView {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.clipsToBounds = false
-        scrollView.layer.masksToBounds = false
-        return scrollView
+    static func passwordInput() -> PasswordInput {
+        let view = PasswordInput(numberOfInputFields: 4, sideMargin: 0)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return view
     }
 
-    static func passwordInput() -> PasswordInput {
-        let view = PasswordInput(numberOfInputFields: 4, sideMargin: 15)
+    static func numberKeyboard() -> NumberKeyboard {
+        let view = NumberKeyboard()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
@@ -164,6 +162,7 @@ private enum Views {
         let view = UIImageView(image: #imageLiteral(resourceName: "analog_logo_default"))
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.setContentHuggingPriority(.defaultLow, for: .vertical)
         return view
     }
 
@@ -173,6 +172,7 @@ private enum Views {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(Color.espresso, for: .normal)
         button.titleLabel?.font = Font.font(size: 18)
+        button.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return button
     }
 
@@ -185,6 +185,7 @@ private enum Views {
         textField.backgroundColor = .clear
         textField.textAlignment = .center
         textField.textColor = Color.espresso
+        textField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.text = UserDefaults.standard.string(forKey: "email") ?? ""
         textField.placeholder = .localized(.loginEmailPlaceholder)

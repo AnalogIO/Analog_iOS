@@ -19,7 +19,7 @@ import Foundation
    static var createUserPinConfirmTitle: Localizable { get { return Localizable(String(format: NSLocalizedString("create_user_pin_confirm_title", comment: ""), locale: Locale.current)) } } 
   /// Opret PIN
    static var createUserPinTitle: Localizable { get { return Localizable(String(format: NSLocalizedString("create_user_pin_title", comment: ""), locale: Locale.current)) } } 
-  /// Ingen bruger? Intet problem! Opret en HER
+  /// Ingen bruger? Opret en HER
    static var loginButtonCreateUser: Localizable { get { return Localizable(String(format: NSLocalizedString("login_button_create_user", comment: ""), locale: Locale.current)) } } 
   /// Indtast email
    static var loginEmailPlaceholder: Localizable { get { return Localizable(String(format: NSLocalizedString("login_email_placeholder", comment: ""), locale: Locale.current)) } } 

@@ -29,4 +29,11 @@ extension UIView {
         self.layer.shadowOpacity = opacity
         self.layer.shadowOffset = offset
     }
+
+    static func emptySpace() -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setContentHuggingPriority(UILayoutPriority(rawValue: 1), for: .vertical)
+        return view
+    }
 }

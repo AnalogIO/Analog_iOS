@@ -64,7 +64,7 @@ public class PasswordInput: UIView {
 
     private func updateView() {
         inputFields.forEach { $0.backgroundColor = Color.espresso }
-        if currentInput >= inputFields.count || !isFirstResponder { return }
+        if currentInput >= inputFields.count { return }
         inputFields[currentInput].backgroundColor = Color.milk
     }
 
@@ -74,51 +74,27 @@ public class PasswordInput: UIView {
         password = ""
     }
 
-    @discardableResult
-    public override func becomeFirstResponder() -> Bool {
-        super.becomeFirstResponder()
-        updateView()
-        return true
-    }
-
-    @discardableResult
-    public override func resignFirstResponder() -> Bool {
-        super.resignFirstResponder()
-        updateView()
-        return true
-    }
-
-    open override var canBecomeFirstResponder : Bool {
-        return true
-    }
-
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.becomeFirstResponder()
-    }
-
-    open var keyboardType: UIKeyboardType { get { return .numberPad } set { } }
-}
-
-extension PasswordInput: UIKeyInput {
     public var hasText: Bool {
         return currentInput > 0 ? true : false
     }
+}
 
-    public func insertText(_ text: String) {
-        if currentInput >= numberOfInputFields { return }
-        self.inputFields[currentInput].text = "‌\u{25cf}"
-        self.password += text
-        currentInput += 1
-        if currentInput == numberOfInputFields {
-            self.delegate?.didFinish(self.password)
-        }
-    }
-
-    public func deleteBackward() {
+extension PasswordInput: NumberKeyboardDelegate {
+    func didTapDelete() {
         if currentInput == 0 { return }
         currentInput -= 1
         self.inputFields[currentInput].text = ""
         self.password = self.password.dropLast().description
+    }
+
+    func didTap(key: String) {
+        if currentInput >= numberOfInputFields { return }
+        self.inputFields[currentInput].text = "‌\u{25cf}"
+        self.password += key
+        currentInput += 1
+        if currentInput == numberOfInputFields {
+            self.delegate?.didFinish(self.password)
+        }
     }
 }
 
