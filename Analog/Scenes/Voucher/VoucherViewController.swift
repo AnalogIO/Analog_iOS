@@ -10,14 +10,7 @@ import Foundation
 import Client
 import Entities
 
-protocol VoucherViewControllerDelegate: class {
-    func didPressLoginButton()
-    func didReceiveInput(type: UpdateType, input: String)
-}
-
 class VoucherViewController: UIViewController {
-
-    public weak var delegate: VoucherViewControllerDelegate?
 
     lazy var indicator = ActivityIndication(container: view)
 
@@ -39,6 +32,7 @@ class VoucherViewController: UIViewController {
     init(viewModel: VoucherViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -166,14 +160,14 @@ private enum Views {
 }
 
 extension VoucherViewController: VoucherViewModelDelegate {
-    func didUseVoucherState(state: State<User>) {
+    func didRedeemVoucherState(state: State<Purchase>) {
         switch state {
-        case .loaded(let user):
+        case .loaded(_):
             indicator.stop()
-            print(user)
+            navigationController?.popViewController(animated: true)
         case .error(let error):
             indicator.stop()
-            print(error.localizedDescription)
+            displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])
         case .loading:
             indicator.start()
         default:

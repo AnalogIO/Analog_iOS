@@ -77,6 +77,11 @@ class InputViewController: UIViewController {
         })
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.inputField.resignFirstResponder()
+    }
+
     private func defineLayout() {
         view.addSubview(keyboard)
         NSLayoutConstraint.activate([

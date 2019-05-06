@@ -15,4 +15,8 @@ extension Purchase {
     public static func getAll() -> Request<[Purchase], ClipCardError> {
         return Request(path: "purchases")
     }
+
+    public static func redeemVoucher() -> Request<Purchase, ClipCardError> {
+        return Request(path: "purchases/redeemvoucher")
+    }
 }
