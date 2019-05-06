@@ -9,6 +9,7 @@
 import Foundation
 import ClipCardAPI
 import MobilePayAPI
+import ShiftPlanningAPI
 import Entities
 import Client
 

@@ -13,9 +13,9 @@ class ProfileViewController: UIViewController {
 
     let tableView = Views.tableView()
     let rankView = Views.rankView()
+    let numberLabel = Views.numberLabel()
     let idLabel = Views.idLabel()
-    let profileImage = Views.profileImage()
-    let scrollView = Views.scrollView()
+    let stackView = Views.stackView()
 
     var user: User? = nil {
         didSet {
@@ -71,44 +71,29 @@ class ProfileViewController: UIViewController {
     }
 
     private func defineLayout() {
-        view.addSubview(scrollView)
+        view.addSubview(stackView)
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
         ])
 
-        scrollView.addSubview(profileImage)
+        view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            profileImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            profileImage.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
-            profileImage.heightAnchor.constraint(equalToConstant: 100),
-        ])
-
-        scrollView.addSubview(idLabel)
-        NSLayoutConstraint.activate([
-            idLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            idLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            idLabel.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 20),
-        ])
-
-        scrollView.addSubview(rankView)
-        NSLayoutConstraint.activate([
-            rankView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            rankView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            rankView.topAnchor.constraint(equalTo: idLabel.bottomAnchor, constant: 20),
-            rankView.heightAnchor.constraint(equalToConstant: 100),
-        ])
-
-        scrollView.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: rankView.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            tableView.heightAnchor.constraint(equalToConstant: 400),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+
+        stackView.addArrangedSubview(idLabel)
+        stackView.addArrangedSubview(.spacing(2))
+        stackView.addArrangedSubview(numberLabel)
+        stackView.addArrangedSubview(.spacing(20))
+        stackView.addArrangedSubview(rankView)
+
+        NSLayoutConstraint.activate([
+            rankView.heightAnchor.constraint(equalToConstant: 100),
         ])
     }
 
@@ -116,7 +101,7 @@ class ProfileViewController: UIViewController {
         guard let user = user else { return }
         tableView.reloadData()
         rankView.user = user
-        idLabel.text = "ID: \(user.id)"
+        numberLabel.text = "\(user.id)"
     }
 
     private func didTapFaceId(sender: UISwitch) {
@@ -136,7 +121,7 @@ class ProfileViewController: UIViewController {
 
     private func didTapChangeName() { navigateToUpdateUser(type: .name) }
     private func didTapChangeEmail() { navigateToUpdateUser(type: .email) }
-    private func didTapChangePin() { navigateToUpdateUser(type: .pin) }
+    private func didTapChangePin() { navigateToUpdateUser(type: .password) }
 
     @objc private func didTapLogout(sender: UIBarButtonItem) {
         navigateToLogin()
@@ -148,8 +133,9 @@ class ProfileViewController: UIViewController {
     }
 
     private func navigateToLogin() {
-        let vc = LoginViewController(viewModel: LoginViewModel())
-        present(vc, animated: true, completion: nil)
+        /*let vc = LoginViewController(viewModel: LoginViewModel())
+        present(vc, animated: true, completion: nil)*/
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -202,10 +188,19 @@ private enum Views {
         tableView.backgroundColor = .clear
         tableView.register(StaticTableViewCell.self, forCellReuseIdentifier: StaticTableViewCell.reuseIdentifier)
         tableView.tableFooterView = UIView()
-        tableView.isScrollEnabled = false
-        tableView.estimatedRowHeight = 44.0
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.isScrollEnabled = true
+        tableView.bounces = false
         return tableView
+    }
+
+    static func stackView() -> UIStackView {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }
 
     static func idLabel() -> UILabel {
@@ -213,7 +208,17 @@ private enum Views {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Color.espresso
         label.textAlignment = .center
-        label.font = Font.font(size: 38)
+        label.font = Font.font(size: 15)
+        label.text = "Your ID:"
+        return label
+    }
+
+    static func numberLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Color.espresso
+        label.textAlignment = .center
+        label.font = Font.font(size: 50)
         return label
     }
 
@@ -221,19 +226,6 @@ private enum Views {
         let view = RankView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.addShadow()
-        return view
-    }
-
-    static func profileImage() -> UIImageView {
-        let view = UIImageView(image: #imageLiteral(resourceName: "profile_icon"))
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
-        return view
-    }
-
-    static func scrollView() -> UIScrollView {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
 }

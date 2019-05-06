@@ -47,6 +47,7 @@ class VoucherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Redeem Voucher"
         view.backgroundColor = Color.grey
 
         defineLayout()
@@ -55,11 +56,9 @@ class VoucherViewController: UIViewController {
         updateView()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
-            self.inputField.becomeFirstResponder()
-        })
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        inputField.becomeFirstResponder()
     }
 
     private func defineLayout() {
@@ -106,7 +105,7 @@ class VoucherViewController: UIViewController {
     }
 
     private func updateView() {
-        titleLabel.text = "Enter Voucher"
+        titleLabel.text = "Enter code"
     }
 
     public func reset() {

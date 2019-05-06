@@ -23,7 +23,7 @@ class TicketsViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-
+    
     lazy var swipeButtonHiddenConstraints: [NSLayoutConstraint] = [
         swipeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         swipeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -90,8 +90,8 @@ class TicketsViewController: UIViewController {
 
     func setupTargets() {
         swipeButton.addTarget(self, action: #selector(swipeButtonDidChange), for: .valueChanged)
-        NotificationCenter.default.addObserver(self,selector: #selector(mobilepayDidFinishWithSuccess), name: NSNotification.Name(rawValue: "mobilepay_transaction_success"), object: nil)
-        NotificationCenter.default.addObserver(self,selector: #selector(mobilepayDidFinishWithError), name: NSNotification.Name(rawValue: "mobilepay_transaction_error"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mobilepayDidFinishWithSuccess), name: NSNotification.Name(rawValue: "mobilepay_transaction_success"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mobilepayDidFinishWithError), name: NSNotification.Name(rawValue: "mobilepay_transaction_error"), object: nil)
     }
 
     @objc func mobilepayDidFinishWithSuccess(notification: NSNotification) {

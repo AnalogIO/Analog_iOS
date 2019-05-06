@@ -14,6 +14,7 @@ class LeaderboardViewController: UIViewController {
     let collectionView = Views.collectionView()
     let nameLabel = Views.nameLabel()
     let scoreLabel = Views.scoreLabel()
+    let segment = Views.segmentedControl()
 
     var cellConfigs: [LeaderboardCollectionViewCellConfig] = [] {
         didSet {
@@ -52,28 +53,41 @@ class LeaderboardViewController: UIViewController {
     }
 
     private func defineLayout() {
+        view.addSubview(segment)
+        NSLayoutConstraint.activate([
+            segment.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            segment.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            segment.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        ])
+
         view.addSubview(nameLabel)
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            nameLabel.topAnchor.constraint(equalTo: segment.bottomAnchor, constant: 20),
         ])
 
         view.addSubview(scoreLabel)
         NSLayoutConstraint.activate([
             scoreLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            scoreLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            scoreLabel.topAnchor.constraint(equalTo: segment.bottomAnchor, constant: 20),
         ])
 
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+            collectionView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 6),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 
-    private func setupTargets() {}
+    func setupTargets() {
+        segment.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+    }
+
+    @objc func valueChanged(sender: UISegmentedControl) {
+        viewModel.didSelectSegment(index: sender.selectedSegmentIndex)
+    }
 }
 
 extension LeaderboardViewController: UICollectionViewDataSource {
@@ -95,7 +109,7 @@ extension LeaderboardViewController: UICollectionViewDataSource {
 
 extension LeaderboardViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16)
+        return UIEdgeInsets(top: 5, left: 16, bottom: 16, right: 16)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -104,6 +118,10 @@ extension LeaderboardViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension LeaderboardViewController: LeaderboardViewModelDelegate {
+    func setSelectedSegment(index: Int) {
+        segment.selectedSegmentIndex = index
+    }
+
     func didSetFetchLeaderboardState(state: State<[LeaderboardCollectionViewCellConfig]>) {
         switch state {
         case .loaded(let configs):
@@ -149,5 +167,12 @@ private enum Views {
         label.font = Font.font(size: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }
+
+    static func segmentedControl() -> UISegmentedControl {
+        let view = UISegmentedControl(items: ["Semester", "Month", "All-time"])
+        view.tintColor = Color.espresso
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }
 }

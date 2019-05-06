@@ -52,7 +52,7 @@ open class API {
                     do {
                         let value = try JSONDecoder().decode(ErrorType.self, from: data)
                         resourceResult(.error(value))
-                    } catch(let error) {
+                    } catch(_) {
                         resourceResult(.error(error))
                     }
                 }
@@ -81,7 +81,7 @@ open class API {
                     do {
                         let value = try JSONDecoder().decode(ErrorType.self, from: data)
                         result(.error(value))
-                    } catch(let error) {
+                    } catch(_) {
                         result(.error(error))
                     }
                 }

@@ -421,8 +421,6 @@
 		EC603FDA2149362400666F22 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				EC97260A2275A11D00E3EF37 /* ReceiptPopover */,
-				EC660216215550E9004716F7 /* ActivityIndication.swift */,
 				EC9F9835214E3D1200C39F96 /* Extensions */,
 				EC603FFF21494EEE00666F22 /* Color.swift */,
 				EC60400121494EF700666F22 /* Font.swift */,
@@ -674,6 +672,8 @@
 		EC6DAAE7221DB90F008D0A76 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC97260A2275A11D00E3EF37 /* ReceiptPopover */,
+				EC660216215550E9004716F7 /* ActivityIndication.swift */,
 				EC7259AA2246544F00C670E7 /* CoffeecardButtonView.swift */,
 				EC66020F215548C8004716F7 /* Cells */,
 				EC9F982B214BBBBD00C39F96 /* PasswordInput.swift */,

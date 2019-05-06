@@ -30,7 +30,7 @@ class UpdateUserViewModel {
         updateUserState = .loading
         let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
         let parameters = [
-            type.rawValue: value
+            type.rawValue: type == .password ? value.sha256() : value
         ]
         User.update().response(using: api, method: .put, parameters: parameters) { response in
             switch response {

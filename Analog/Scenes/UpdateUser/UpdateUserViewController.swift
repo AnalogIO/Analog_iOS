@@ -13,17 +13,10 @@ import Entities
 enum UpdateType: String {
     case email
     case name
-    case pin
-}
-
-protocol UpdateUserViewControllerDelegate: class {
-    func didPressLoginButton()
-    func didReceiveInput(type: UpdateType, input: String)
+    case password
 }
 
 class UpdateUserViewController: UIViewController {
-
-    public weak var delegate: UpdateUserViewControllerDelegate?
 
     lazy var indicator = ActivityIndication(container: view)
 
@@ -57,6 +50,7 @@ class UpdateUserViewController: UIViewController {
         self.viewModel = viewModel
         self.type = type
         super.init(nibName: nil, bundle: nil)
+        viewModel.delegate = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -103,7 +97,7 @@ class UpdateUserViewController: UIViewController {
         switch type {
         case .email, .name:
             defineTextInputLayout()
-        case .pin:
+        case .password:
             definePasswordLayout()
         }
 
@@ -139,15 +133,11 @@ class UpdateUserViewController: UIViewController {
         saveButton.addTarget(self, action: #selector(didPressNextButton), for: .touchUpInside)
     }
 
-    @objc func didPressLoginButton(sender: UIButton) {
-        delegate?.didPressLoginButton()
-    }
-
     @objc func didPressNextButton(sender: UIButton) {
         guard let input = inputField.text else {
             return
         }
-        delegate?.didReceiveInput(type: type, input: input)
+        viewModel.updateUser(type: type, value: input)
     }
 
     private func updateView() {
@@ -158,7 +148,7 @@ class UpdateUserViewController: UIViewController {
         case .name:
             titleLabel.text = .localized(.createUserNameTitle)
             keyboard.isHidden = true
-        case .pin:
+        case .password:
             titleLabel.text = .localized(.updateUserPinTitle)
             keyboard.isHidden = false
         }
@@ -168,7 +158,7 @@ class UpdateUserViewController: UIViewController {
         switch type {
         case .name, .email:
             inputField.text = nil
-        case .pin:
+        case .password:
             passwordInput.reset()
         }
     }
@@ -184,9 +174,11 @@ extension UpdateUserViewController: PasswordInputDelegate {
         }
 
         if password == code {
-            delegate?.didReceiveInput(type: type, input: password)
+            viewModel.updateUser(type: .password, value: password)
         } else {
-            passwordInput.reset()
+            displayMessage(title: "Message", message: "Password did not match", actions: [.Ok], completion: {
+                self.passwordInput.reset()
+            })
         }
     }
 }
@@ -262,9 +254,10 @@ extension UpdateUserViewController: UpdateUserViewModelDelegate {
         case .loaded(let user):
             indicator.stop()
             print(user)
+            navigationController?.popViewController(animated: true)
         case .error(let error):
             indicator.stop()
-            print(error.localizedDescription)
+            displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])
         case .loading:
             indicator.start()
         default:

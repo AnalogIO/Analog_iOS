@@ -16,5 +16,6 @@ public enum Color {
     public static let milk = UIColor(hexString: "#ffffff")
     public static let yellow = UIColor(hexString: "#fed521")
     public static let grey = UIColor(hexString: "#ece9e9")
-    public static let green = UIColor(hexString: "#738d4b")
+    public static let green = UIColor(hexString: "#3fc380")
+    public static let red = UIColor(hexString: "#f03434")
 }

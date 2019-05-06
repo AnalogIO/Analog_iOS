@@ -63,8 +63,7 @@ class RegisterViewController: UIPageViewController {
     }
 
     private func navigateToLogin() {
-        let loginVC = LoginViewController(viewModel: LoginViewModel())
-        present(loginVC, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 

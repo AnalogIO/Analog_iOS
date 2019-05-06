@@ -13,12 +13,29 @@ import Client
 
 protocol LeaderboardViewModelDelegate: class {
     func didSetFetchLeaderboardState(state: State<[LeaderboardCollectionViewCellConfig]>)
+    func setSelectedSegment(index: Int)
 }
 
 class LeaderboardViewModel {
+
     var users: [LeaderboardUser] = [] {
         didSet {
             users.sort { $0.score > $1.score }
+        }
+    }
+
+    private var selectedIndex: Int? = nil {
+        didSet {
+            guard let index = selectedIndex else { return }
+            delegate?.setSelectedSegment(index: index)
+            switch index {
+            case 0:
+                fetchLeaderboard(type: .semester)
+            case 1:
+                fetchLeaderboard(type: .month)
+            default:
+                fetchLeaderboard(type: .all)
+            }
         }
     }
 
@@ -31,12 +48,16 @@ class LeaderboardViewModel {
     }
 
     public func viewWillAppear() {
-        fetchLeaderboard()
+        selectedIndex = 0
     }
 
-    private func fetchLeaderboard() {
+    public func didSelectSegment(index: Int) {
+        selectedIndex = index
+    }
+
+    private func fetchLeaderboard(type: LeaderboardType) {
         let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        Leaderboard.get(type: .all).response(using: api, method: .get) { response in
+        Leaderboard.get(type: type).response(using: api, method: .get) { response in
             switch response {
             case .success(let users):
                 self.users = users

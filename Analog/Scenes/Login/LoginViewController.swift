@@ -87,7 +87,16 @@ class LoginViewController: UIViewController {
 
     private func navigateToRegister() {
         let registerVC = RegisterViewController(viewModel: RegisterViewModel())
-        present(registerVC, animated: true, completion: nil)
+        present(registerVC, animated: true, completion: {
+            self.passwordInput.reset()
+        })
+    }
+
+    private func navigateToHome() {
+        let vc = HomeTabBarViewController()
+        present(vc, animated: true, completion: {
+            self.passwordInput.reset()
+        })
     }
 
     @objc private func didTapForgotPassword(sender: UIButton) {
@@ -112,12 +121,11 @@ extension LoginViewController: LoginViewModelDelegate {
             indicator.start()
         case .loaded(_):
             indicator.stop()
-            let vc = HomeTabBarViewController()
-            present(vc, animated: true, completion: nil)
+            navigateToHome()
         case .error(let error):
             indicator.stop()
             passwordInput.reset()
-            print(error.localizedDescription)
+            displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])
         default:
             break
         }
