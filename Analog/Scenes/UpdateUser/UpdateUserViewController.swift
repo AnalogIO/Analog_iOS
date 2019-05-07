@@ -146,9 +146,11 @@ class UpdateUserViewController: UIViewController {
         case .email:
             titleLabel.text = .localized(.createUserEmailTitle)
             keyboard.isHidden = true
+            inputField.keyboardType = .emailAddress
         case .name:
             titleLabel.text = .localized(.createUserNameTitle)
             keyboard.isHidden = true
+            inputField.keyboardType = .namePhonePad
         case .password:
             titleLabel.text = .localized(.updateUserPinTitle)
             keyboard.isHidden = false
