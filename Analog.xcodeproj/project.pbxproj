@@ -86,6 +86,7 @@
 		EC841C5A2270B53A001307F7 /* Coffeecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC841C592270B53A001307F7 /* Coffeecard.swift */; };
 		EC841C5C2270B6AE001307F7 /* Coffeecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC841C5B2270B6AE001307F7 /* Coffeecard.swift */; };
 		EC8C8F9222817564002533A6 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */; };
+		EC8C8F942281BB93002533A6 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C8F932281BB93002533A6 /* Token.swift */; };
 		EC97260022733AAE00E3EF37 /* SwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9725FF22733AAE00E3EF37 /* SwipeButton.swift */; };
 		EC97260C2275A12B00E3EF37 /* ReceiptPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97260B2275A12B00E3EF37 /* ReceiptPopover.swift */; };
 		EC97260E2275A5A400E3EF37 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97260D2275A5A400E3EF37 /* FadeAnimationController.swift */; };
@@ -252,6 +253,7 @@
 		EC841C592270B53A001307F7 /* Coffeecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffeecard.swift; sourceTree = "<group>"; };
 		EC841C5B2270B6AE001307F7 /* Coffeecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffeecard.swift; sourceTree = "<group>"; };
 		EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		EC8C8F932281BB93002533A6 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		EC9725FF22733AAE00E3EF37 /* SwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeButton.swift; sourceTree = "<group>"; };
 		EC97260B2275A12B00E3EF37 /* ReceiptPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptPopover.swift; sourceTree = "<group>"; };
 		EC97260D2275A5A400E3EF37 /* FadeAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
@@ -608,6 +610,7 @@
 				EC45A172216B558A00E14A55 /* Leaderboard.swift */,
 				EC6394F921B1BB2D003D9641 /* MobilePay.swift */,
 				EC841C592270B53A001307F7 /* Coffeecard.swift */,
+				EC8C8F932281BB93002533A6 /* Token.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -1126,6 +1129,7 @@
 				EC6394FA21B1BB2D003D9641 /* MobilePay.swift in Sources */,
 				EC604072214956BF00666F22 /* Product.swift in Sources */,
 				EC9F983C214E4C5700C39F96 /* User.swift in Sources */,
+				EC8C8F942281BB93002533A6 /* Token.swift in Sources */,
 				EC45A173216B558A00E14A55 /* Leaderboard.swift in Sources */,
 				EC604077214956CE00666F22 /* ClipCardError.swift in Sources */,
 				EC841C5A2270B53A001307F7 /* Coffeecard.swift in Sources */,
@@ -1343,7 +1347,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Analog_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1371,7 +1375,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Analog_prod;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -8,6 +8,7 @@
 
 import UIKit
 import ShiftPlanningAPI
+import ClipCardAPI
 import Entities
 
 protocol HomeTabBarViewControllerDelegate {}
@@ -15,6 +16,7 @@ protocol HomeTabBarViewControllerDelegate {}
 class HomeTabBarViewController: UITabBarController {
 
     var timer: Timer? = nil
+    var verifyTokenTimer: Timer? = nil
 
     let statusButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
@@ -35,6 +37,9 @@ class HomeTabBarViewController: UITabBarController {
         self.fetchCafeStatus()
 
         timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(fetchCafeStatus), userInfo: nil, repeats: true)
+        verifyTokenTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(verifyToken), userInfo: nil, repeats: true)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +50,10 @@ class HomeTabBarViewController: UITabBarController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
+    }
+
+    @objc private func applicationDidBecomeActive() {
+        verifyToken()
     }
 
     func configureNavigationBar() {
@@ -70,6 +79,25 @@ class HomeTabBarViewController: UITabBarController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    private func navigateToLogin() {
+        dismiss(animated: true, completion: nil)
+    }
+
+    @objc func verifyToken() {
+        let token = KeyChainService.shared.get(key: .token)
+        let api = ClipCardAPI(token: token)
+        let parameters = [ "token" : token ?? "" ]
+        Token.verify().response(using: api, method: .get, parameters: parameters) { response in
+            switch response {
+            case .success:
+                print("Token is valid")
+            case .error(let error):
+                print(error.localizedDescription)
+                self.navigateToLogin()
+            }
+        }
     }
 
     @objc func fetchCafeStatus() {

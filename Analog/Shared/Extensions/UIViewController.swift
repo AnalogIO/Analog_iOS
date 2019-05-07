@@ -17,13 +17,13 @@ extension UIViewController {
         case Retry((UIAlertAction) -> Void)
     }
 
-    func displayMessage(title: String, message: String, actions: [ActionType], completion: (() -> Void)? = nil) {
+    func displayMessage(title: String, message: String, actions: [ActionType], completion: (() -> Void)? = nil, okHandler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         actions.enumerated().forEach { index, type in
             let action: UIAlertAction
             switch type {
             case .Ok:
-                action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                action = UIAlertAction(title: "Ok", style: .default, handler: okHandler)
             case .Cancel:
                 action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             case .Retry(let handler):
