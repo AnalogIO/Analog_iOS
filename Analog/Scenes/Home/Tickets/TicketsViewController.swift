@@ -211,9 +211,11 @@ extension TicketsViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return coffeecardConfigs.count
     }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoffeecardCollectionViewCell.reuseIdentifier, for: indexPath) as! CoffeecardCollectionViewCell
         let config = coffeecardConfigs[indexPath.row]

@@ -77,12 +77,14 @@ public class CoffeecardCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(config: CoffeecardCellConfig) {
+        let type: ButtonType = config.ticketsLeft > 0 ? .select : .buy
         title.text = config.name
         coffeecardsLeftView.number.text = "\(config.ticketsLeft)"
         coffeecardsLeftView.title.text = "Tickets left"
         didPressSelect = config.didPressSelect
         didPressShop = config.didPressShop
-        coffeecardButtonView.type = config.ticketsLeft > 0 ? .select : .buy
+        coffeecardButtonView.type = type
+        coffeecardsLeftView.number.alpha = type == .buy ? 0.3 : 1
     }
 }
 
@@ -114,7 +116,6 @@ private enum Views {
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.spacing = 20
-        stackView.clipsToBounds = true
         return stackView
     }
 

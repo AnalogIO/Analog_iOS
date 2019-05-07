@@ -144,7 +144,6 @@ class InputViewController: UIViewController {
         NSLayoutConstraint.activate([
             passwordInput.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: passwordInputSideMargin),
             passwordInput.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -passwordInputSideMargin),
-            passwordInput.heightAnchor.constraint(equalToConstant: passwordInputHeight),
         ])
     }
 

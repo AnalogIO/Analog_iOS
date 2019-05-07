@@ -107,10 +107,10 @@ class HomeTabBarViewController: UITabBarController {
             switch response {
             case .success(let value):
                 if value.open {
-                    self.statusButton.title = "OPEN"
+                    self.statusButton.title = "ÅPEN"
                     self.statusButton.tintColor = Color.green
                 } else {
-                    self.statusButton.title = "CLOSED"
+                    self.statusButton.title = "CLØSED"
                     self.statusButton.tintColor = Color.red
                 }
             case .error(let error):

@@ -76,17 +76,18 @@ class LoginViewController: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: keyboard.topAnchor, constant: -20),
         ])
 
+        stackView.addArrangedSubview(.spacing(10, required: false))
         stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(.spacing(20, required: false))
         stackView.addArrangedSubview(emailField)
         stackView.addArrangedSubview(passwordInput)
         stackView.addArrangedSubview(createUserButton)
         stackView.addArrangedSubview(.emptySpace())
 
         NSLayoutConstraint.activate([
-            passwordInput.heightAnchor.constraint(equalToConstant: 90),
             emailField.heightAnchor.constraint(equalToConstant: 20),
             createUserButton.heightAnchor.constraint(equalToConstant: 20),
-            imageView.heightAnchor.constraint(equalToConstant: 200)
+            imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200)
         ])
     }
 
@@ -198,7 +199,7 @@ private enum Views {
     }
 
     static func passwordInput() -> PasswordInput {
-        let view = PasswordInput(numberOfInputFields: 4, sideMargin: 0)
+        let view = PasswordInput(numberOfInputFields: 4, sideMargin: 25)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return view

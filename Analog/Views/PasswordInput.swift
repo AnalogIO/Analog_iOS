@@ -38,7 +38,6 @@ public class PasswordInput: UIView {
         self.sideMargin = sideMargin
         super.init(frame: .zero)
         defineLayout()
-        configureSubviews()
         updateView()
     }
 
@@ -54,6 +53,7 @@ public class PasswordInput: UIView {
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: sideMargin),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -sideMargin),
         ])
+        configureSubviews()
     }
 
     func configureSubviews() {
@@ -61,8 +61,8 @@ public class PasswordInput: UIView {
         for _ in 1...self.numberOfInputFields {
             let inputField = Views.textField()
             inputField.translatesAutoresizingMaskIntoConstraints = false
-            inputField.heightAnchor.constraint(equalTo: inputField.widthAnchor, multiplier: 1.4).isActive = true
             stackView.addArrangedSubview(inputField)
+            inputField.heightAnchor.constraint(equalTo: inputField.widthAnchor, multiplier: 1.4).isActive = true
             inputFields.append(inputField)
         }
     }
