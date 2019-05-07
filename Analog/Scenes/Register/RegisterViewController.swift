@@ -17,6 +17,8 @@ class RegisterViewController: UIPageViewController {
     var name: String?
     var password: String?
 
+    lazy var indicator = ActivityIndication(container: view)
+
     var currentIndex: Int? {
         didSet {
             guard let index = currentIndex else { return }
@@ -91,12 +93,14 @@ extension RegisterViewController: RegisterViewModelDelegate {
     func didSetRegisterState(state: State<ValueMessage>) {
         switch state {
         case .loading:
-            print("Loading...")
+            indicator.start()
         case .loaded(_):
+            indicator.stop()
             let vc = LoginViewController(viewModel: LoginViewModel())
             present(vc, animated: true, completion: nil)
         case .error(let error):
-            print(error)
+            indicator.stop()
+            displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])
         default:
             break
         }

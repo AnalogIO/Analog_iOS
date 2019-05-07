@@ -107,7 +107,7 @@ private enum Views {
     static func switchButton() -> UISwitch {
         let view = UISwitch()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isOn = false
+        view.isOn = UserDefaults.standard.bool(forKey: UserDefaultKey.isFaceTouchEnabled.rawValue)
         view.alpha = 0
         return view
     }

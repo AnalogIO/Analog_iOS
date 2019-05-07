@@ -45,16 +45,14 @@ private enum Views {
         view.axis = .vertical
         view.alignment = .fill
         view.distribution = .fill
-        view.spacing = 5
+        view.spacing = 0
         return view
     }
 
     static func title() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Font.font(size: 22)
-        label.minimumScaleFactor = 0.2
-        label.adjustsFontSizeToFitWidth = true
+        label.font = Font.font(size: 15)
         label.textColor = Color.espresso
         label.textAlignment = .center
         return label
@@ -63,10 +61,11 @@ private enum Views {
     static func number() -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Font.font(size: 60)
-        label.minimumScaleFactor = 0.2
+        label.font = Font.boldFont(size: 80)
+        label.minimumScaleFactor = 0.1
         label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 0
+        label.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         label.textColor = Color.espresso
         label.textAlignment = .center
         return label

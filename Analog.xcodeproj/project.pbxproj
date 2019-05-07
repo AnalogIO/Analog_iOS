@@ -85,6 +85,7 @@
 		EC77532022429E9300B7F83C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77531F22429E9300B7F83C /* Message.swift */; };
 		EC841C5A2270B53A001307F7 /* Coffeecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC841C592270B53A001307F7 /* Coffeecard.swift */; };
 		EC841C5C2270B6AE001307F7 /* Coffeecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC841C5B2270B6AE001307F7 /* Coffeecard.swift */; };
+		EC8C8F9222817564002533A6 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */; };
 		EC97260022733AAE00E3EF37 /* SwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9725FF22733AAE00E3EF37 /* SwipeButton.swift */; };
 		EC97260C2275A12B00E3EF37 /* ReceiptPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97260B2275A12B00E3EF37 /* ReceiptPopover.swift */; };
 		EC97260E2275A5A400E3EF37 /* FadeAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC97260D2275A5A400E3EF37 /* FadeAnimationController.swift */; };
@@ -250,6 +251,7 @@
 		EC77531F22429E9300B7F83C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EC841C592270B53A001307F7 /* Coffeecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffeecard.swift; sourceTree = "<group>"; };
 		EC841C5B2270B6AE001307F7 /* Coffeecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffeecard.swift; sourceTree = "<group>"; };
+		EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
 		EC9725FF22733AAE00E3EF37 /* SwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeButton.swift; sourceTree = "<group>"; };
 		EC97260B2275A12B00E3EF37 /* ReceiptPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptPopover.swift; sourceTree = "<group>"; };
 		EC97260D2275A5A400E3EF37 /* FadeAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimationController.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				EC60400121494EF700666F22 /* Font.swift */,
 				EC9F9839214E402B00C39F96 /* KeyChainService.swift */,
 				EC97260F2275C6F200E3EF37 /* DateFormat.swift */,
+				EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 				EC60400221494EF700666F22 /* Font.swift in Sources */,
 				EC6DAAF2221DC362008D0A76 /* UIColor.swift in Sources */,
 				EC1770DA222C434E004247F2 /* InputViewController.swift in Sources */,
+				EC8C8F9222817564002533A6 /* UserDefaultsKey.swift in Sources */,
 				EC603FF821494B2E00666F22 /* ProfileViewController.swift in Sources */,
 				EC6DAAED221DB953008D0A76 /* LeaderboardCollectionViewCell.swift in Sources */,
 				EC9F983A214E402B00C39F96 /* KeyChainService.swift in Sources */,

@@ -13,6 +13,7 @@ public class KeyChainService {
     public enum Key: String {
         case token = "token"
         case email = "email"
+        case pin = "pin"
     }
 
     private static var _shared: KeyChainService?

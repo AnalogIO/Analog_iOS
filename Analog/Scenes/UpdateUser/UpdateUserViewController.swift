@@ -46,9 +46,10 @@ class UpdateUserViewController: UIViewController {
         }
     }
 
-    init(viewModel: UpdateUserViewModel, type: UpdateType) {
+    init(viewModel: UpdateUserViewModel, type: UpdateType, initialValue: String? = nil) {
         self.viewModel = viewModel
         self.type = type
+        self.inputField.text = initialValue
         super.init(nibName: nil, bundle: nil)
         viewModel.delegate = self
     }
@@ -175,10 +176,10 @@ extension UpdateUserViewController: PasswordInputDelegate {
 
         if password == code {
             viewModel.updateUser(type: .password, value: password)
+            passwordInput.reset()
         } else {
-            displayMessage(title: "Message", message: "Password did not match", actions: [.Ok], completion: {
-                self.passwordInput.reset()
-            })
+            displayMessage(title: "Message", message: "Password did not match", actions: [.Ok])
+            passwordInput.reset()
         }
     }
 }
@@ -251,9 +252,8 @@ private enum Views {
 extension UpdateUserViewController: UpdateUserViewModelDelegate {
     func didUpdateUserState(state: State<User>) {
         switch state {
-        case .loaded(let user):
+        case .loaded(_):
             indicator.stop()
-            print(user)
             navigationController?.popViewController(animated: true)
         case .error(let error):
             indicator.stop()

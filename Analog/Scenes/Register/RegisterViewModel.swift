@@ -36,6 +36,8 @@ class RegisterViewModel {
         User.register().response(using: api, method: .post, parameters: parameters, headers: [:]) { response in
             switch response {
             case .success(let value):
+                KeyChainService.shared.store(key: .email, value: email)
+                UserDefaults.standard.set(false, forKey: UserDefaultKey.isFaceTouchEnabled.rawValue)
                 self.registerState = .loaded(value)
             case .error(let error):
                 self.registerState = .error(error)

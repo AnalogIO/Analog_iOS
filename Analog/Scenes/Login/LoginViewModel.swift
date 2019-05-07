@@ -14,6 +14,8 @@ import ClipCardAPI
 protocol LoginViewModelDelegate: class {
     func didSetFetchCafeState(state: State<Cafe>)
     func didSetFetchTokenState(state: State<Token>)
+    func startFaceTouchAuthentication()
+    func showMessage(text: String)
 }
 
 class LoginViewModel {
@@ -34,6 +36,20 @@ class LoginViewModel {
 
     public func viewDidLoad() {
         fetchCafeStatus()
+    }
+
+    public func viewWillAppear() {
+        if UserDefaults.standard.bool(forKey: UserDefaultKey.isFaceTouchEnabled.rawValue) {
+            delegate?.startFaceTouchAuthentication()
+        }
+    }
+
+    public func loginWithStoredCredentials() {
+        if let email = KeyChainService.shared.get(key: .email), let pin = KeyChainService.shared.get(key: .pin) {
+            login(email: email, password: pin)
+        } else {
+            delegate?.showMessage(text: "Credentials are not stored on device, please login manually and re-activate Face/Touch ID")
+        }
     }
 
     private func fetchCafeStatus() {
@@ -61,28 +77,12 @@ class LoginViewModel {
             switch response {
             case .success(let token):
                 KeyChainService.shared.store(key: .token, value: token.token)
+                KeyChainService.shared.store(key: .email, value: email)
+                KeyChainService.shared.store(key: .pin, value: password)
                 self.fetchTokenState = .loaded(token)
-                self.fetchUser()
             case .error(let error):
                 self.fetchTokenState = .error(error)
             }
         }
-    }
-
-    private func fetchUser() {
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        User.get().response(using: api, method: .get, response: { response in
-            switch response {
-            case .success(let user):
-                self.persistUserData(user: user)
-            case .error(let error):
-                print(error.localizedDescription)
-            }
-        })
-    }
-
-    private func persistUserData(user: User) {
-        UserDefaults.standard.set(user.name, forKey: UpdateType.name.rawValue)
-        UserDefaults.standard.set(user.email, forKey: UpdateType.email.rawValue)
     }
 }

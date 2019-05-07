@@ -170,7 +170,7 @@ extension TicketsViewController: TicketsViewModelDelegate {
             indicator.start()
         case .error(let error):
             indicator.stop()
-            print(error.localizedDescription)
+            displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])
         default:
             break
         }
@@ -200,7 +200,7 @@ extension TicketsViewController: TicketsViewModelDelegate {
             indicator.start()
         case .error(let error):
             indicator.stop()
-            displayMessage(title: "Error", message: error.localizedDescription, actions: [.Ok])
+            displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])
         default:
             break
         }

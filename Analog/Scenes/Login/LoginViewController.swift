@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 import Entities
 
 class LoginViewController: UIViewController {
@@ -29,6 +30,7 @@ class LoginViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         passwordInput.delegate = self
         keyboard.delegate = passwordInput
+        emailField.delegate = self
         viewModel.delegate = self
     }
 
@@ -44,6 +46,11 @@ class LoginViewController: UIViewController {
         setupTargets()
 
         viewModel.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
     }
 
     private func defineLayout() {
@@ -115,6 +122,29 @@ extension LoginViewController: PasswordInputDelegate {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
+    func showMessage(text: String) {
+        displayMessage(title: "Message", message: text, actions: [.Ok])
+    }
+
+    func startFaceTouchAuthentication() {
+        let context = LAContext()
+        let reason = "Log in to your account"
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason ) { success, error in
+                if success {
+                    DispatchQueue.main.async { [unowned self] in
+                        self.viewModel.loginWithStoredCredentials()
+                    }
+                } else {
+                    print(error?.localizedDescription ?? "Failed to authenticate")
+                }
+            }
+        } else {
+            displayMessage(title: "Message", message: error?.localizedDescription ?? "Something went wrong with Face/Touch ID", actions: [.Ok])
+        }
+    }
+
     func didSetFetchTokenState(state: State<Token>) {
         switch state {
         case .loading:
@@ -140,6 +170,13 @@ extension LoginViewController: LoginViewModelDelegate {
         default:
             break
         }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailField.resignFirstResponder()
+        return true
     }
 }
 
@@ -192,11 +229,12 @@ private enum Views {
         textField.borderStyle = .none
         textField.tintColor = Color.espresso
         textField.backgroundColor = .clear
+        textField.returnKeyType = .done
         textField.textAlignment = .center
         textField.textColor = Color.espresso
         textField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = UserDefaults.standard.string(forKey: "email") ?? ""
+        textField.text = KeyChainService.shared.get(key: .email)
         textField.placeholder = .localized(.loginEmailPlaceholder)
         return textField
     }

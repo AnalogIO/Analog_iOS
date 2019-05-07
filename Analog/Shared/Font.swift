@@ -10,10 +10,10 @@ import UIKit
 
 public enum Font {
     public static func font(size: CGFloat) -> UIFont {
-        return UIFont.systemFont(ofSize: size)
+        return UIFont(name: "Avenir-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
     }
 
     public static func boldFont(size: CGFloat) -> UIFont {
-        return UIFont.boldSystemFont(ofSize: size)
+        return UIFont(name: "Avenir-Heavy", size: size) ?? UIFont.boldSystemFont(ofSize: size)
     }
 }

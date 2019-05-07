@@ -107,10 +107,10 @@ class TicketsViewModel {
             switch response {
             case .success(let ticket):
                 self.useTicketState = .loaded(ticket)
-                self.fetchTickets()
             case .error(let error):
                 self.useTicketState = .error(error)
             }
+            self.fetchTickets()
         }
     }
 

@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController {
                 StaticTableViewCellConfig(title: "Change PIN", detail: "‌\u{2022}‌\u{2022}‌\u{2022}‌\u{2022}", click: didTapChangePin),
             ]),
             StaticSection(cellConfigs: [
-                StaticTableViewCellConfig(title: "Face-ID", type: .switch, switchAction: didTapFaceId),
+                StaticTableViewCellConfig(title: "Face/Touch ID", type: .switch, switchAction: didTapFaceId),
                 StaticTableViewCellConfig(title: "Privacy policy", click: didTapPrivacyPolicy),
             ]),
         ]
@@ -87,9 +87,8 @@ class ProfileViewController: UIViewController {
         ])
 
         stackView.addArrangedSubview(idLabel)
-        stackView.addArrangedSubview(.spacing(2))
         stackView.addArrangedSubview(numberLabel)
-        stackView.addArrangedSubview(.spacing(20))
+        stackView.addArrangedSubview(.spacing(10))
         stackView.addArrangedSubview(rankView)
 
         NSLayoutConstraint.activate([
@@ -105,11 +104,7 @@ class ProfileViewController: UIViewController {
     }
 
     private func didTapFaceId(sender: UISwitch) {
-        print("Face-ID: \(sender.isOn)")
-    }
-
-    private func didTapSwipeConfirmation(sender: UISwitch) {
-        print("Swipe: \(sender.isOn)")
+        UserDefaults.standard.set(sender.isOn, forKey: UserDefaultKey.isFaceTouchEnabled.rawValue)
     }
 
     private func didTapPrivacyPolicy() {
@@ -119,22 +114,20 @@ class ProfileViewController: UIViewController {
 
     private func setupTargets() {}
 
-    private func didTapChangeName() { navigateToUpdateUser(type: .name) }
-    private func didTapChangeEmail() { navigateToUpdateUser(type: .email) }
+    private func didTapChangeName() { navigateToUpdateUser(type: .name, initialValue: user?.name) }
+    private func didTapChangeEmail() { navigateToUpdateUser(type: .email, initialValue: user?.email) }
     private func didTapChangePin() { navigateToUpdateUser(type: .password) }
 
     @objc private func didTapLogout(sender: UIBarButtonItem) {
         navigateToLogin()
     }
 
-    private func navigateToUpdateUser(type: UpdateType) {
-        let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(),type: type)
+    private func navigateToUpdateUser(type: UpdateType, initialValue: String? = nil) {
+        let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(), type: type, initialValue: initialValue)
         navigationController?.pushViewController(vc, animated: true)
     }
 
     private func navigateToLogin() {
-        /*let vc = LoginViewController(viewModel: LoginViewModel())
-        present(vc, animated: true, completion: nil)*/
         dismiss(animated: true, completion: nil)
     }
 }
@@ -187,7 +180,6 @@ private enum Views {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.register(StaticTableViewCell.self, forCellReuseIdentifier: StaticTableViewCell.reuseIdentifier)
-        tableView.tableFooterView = UIView()
         tableView.isScrollEnabled = true
         tableView.bounces = false
         return tableView
@@ -218,14 +210,14 @@ private enum Views {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Color.espresso
         label.textAlignment = .center
-        label.font = Font.font(size: 50)
+        label.font = Font.boldFont(size: 55)
+        label.text = "-"
         return label
     }
 
     static func rankView() -> RankView {
         let view = RankView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.addShadow()
         return view
     }
 }

@@ -30,7 +30,7 @@ public class SwipeButton: UIControl {
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
-        label.font = Font.font(size: 17)
+        label.font = Font.font(size: 19)
         label.textColor = Color.cappuccino
         label.alpha = 0.51
         return label

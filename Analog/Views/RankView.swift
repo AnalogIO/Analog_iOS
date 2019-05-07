@@ -14,6 +14,7 @@ public class RankView: UIView {
         let view = RankInfoView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.title.text = "MONTH"
+        view.subtitle.text = "-"
         return view
     }()
 
@@ -21,6 +22,7 @@ public class RankView: UIView {
         let view = RankInfoView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.title.text = "SEMESTER"
+        view.subtitle.text = "-"
         return view
     }()
 
@@ -28,6 +30,7 @@ public class RankView: UIView {
         let view = RankInfoView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.title.text = "ALL-TIME"
+        view.subtitle.text = "-"
         return view
     }()
 
@@ -35,7 +38,7 @@ public class RankView: UIView {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = Color.milk
-        label.font = Font.font(size: 23)
+        label.font = Font.font(size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Rank"
         return label
@@ -60,6 +63,7 @@ public class RankView: UIView {
         super.init(frame: .zero)
         backgroundColor = Color.cortado
         layer.cornerRadius = 10
+        addShadow()
         defineLayout()
     }
 
@@ -69,7 +73,7 @@ public class RankView: UIView {
 
     private func defineLayout() {
         addSubview(rankLabel)
-        rankLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2).isActive = true
+        rankLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         rankLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         rankLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
 
@@ -112,7 +116,9 @@ private class RankInfoView: UIView {
     let stackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
-        view.distribution = .fillProportionally
+        view.spacing = 0
+        view.distribution = .fill
+        view.alignment = .fill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

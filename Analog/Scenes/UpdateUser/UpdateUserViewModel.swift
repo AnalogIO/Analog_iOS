@@ -35,16 +35,12 @@ class UpdateUserViewModel {
         User.update().response(using: api, method: .put, parameters: parameters) { response in
             switch response {
             case .success(let user):
-                self.persistUserData(user: user)
+                KeyChainService.shared.store(key: .email, value: user.email)
+                if type == .password { KeyChainService.shared.store(key: .pin, value: value) }
                 self.updateUserState = .loaded(user)
             case .error(let error):
                 self.updateUserState = .error(error)
             }
         }
-    }
-
-    private func persistUserData(user: User) {
-        UserDefaults.standard.set(user.name, forKey: UpdateType.name.rawValue)
-        UserDefaults.standard.set(user.email, forKey: UpdateType.email.rawValue)
     }
 }

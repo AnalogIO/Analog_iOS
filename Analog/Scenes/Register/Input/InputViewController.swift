@@ -63,6 +63,7 @@ class InputViewController: UIViewController {
         view.backgroundColor = Color.grey
         passwordInput.delegate = self
         keyboard.delegate = passwordInput
+        inputField.delegate = self
 
         defineLayout()
         setupTargets()
@@ -157,24 +158,30 @@ class InputViewController: UIViewController {
     }
 
     @objc func didPressNextButton(sender: UIButton) {
-        guard let input = inputField.text else {
-            return
-        }
-        delegate?.didReceiveInput(type: type, input: input)
+        next()
     }
 
     private func updateView() {
         switch type {
         case .email:
             titleLabel.text = .localized(.createUserEmailTitle)
+            inputField.keyboardType = .emailAddress
             keyboard.isHidden = true
         case .name:
             titleLabel.text = .localized(.createUserNameTitle)
+            inputField.keyboardType = .namePhonePad
             keyboard.isHidden = true
         case .password:
             titleLabel.text = .localized(.createUserPinTitle)
             keyboard.isHidden = false
         }
+    }
+
+    private func next() {
+        guard let input = inputField.text else {
+            return
+        }
+        delegate?.didReceiveInput(type: type, input: input)
     }
 
     public func reset() {
@@ -189,18 +196,26 @@ class InputViewController: UIViewController {
 
 extension InputViewController: PasswordInputDelegate {
     func didFinish(_ code: String) {
-        guard let password = password else {
+        if let password = password {
+            if password == code {
+                delegate?.didReceiveInput(type: type, input: password)
+                passwordInput.reset()
+            } else {
+                displayMessage(title: "Message", message: "Password did not match", actions: [.Ok])
+                passwordInput.reset()
+            }
+        } else {
             titleLabel.text = .localized(.createUserPinConfirmTitle)
             passwordInput.reset()
             self.password = code
-            return
         }
+    }
+}
 
-        if password == code {
-            delegate?.didReceiveInput(type: type, input: password)
-        } else {
-            passwordInput.reset()
-        }
+extension InputViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        next()
+        return true
     }
 }
 
@@ -252,6 +267,7 @@ private enum Views {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.backgroundColor = Color.milk
         textField.addShadow()
+        textField.returnKeyType = .done
         textField.layer.cornerRadius = 4
         textField.textAlignment = .center
         textField.tintColor = Color.espresso
