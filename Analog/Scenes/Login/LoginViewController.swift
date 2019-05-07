@@ -45,6 +45,12 @@ class LoginViewController: UIViewController {
         defineLayout()
         setupTargets()
 
+        if let email = KeyChainService.shared.get(key: .email) {
+            emailField.text = email
+        } else {
+            emailField.becomeFirstResponder()
+        }
+
         viewModel.viewDidLoad()
     }
 
@@ -234,7 +240,6 @@ private enum Views {
         textField.textColor = Color.espresso
         textField.setContentHuggingPriority(.defaultHigh, for: .vertical)
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.text = KeyChainService.shared.get(key: .email)
         textField.placeholder = .localized(.loginEmailPlaceholder)
         return textField
     }
