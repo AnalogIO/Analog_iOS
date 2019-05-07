@@ -70,8 +70,9 @@ class ReceiptsViewModel {
             switch response {
             case .success(let receipts):
                 self.receipts = receipts
-                let configs = receipts.map { ReceiptCellConfig(name: $0.productName, date: DateFormat.format($0.dateUsed) ?? "") }
-                self.fetchReceiptsState = .loaded(configs)
+                let configs: [ReceiptCellConfig] = receipts.map { ReceiptCellConfig(name: $0.productName, date: DateFormat.format($0.dateUsed) ?? "") }
+                let sortedConfigs: [ReceiptCellConfig] = configs.sorted { $0.date > $1.date }
+                self.fetchReceiptsState = .loaded(sortedConfigs)
             case .error(let error):
                 self.fetchReceiptsState = .error(error)
             }
@@ -85,8 +86,9 @@ class ReceiptsViewModel {
             switch response {
             case .success(let purchases):
                 self.purchases = purchases
-                let configs = purchases.map { PurchaseCellConfig(name: $0.productName, date: DateFormat.format($0.dateCreated) ?? "") }
-                self.fetchPurchasesState = .loaded(configs)
+                let configs: [PurchaseCellConfig] = purchases.map { PurchaseCellConfig(name: $0.productName, date: DateFormat.format($0.dateCreated) ?? "") }
+                let sortedConfigs: [PurchaseCellConfig] = configs.sorted { $0.date > $1.date }
+                self.fetchPurchasesState = .loaded(sortedConfigs)
             case .error(let error):
                 self.fetchPurchasesState = .error(error)
             }
