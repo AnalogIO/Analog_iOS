@@ -11,7 +11,6 @@
 		EC1770DA222C434E004247F2 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1770D9222C434E004247F2 /* InputViewController.swift */; };
 		EC255331227ECFB600E193A1 /* NumberKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC255330227ECFB600E193A1 /* NumberKeyboard.swift */; };
 		EC2A7EA422314F9C008AD03C /* GeneratedLocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */; };
-		EC2A7EA522314F9C008AD03C /* da-DK.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC2A7EA122314F9C008AD03C /* da-DK.lproj */; };
 		EC2A7EA622314F9C008AD03C /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC2A7EA222314F9C008AD03C /* en.lproj */; };
 		EC2A7EA722314F9C008AD03C /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A7EA322314F9C008AD03C /* Localizable.swift */; };
 		EC45A171216B549600E14A55 /* LeaderboardUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC45A170216B549600E14A55 /* LeaderboardUser.swift */; };
@@ -83,6 +82,7 @@
 		EC6DAAF2221DC362008D0A76 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6DAAF1221DC362008D0A76 /* UIColor.swift */; };
 		EC7259AB2246544F00C670E7 /* CoffeecardButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7259AA2246544F00C670E7 /* CoffeecardButtonView.swift */; };
 		EC77532022429E9300B7F83C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC77531F22429E9300B7F83C /* Message.swift */; };
+		EC7F0AE322BA365B0000FC82 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7F0AE222BA365B0000FC82 /* Provider.swift */; };
 		EC841C5A2270B53A001307F7 /* Coffeecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC841C592270B53A001307F7 /* Coffeecard.swift */; };
 		EC841C5C2270B6AE001307F7 /* Coffeecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC841C5B2270B6AE001307F7 /* Coffeecard.swift */; };
 		EC8C8F9222817564002533A6 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */; };
@@ -185,9 +185,9 @@
 		EC1770D9222C434E004247F2 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		EC255330227ECFB600E193A1 /* NumberKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyboard.swift; sourceTree = "<group>"; };
 		EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedLocalizedStrings.swift; sourceTree = "<group>"; };
-		EC2A7EA122314F9C008AD03C /* da-DK.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "da-DK.lproj"; sourceTree = "<group>"; };
 		EC2A7EA222314F9C008AD03C /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
 		EC2A7EA322314F9C008AD03C /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		EC3DED162285620800CFFE2F /* Analog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Analog.entitlements; sourceTree = "<group>"; };
 		EC45A16E216B531800E14A55 /* LeaderboardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCollectionViewCell.swift; sourceTree = "<group>"; };
 		EC45A170216B549600E14A55 /* LeaderboardUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardUser.swift; sourceTree = "<group>"; };
 		EC45A172216B558A00E14A55 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
@@ -250,6 +250,7 @@
 		EC6DAAF1221DC362008D0A76 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EC7259AA2246544F00C670E7 /* CoffeecardButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeecardButtonView.swift; sourceTree = "<group>"; };
 		EC77531F22429E9300B7F83C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EC7F0AE222BA365B0000FC82 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		EC841C592270B53A001307F7 /* Coffeecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffeecard.swift; sourceTree = "<group>"; };
 		EC841C5B2270B6AE001307F7 /* Coffeecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffeecard.swift; sourceTree = "<group>"; };
 		EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
@@ -365,7 +366,6 @@
 		EC2A7E9F22314A09008AD03C /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				EC2A7EA122314F9C008AD03C /* da-DK.lproj */,
 				EC2A7EA222314F9C008AD03C /* en.lproj */,
 				EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */,
 				EC2A7EA322314F9C008AD03C /* Localizable.swift */,
@@ -412,6 +412,7 @@
 		EC603FC32149357700666F22 /* Analog */ = {
 			isa = PBXGroup;
 			children = (
+				EC3DED162285620800CFFE2F /* Analog.entitlements */,
 				EC2A7E9F22314A09008AD03C /* Localization */,
 				EC6DAAE7221DB90F008D0A76 /* Views */,
 				EC51B8DB215927BB00DF5EB1 /* Resources */,
@@ -431,6 +432,7 @@
 				EC9F9839214E402B00C39F96 /* KeyChainService.swift */,
 				EC97260F2275C6F200E3EF37 /* DateFormat.swift */,
 				EC8C8F9122817564002533A6 /* UserDefaultsKey.swift */,
+				EC7F0AE222BA365B0000FC82 /* Provider.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -928,6 +930,11 @@
 					EC603FC02149357700666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					EC60400B2149556000666F22 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -980,7 +987,6 @@
 			files = (
 				EC2A7EA622314F9C008AD03C /* en.lproj in Resources */,
 				EC603FD8214935EC00666F22 /* Cartfile in Resources */,
-				EC2A7EA522314F9C008AD03C /* da-DK.lproj in Resources */,
 				ECC91169215E4B4F0085295A /* README.md in Resources */,
 				EC603FCF2149357800666F22 /* LaunchScreen.storyboard in Resources */,
 				EC603FCC2149357800666F22 /* Assets.xcassets in Resources */,
@@ -1061,6 +1067,7 @@
 				EC97260C2275A12B00E3EF37 /* ReceiptPopover.swift in Sources */,
 				ECC911922160309C0085295A /* UpdateUserViewController.swift in Sources */,
 				EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */,
+				EC7F0AE322BA365B0000FC82 /* Provider.swift in Sources */,
 				ECC91188215E5AE50085295A /* VoucherViewModel.swift in Sources */,
 				EC603FC52149357700666F22 /* AppDelegate.swift in Sources */,
 				EC603FFA21494B3B00666F22 /* ProfileViewModel.swift in Sources */,

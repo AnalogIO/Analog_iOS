@@ -13,6 +13,7 @@ public class PurchaseCollectionViewCell: UICollectionViewCell {
 
     private let label = Views.label()
     private let dateLabel = Views.dateLabel()
+    private let priceLabel = Views.priceLabel()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,16 +35,17 @@ public class PurchaseCollectionViewCell: UICollectionViewCell {
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
         ])
 
-        addSubview(dateLabel)
+        addSubview(priceLabel)
         NSLayoutConstraint.activate([
-            dateLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            dateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
         ])
     }
 
     public func configure(config: PurchaseCellConfig) {
         label.text = config.name
         dateLabel.text = config.date
+        priceLabel.text = "\(config.price) DKK"
     }
 }
 
@@ -65,14 +67,25 @@ private enum Views {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
+
+    static func priceLabel() -> UILabel {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.font = Font.font(size: 20)
+        label.textColor = Color.espresso
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
 }
 
 public struct PurchaseCellConfig {
     let name: String
     let date: String
+    let price: Int
 
-    public init(name: String, date: String) {
+    public init(name: String, date: String, price: Int) {
         self.name = name
         self.date = date
+        self.price = price
     }
 }

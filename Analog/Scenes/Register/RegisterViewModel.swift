@@ -31,7 +31,6 @@ class RegisterViewModel {
             "name": name,
             "email": email,
             "password": password.sha256(),
-            "programmeId": "1",
         ]
         User.register().response(using: api, method: .post, parameters: parameters, headers: [:]) { response in
             switch response {

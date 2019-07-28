@@ -47,6 +47,12 @@ class LeaderboardViewModel {
         }
     }
 
+    let provider: Provider
+
+    init(provider: Provider) {
+        self.provider = provider
+    }
+
     public func viewWillAppear() {
         selectedIndex = 0
     }
@@ -56,8 +62,7 @@ class LeaderboardViewModel {
     }
 
     private func fetchLeaderboard(type: LeaderboardType) {
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        Leaderboard.get(type: type).response(using: api, method: .get) { response in
+        Leaderboard.get(type: type).response(using: provider.clipcard, method: .get) { response in
             switch response {
             case .success(let users):
                 self.users = users

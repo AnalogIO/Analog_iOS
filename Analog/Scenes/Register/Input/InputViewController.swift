@@ -38,7 +38,7 @@ class InputViewController: UIViewController {
     private let inputFieldHeight: CGFloat = 50
     private let nextButtonHeight: CGFloat = 40
     private let imageViewHeight: CGFloat = 60
-    private let passwordInputSideMargin: CGFloat = 20
+    private let passwordInputSideMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 250 : 20
     private let passwordInputHeight: CGFloat = 80
 
     private var password: String?
@@ -113,11 +113,12 @@ class InputViewController: UIViewController {
             definePasswordLayout()
         }
 
-        stackView.addArrangedSubview(.spacing(30))
+        stackView.addArrangedSubview(.spacing(20))
         stackView.addArrangedSubview(loginButton)
 
         NSLayoutConstraint.activate([
-            imageView.heightAnchor.constraint(equalToConstant: imageViewHeight)
+            imageView.heightAnchor.constraint(equalToConstant: imageViewHeight),
+            loginButton.heightAnchor.constraint(equalToConstant: 10)
         ])
 
         stackView.addArrangedSubview(.emptySpace())
@@ -267,6 +268,8 @@ private enum Views {
         textField.backgroundColor = Color.milk
         textField.addShadow()
         textField.returnKeyType = .done
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
         textField.layer.cornerRadius = 4
         textField.textAlignment = .center
         textField.tintColor = Color.espresso

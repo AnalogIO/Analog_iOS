@@ -123,7 +123,7 @@ class ProfileViewController: UIViewController {
     }
 
     private func navigateToUpdateUser(type: UpdateType, initialValue: String? = nil) {
-        let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(), type: type, initialValue: initialValue)
+        let vc = UpdateUserViewController(viewModel: UpdateUserViewModel(provider: viewModel.provider), type: type, initialValue: initialValue)
         navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -115,7 +115,7 @@ class TicketsViewController: UIViewController {
     }
 
     @objc private func didPressVoucher(sender: UIBarButtonItem) {
-        let vc = VoucherViewController(viewModel: VoucherViewModel())
+        let vc = VoucherViewController(viewModel: VoucherViewModel(provider: viewModel.provider))
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -231,8 +231,13 @@ extension TicketsViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.bounds.width-(collectionViewSideMargin*2)
-        return CGSize(width: width, height: width*0.52)
+        let phoneWidth = collectionView.bounds.width-(collectionViewSideMargin*2)
+        let padWidth = (collectionView.bounds.width/2) - (collectionViewSideMargin * 1.5)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return CGSize(width: padWidth, height: padWidth*0.52)
+        } else {
+            return CGSize(width: phoneWidth, height: phoneWidth*0.52)
+        }
     }
 }
 

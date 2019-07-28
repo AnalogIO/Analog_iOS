@@ -11,22 +11,28 @@ import Alamofire
 import Client
 import Entities
 
+public protocol ClipCardAPIDelegate: class {
+    func invalidToken()
+}
+
 public class ClipCardAPI: API {
     
     #if DEBUG
     public var baseUrl: String = "https://analogio.dk/beta/clippy/api/v1/"
     #else
-    public var baseUrl: String = "https://analogio.dk/beta/clippy/api/v1/"
+    public var baseUrl: String = "https://analogio.dk/clippy/api/v1/"
     #endif
 
     let token: String?
+
+    public weak var delegate: ClipCardAPIDelegate?
 
     private lazy var headers: HTTPHeaders = {
         var headers: HTTPHeaders = [:]
         if let token = token { headers["Authorization"] = "bearer " + token }
         return headers
     }()
-    
+
     public init(token: String? = nil) {
         self.token = token
         super.init(baseUrl: baseUrl)
@@ -34,8 +40,15 @@ public class ClipCardAPI: API {
     }
 
     override public func interceptResponse(response: DataResponse<Data>, url: URL) {
-        let code: String = "\(response.response?.statusCode.description ?? "")"
+        guard let result = response.response else { return }
+        let code: Int = result.statusCode
         let status: String = "\(response.result)"
+
+        //invalid token
+        if code == 401 {
+            delegate?.invalidToken()
+        }
+
         print("Received response from: \(url) - \(status): \(code)")
     }
 }

@@ -14,6 +14,7 @@ import ClipCardAPI
 protocol LoginViewModelDelegate: class {
     func didSetFetchCafeState(state: State<Cafe>)
     func didSetFetchTokenState(state: State<Token>)
+    func didSetFetchForgotPasswordState(state: State<Message>)
     func startFaceTouchAuthentication()
     func showMessage(text: String)
 }
@@ -31,6 +32,12 @@ class LoginViewModel {
     var fetchTokenState: State<Token> = .unknown {
         didSet {
             delegate?.didSetFetchTokenState(state: fetchTokenState)
+        }
+    }
+
+    var fetchForgotPasswordState: State<Message> = .unknown {
+        didSet {
+            delegate?.didSetFetchForgotPasswordState(state: fetchForgotPasswordState)
         }
     }
 
@@ -61,6 +68,22 @@ class LoginViewModel {
                 self.fetchCafeState = .loaded(value)
             case .error(let error):
                 self.fetchCafeState = .error(error)
+            }
+        }
+    }
+
+    public func forgotPassword(email: String) {
+        fetchForgotPasswordState = .loading
+        let api = ClipCardAPI()
+        let parameters = [
+            "email": email
+        ]
+        User.forgotPassword().response(using: api, method: .post, parameters: parameters) { response in
+            switch response {
+            case .success(let message):
+                self.fetchForgotPasswordState = .loaded(message)
+            case .error(let error):
+                self.fetchForgotPasswordState = .error(error)
             }
         }
     }

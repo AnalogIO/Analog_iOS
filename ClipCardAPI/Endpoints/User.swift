@@ -15,6 +15,10 @@ extension User {
         return Request(path: "account/login")
     }
 
+    public static func forgotPassword() -> Request<Message, ClipCardError> {
+        return Request(path: "account/forgotpassword")
+    }
+
     public static func register() -> Request<ValueMessage, ClipCardError> {
         return Request(path: "account/register")
     }

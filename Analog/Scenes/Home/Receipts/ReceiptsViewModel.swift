@@ -44,6 +44,12 @@ class ReceiptsViewModel {
         }
     }
 
+    let provider: Provider
+
+    init(provider: Provider) {
+        self.provider = provider
+    }
+
     public func viewWillAppear() {
         selectedIndex = 0
     }
@@ -65,14 +71,12 @@ class ReceiptsViewModel {
 
     private func fetchReceipts() {
         fetchReceiptsState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        Ticket.getAll(used: true).response(using: api, method: .get) { response in
+        Ticket.getAll(used: true).response(using: provider.clipcard, method: .get) { response in
             switch response {
             case .success(let receipts):
-                self.receipts = receipts
-                let configs: [ReceiptCellConfig] = receipts.map { ReceiptCellConfig(name: $0.productName, date: DateFormat.format($0.dateUsed) ?? "") }
-                let sortedConfigs: [ReceiptCellConfig] = configs.sorted { $0.date > $1.date }
-                self.fetchReceiptsState = .loaded(sortedConfigs)
+                self.receipts = receipts.reversed()
+                let configs: [ReceiptCellConfig] = self.receipts.map { ReceiptCellConfig(name: $0.productName, date: DateFormat.format($0.dateUsed) ?? "") }
+                self.fetchReceiptsState = .loaded(configs)
             case .error(let error):
                 self.fetchReceiptsState = .error(error)
             }
@@ -81,14 +85,12 @@ class ReceiptsViewModel {
 
     private func fetchPurchases() {
         fetchPurchasesState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        Purchase.getAll().response(using: api, method: .get) { response in
+        Purchase.getAll().response(using: provider.clipcard, method: .get) { response in
             switch response {
             case .success(let purchases):
-                self.purchases = purchases
-                let configs: [PurchaseCellConfig] = purchases.map { PurchaseCellConfig(name: $0.productName, date: DateFormat.format($0.dateCreated) ?? "") }
-                let sortedConfigs: [PurchaseCellConfig] = configs.sorted { $0.date > $1.date }
-                self.fetchPurchasesState = .loaded(sortedConfigs)
+                self.purchases = purchases.reversed()
+                let configs: [PurchaseCellConfig] = self.purchases.map { PurchaseCellConfig(name: $0.productName, date: DateFormat.format($0.dateCreated) ?? "", price: $0.price) }
+                self.fetchPurchasesState = .loaded(configs)
             case .error(let error):
                 self.fetchPurchasesState = .error(error)
             }

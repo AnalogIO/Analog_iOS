@@ -67,6 +67,13 @@ class RegisterViewController: UIPageViewController {
     private func navigateToLogin() {
         dismiss(animated: true, completion: nil)
     }
+
+    func validateEmail(email: String) -> Bool {
+        let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
+        return predicate.evaluate(with: email)
+    }
 }
 
 extension RegisterViewController: InputViewControllerDelegate {
@@ -77,8 +84,12 @@ extension RegisterViewController: InputViewControllerDelegate {
     func didReceiveInput(type: InputType, input: String) {
         switch type {
         case .email:
-            email = input
-            currentIndex? += 1
+            if validateEmail(email: input) {
+                self.email = input
+                self.currentIndex? += 1
+            } else {
+                displayMessage(title: "Message", message: "Please enter a valid email", actions: [.Ok])
+            }
         case .name:
             name = input
             currentIndex? += 1
@@ -94,10 +105,11 @@ extension RegisterViewController: RegisterViewModelDelegate {
         switch state {
         case .loading:
             indicator.start()
-        case .loaded(_):
+        case .loaded(let message):
             indicator.stop()
-            let vc = LoginViewController(viewModel: LoginViewModel())
-            present(vc, animated: true, completion: nil)
+            displayMessage(title: "Message", message: message.message, actions: [.Ok], okHandler: { _ in
+                self.navigateToLogin()
+            })
         case .error(let error):
             indicator.stop()
             displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])

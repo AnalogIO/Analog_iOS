@@ -26,14 +26,19 @@ class ProfileViewModel {
         }
     }
 
+    let provider: Provider
+
+    init(provider: Provider) {
+        self.provider = provider
+    }
+
     public func viewWillAppear() {
         fetchUser()
     }
 
     private func fetchUser() {
         fetchUserState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        User.get().response(using: api, method: .get, response: { response in
+        User.get().response(using: provider.clipcard, method: .get, response: { response in
             switch response {
             case .error(let error):
                 self.fetchUserState = .error(error)

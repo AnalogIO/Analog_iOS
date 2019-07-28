@@ -13,17 +13,25 @@ import Entities
 class LoginViewController: UIViewController {
 
     private let stackView = Views.stackView()
-    private let passwordInput = Views.passwordInput()
+    private let forgotPassword = Views.forgotPasswordButton()
     private let keyboard = Views.numberKeyboard()
     private let imageView = Views.imageView()
     private let createUserButton = Views.createUserButton()
     private let emailField = Views.emailField()
+
     private lazy var indicator = ActivityIndication(container: view)
+
+    private lazy var passwordInput: PasswordInput = {
+        let view = PasswordInput(numberOfInputFields: 4, sideMargin: passwordMargin)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        return view
+    }()
 
     private let viewModel: LoginViewModel
 
     private let sideMargin: CGFloat = 16
-    private let passwordMargin: CGFloat = 20
+    private let passwordMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 250 : 25
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -45,17 +53,18 @@ class LoginViewController: UIViewController {
         defineLayout()
         setupTargets()
 
+        viewModel.viewDidLoad()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         if let email = KeyChainService.shared.get(key: .email) {
             emailField.text = email
         } else {
             emailField.becomeFirstResponder()
         }
 
-        viewModel.viewDidLoad()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         viewModel.viewWillAppear()
     }
 
@@ -85,14 +94,21 @@ class LoginViewController: UIViewController {
         stackView.addArrangedSubview(.emptySpace())
 
         NSLayoutConstraint.activate([
-            emailField.heightAnchor.constraint(equalToConstant: 20),
+            emailField.heightAnchor.constraint(equalToConstant: 30),
             createUserButton.heightAnchor.constraint(equalToConstant: 20),
             imageView.heightAnchor.constraint(lessThanOrEqualToConstant: 200)
+        ])
+
+        view.addSubview(forgotPassword)
+        NSLayoutConstraint.activate([
+            forgotPassword.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            forgotPassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
 
     private func setupTargets() {
-        createUserButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+        createUserButton.addTarget(self, action: #selector(didTapRegister), for: .touchUpInside)
+        forgotPassword.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTapBackground))
         tap.cancelsTouchesInView = false
@@ -114,6 +130,13 @@ class LoginViewController: UIViewController {
     }
 
     @objc private func didTapForgotPassword(sender: UIButton) {
+        requestInput(title: "Forgot PIN", message: "Please enter your email address. You will receive an email that you will have to confirm.", completion: { email in
+            guard let email = email else { return }
+            self.viewModel.forgotPassword(email: email)
+        })
+    }
+
+    @objc private func didTapRegister(sender: UIButton) {
         navigateToRegister()
     }
 
@@ -129,6 +152,21 @@ extension LoginViewController: PasswordInputDelegate {
 }
 
 extension LoginViewController: LoginViewModelDelegate {
+    func didSetFetchForgotPasswordState(state: State<Message>) {
+        switch state {
+        case .loading:
+            indicator.start()
+        case .loaded(let message):
+            indicator.stop()
+            displayMessage(title: "Message", message: message.message, actions: [.Ok])
+        case .error(let error):
+            indicator.stop()
+            displayMessage(title: "Message", message: error.localizedDescription, actions: [.Ok])
+        default:
+            break
+        }
+    }
+
     func showMessage(text: String) {
         displayMessage(title: "Message", message: text, actions: [.Ok])
     }
@@ -198,13 +236,6 @@ private enum Views {
         return stackView
     }
 
-    static func passwordInput() -> PasswordInput {
-        let view = PasswordInput(numberOfInputFields: 4, sideMargin: 25)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        return view
-    }
-
     static func numberKeyboard() -> NumberKeyboard {
         let view = NumberKeyboard()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -229,6 +260,15 @@ private enum Views {
         return button
     }
 
+    static func forgotPasswordButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle("Forgot PIN", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(Color.espresso, for: .normal)
+        button.titleLabel?.font = Font.font(size: 14)
+        return button
+    }
+
     static func emailField() -> UITextField {
         let textField = UITextField()
         textField.font = Font.font(size: 18)
@@ -236,7 +276,11 @@ private enum Views {
         textField.borderStyle = .none
         textField.tintColor = Color.espresso
         textField.backgroundColor = .clear
+        textField.autocapitalizationType = .none
+        textField.clearButtonMode = .whileEditing
         textField.returnKeyType = .done
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
         textField.textAlignment = .center
         textField.textColor = Color.espresso
         textField.setContentHuggingPriority(.defaultHigh, for: .vertical)

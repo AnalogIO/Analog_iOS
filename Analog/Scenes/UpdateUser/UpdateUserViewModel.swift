@@ -24,15 +24,20 @@ class UpdateUserViewModel {
         }
     }
 
+    let provider: Provider
+
+    init(provider: Provider) {
+        self.provider = provider
+    }
+
     public func viewDidLoad() {}
 
     public func updateUser(type: UpdateType, value: String) {
         updateUserState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
         let parameters = [
             type.rawValue: type == .password ? value.sha256() : value
         ]
-        User.update().response(using: api, method: .put, parameters: parameters) { response in
+        User.update().response(using: provider.clipcard, method: .put, parameters: parameters) { response in
             switch response {
             case .success(let user):
                 KeyChainService.shared.store(key: .email, value: user.email)

@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import ClipCardAPI
 import MobilePayAPI
-import ShiftPlanningAPI
+import ClipCardAPI
 import Entities
 import Client
 
@@ -70,6 +69,12 @@ class TicketsViewModel {
         }
     }
 
+    let provider: Provider
+
+    init(provider: Provider) {
+        self.provider = provider
+    }
+
     public func viewWillAppear() {
         fetchTickets()
     }
@@ -99,9 +104,8 @@ class TicketsViewModel {
 
     private func useTicket(productId: Int) {
         useTicketState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
         let parameters = ["productId": productId]
-        Ticket.use().response(using: api, method: .post, parameters: parameters) { response in
+        Ticket.use().response(using: provider.clipcard, method: .post, parameters: parameters) { response in
             self.delegate?.resetSwipeButton()
             self.selectedIndex = nil
             switch response {
@@ -132,15 +136,13 @@ class TicketsViewModel {
 
     private func fetchOrderId(productId: Int, completion: @escaping ((Response<MPOrder, ClipCardError>) -> Void)) {
         fetchOrderIdState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
         let parameters = ["productId": productId]
-        MobilePay.initiatePurchase().response(using: api, method: .post, parameters: parameters, response: completion)
+        MobilePay.initiatePurchase().response(using: provider.clipcard, method: .post, parameters: parameters, response: completion)
     }
 
     func fetchTickets() {
         fetchCoffeecardsState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
-        Coffeecard.getAll().response(using: api, method: .get) { response in
+        Coffeecard.getAll().response(using: provider.clipcard, method: .get) { response in
             switch response {
             case .success(let coffeecards):
                 self.coffeecards = coffeecards

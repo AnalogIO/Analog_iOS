@@ -16,12 +16,15 @@ protocol HomeTabBarViewControllerDelegate {}
 class HomeTabBarViewController: UITabBarController {
 
     var timer: Timer? = nil
-    var verifyTokenTimer: Timer? = nil
 
     let statusButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: nil, style: .plain, target: nil, action: nil)
         return button
     }()
+
+    let clipcard = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
+    let shiftplanning = ShiftPlanningAPI()
+    lazy var provider = Provider(clipcard: clipcard, shiftplanning: shiftplanning)
 
     private let tabBarConfigs: [TabBarConfig] = [
         TabBarConfig(title: "Tickets", icon: #imageLiteral(resourceName: "Tickets")),
@@ -36,9 +39,9 @@ class HomeTabBarViewController: UITabBarController {
         self.configureTabBar()
         self.fetchCafeStatus()
 
-        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(fetchCafeStatus), userInfo: nil, repeats: true)
-        verifyTokenTimer = Timer.scheduledTimer(timeInterval: 600.0, target: self, selector: #selector(verifyToken), userInfo: nil, repeats: true)
+        clipcard.delegate = self
 
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(fetchCafeStatus), userInfo: nil, repeats: true)
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
@@ -50,11 +53,11 @@ class HomeTabBarViewController: UITabBarController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         timer?.invalidate()
-        verifyTokenTimer?.invalidate()
+        timer = nil
     }
 
     @objc private func applicationDidBecomeActive() {
-        verifyToken()
+        fetchCafeStatus()
     }
 
     func configureNavigationBar() {
@@ -65,10 +68,10 @@ class HomeTabBarViewController: UITabBarController {
         tabBar.tintColor = Color.espresso
         tabBar.barTintColor = Color.milk
         let controllers: [UINavigationController] = [
-            UINavigationController(rootViewController: TicketsViewController(viewModel: TicketsViewModel())),
-            UINavigationController(rootViewController: ReceiptsViewController(viewModel: ReceiptsViewModel())),
-            UINavigationController(rootViewController: ProfileViewController(viewModel: ProfileViewModel())),
-            UINavigationController(rootViewController: LeaderboardViewController(viewModel: LeaderboardViewModel())),
+            UINavigationController(rootViewController: TicketsViewController(viewModel: TicketsViewModel(provider: provider))),
+            UINavigationController(rootViewController: ReceiptsViewController(viewModel: ReceiptsViewModel(provider: provider))),
+            UINavigationController(rootViewController: ProfileViewController(viewModel: ProfileViewModel(provider: provider))),
+            UINavigationController(rootViewController: LeaderboardViewController(viewModel: LeaderboardViewModel(provider: provider))),
         ]
         controllers.enumerated().forEach { (index, vc) in
             let config = tabBarConfigs[index]
@@ -86,24 +89,8 @@ class HomeTabBarViewController: UITabBarController {
         dismiss(animated: true, completion: nil)
     }
 
-    @objc func verifyToken() {
-        let token = KeyChainService.shared.get(key: .token)
-        let api = ClipCardAPI(token: token)
-        let parameters = [ "token" : token ?? "" ]
-        Token.verify().response(using: api, method: .get, parameters: parameters) { response in
-            switch response {
-            case .success:
-                print("Token is valid")
-            case .error(let error):
-                print(error.localizedDescription)
-                self.navigateToLogin()
-            }
-        }
-    }
-
     @objc func fetchCafeStatus() {
-        let api = ShiftPlanningAPI()
-        Cafe.isOpen().response(using: api, method: .get) { response in
+        Cafe.isOpen().response(using: provider.shiftplanning, method: .get) { response in
             switch response {
             case .success(let value):
                 if value.open {
@@ -117,6 +104,12 @@ class HomeTabBarViewController: UITabBarController {
                 print(error.localizedDescription)
             }
         }
+    }
+}
+
+extension HomeTabBarViewController: ClipCardAPIDelegate {
+    func invalidToken() {
+        navigateToLogin()
     }
 }
 

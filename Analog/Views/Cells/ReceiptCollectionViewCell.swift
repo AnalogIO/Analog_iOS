@@ -51,7 +51,7 @@ private enum Views {
     static func label() -> UILabel {
         let label = UILabel()
         label.textAlignment = .left
-        label.font = Font.font(size: 20)
+        label.font = Font.font(size: 19)
         label.textColor = Color.espresso
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,7 +60,7 @@ private enum Views {
     static func dateLabel() -> UILabel {
         let label = UILabel()
         label.textAlignment = .right
-        label.font = Font.font(size: 20)
+        label.font = Font.font(size: 14)
         label.textColor = Color.espresso
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -25,13 +25,18 @@ class VoucherViewModel {
 
     public weak var delegate: VoucherViewModelDelegate?
 
+    let provider: Provider
+
+    init(provider: Provider) {
+        self.provider = provider
+    }
+
     public func didPressSendButton(code: String) {
         redeemVoucherState = .loading
-        let api = ClipCardAPI(token: KeyChainService.shared.get(key: .token))
         let parameters = [
             "voucherCode": code
         ]
-        Purchase.redeemVoucher().response(using: api, method: .post, parameters: parameters) { response in
+        Purchase.redeemVoucher().response(using: provider.clipcard, method: .post, parameters: parameters) { response in
             switch response {
             case .success(let purchase):
                 self.redeemVoucherState = .loaded(purchase)
