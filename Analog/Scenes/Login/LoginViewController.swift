@@ -30,8 +30,9 @@ class LoginViewController: UIViewController {
 
     private let viewModel: LoginViewModel
 
-    private let sideMargin: CGFloat = 16
-    private let passwordMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 250 : 25
+    private let keyboardMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? UIScreen.main.bounds.width * 0.25 : 0
+    private let sideMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? UIScreen.main.bounds.width * 0.25 : 20
+    private let passwordMargin: CGFloat = 25
 
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
@@ -71,16 +72,16 @@ class LoginViewController: UIViewController {
     private func defineLayout() {
         view.addSubview(keyboard)
         NSLayoutConstraint.activate([
-            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: keyboardMargin),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -keyboardMargin),
             keyboard.heightAnchor.constraint(equalToConstant: 220),
             keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
 
         view.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sideMargin),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sideMargin),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             stackView.bottomAnchor.constraint(equalTo: keyboard.topAnchor, constant: -20),
         ])

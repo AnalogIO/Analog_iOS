@@ -12,7 +12,8 @@ import Entities
 
 class TicketsViewController: UIViewController {
 
-    let collectionViewSideMargin: CGFloat = 30
+    let collectionViewSideMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? UIScreen.main.bounds.width * 0.25 : 30
+    let swipeButtonMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? UIScreen.main.bounds.width * 0.25 : 20
 
     let collectionView = Views.collectionView()
     let swipeButton = Views.swipeButton()
@@ -25,15 +26,15 @@ class TicketsViewController: UIViewController {
     }
     
     lazy var swipeButtonHiddenConstraints: [NSLayoutConstraint] = [
-        swipeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        swipeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        swipeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: swipeButtonMargin),
+        swipeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -swipeButtonMargin),
         swipeButton.heightAnchor.constraint(equalToConstant: 70),
         swipeButton.topAnchor.constraint(equalTo: view.bottomAnchor),
     ]
 
     lazy var swipeButtonVisibleConstraints: [NSLayoutConstraint] = [
-        swipeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-        swipeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        swipeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: swipeButtonMargin),
+        swipeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -swipeButtonMargin),
         swipeButton.heightAnchor.constraint(equalToConstant: 70),
         swipeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
     ]
@@ -231,13 +232,8 @@ extension TicketsViewController: UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let phoneWidth = collectionView.bounds.width-(collectionViewSideMargin*2)
-        let padWidth = (collectionView.bounds.width/2) - (collectionViewSideMargin * 1.5)
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return CGSize(width: padWidth, height: padWidth*0.52)
-        } else {
-            return CGSize(width: phoneWidth, height: phoneWidth*0.52)
-        }
+        let width = collectionView.bounds.width-(collectionViewSideMargin*2)
+        return CGSize(width: width, height: width*0.52)
     }
 }
 

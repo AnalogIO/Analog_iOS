@@ -33,13 +33,14 @@ class InputViewController: UIViewController {
     private let passwordInput = Views.passwordInput()
 
     private let topMargin: CGFloat = 10
-    private let sideMargin: CGFloat = 25
+    private let sideMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? UIScreen.main.bounds.width * 0.25 : 25
     private let nextButtonMargin: CGFloat = 30
     private let inputFieldHeight: CGFloat = 50
     private let nextButtonHeight: CGFloat = 40
     private let imageViewHeight: CGFloat = 60
-    private let passwordInputSideMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 250 : 20
+    private let passwordInputSideMargin: CGFloat = 20
     private let passwordInputHeight: CGFloat = 80
+    private let keyboardMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? UIScreen.main.bounds.width * 0.25 : 0
 
     private var password: String?
 
@@ -86,8 +87,8 @@ class InputViewController: UIViewController {
     private func defineLayout() {
         view.addSubview(keyboard)
         NSLayoutConstraint.activate([
-            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            keyboard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: keyboardMargin),
+            keyboard.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -keyboardMargin),
             keyboard.heightAnchor.constraint(equalToConstant: 220),
             keyboard.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])

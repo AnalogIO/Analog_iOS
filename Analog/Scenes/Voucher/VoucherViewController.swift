@@ -21,7 +21,7 @@ class VoucherViewController: UIViewController {
     private let inputField = Views.inputField()
 
     private let topMargin: CGFloat = 30
-    private let sideMargin: CGFloat = 25
+    private let sideMargin: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? UIScreen.main.bounds.width * 0.25 : 25
     private let sendButtonMargin: CGFloat = 30
     private let inputFieldHeight: CGFloat = 50
     private let sendButtonHeight: CGFloat = 40
