@@ -6,7 +6,8 @@ Architecture: MVVM
 
 1. Clone repository
 2. Run `carthage bootstrap --platform iOS`
-3. Open `Analog.xcodeproj`
+3. Run `pod install`
+3. Open `Analog.xcworkspace`
 
 ## Localization
 

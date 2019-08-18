@@ -7,8 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F10E2683114DFB48F483F36 /* Pods_MobilePayAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0925A1FD9F52E33EF085964 /* Pods_MobilePayAPI.framework */; };
+		69D36E7C42238CA60224768E /* Pods_Analog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E037AB18AFA36F3C95CAD4C /* Pods_Analog.framework */; };
+		6C703F8A301EC1C65829703C /* Pods_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3D96BF0F452E0C19220AAF /* Pods_Client.framework */; };
+		94FDD5F81638EA92AE829E5B /* Pods_ClipCardAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8896327B74872480C2C89914 /* Pods_ClipCardAPI.framework */; };
+		DE18939564D0D5F59637C6B7 /* Pods_Entities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FCBEBD7FE41D8C69117423E /* Pods_Entities.framework */; };
+		E4F517678C1D7BBC6DF7738F /* Pods_ShiftPlanningAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2326457B9ACEEC406FA03B /* Pods_ShiftPlanningAPI.framework */; };
 		EC01847921A1B20100230FF7 /* UpdateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */; };
 		EC1770DA222C434E004247F2 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1770D9222C434E004247F2 /* InputViewController.swift */; };
+		EC1EFA44230940460073342A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1EFA43230940460073342A /* GoogleService-Info.plist */; };
+		EC1EFA45230940460073342A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1EFA43230940460073342A /* GoogleService-Info.plist */; };
+		EC1EFA46230940460073342A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1EFA43230940460073342A /* GoogleService-Info.plist */; };
+		EC1EFA47230940460073342A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1EFA43230940460073342A /* GoogleService-Info.plist */; };
+		EC1EFA48230940460073342A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1EFA43230940460073342A /* GoogleService-Info.plist */; };
+		EC1EFA49230940460073342A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC1EFA43230940460073342A /* GoogleService-Info.plist */; };
 		EC255331227ECFB600E193A1 /* NumberKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC255330227ECFB600E193A1 /* NumberKeyboard.swift */; };
 		EC2A7EA422314F9C008AD03C /* GeneratedLocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */; };
 		EC2A7EA622314F9C008AD03C /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = EC2A7EA222314F9C008AD03C /* en.lproj */; };
@@ -181,8 +193,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		11B5F20B7E232642B26436FD /* Pods-Analog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Analog/Pods-Analog.debug.xcconfig"; sourceTree = "<group>"; };
+		1D5CD750EC6430F9A695523A /* Pods-Entities.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Entities.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Entities/Pods-Entities.debug.xcconfig"; sourceTree = "<group>"; };
+		1E037AB18AFA36F3C95CAD4C /* Pods_Analog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Analog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2326457B9ACEEC406FA03B /* Pods_ShiftPlanningAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShiftPlanningAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24B77335784E7D6742D3BF26 /* Pods-Entities.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Entities.release.xcconfig"; path = "Pods/Target Support Files/Pods-Entities/Pods-Entities.release.xcconfig"; sourceTree = "<group>"; };
+		2ED840C26605EFE8AFB7AB1F /* Pods-ClipCardAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipCardAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClipCardAPI/Pods-ClipCardAPI.release.xcconfig"; sourceTree = "<group>"; };
+		42DBC7A7E0B528CB3CA7545E /* Pods-MobilePayAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePayAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobilePayAPI/Pods-MobilePayAPI.release.xcconfig"; sourceTree = "<group>"; };
+		5FCBEBD7FE41D8C69117423E /* Pods_Entities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Entities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7981E661068D39C72990F3C5 /* Pods-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Client/Pods-Client.release.xcconfig"; sourceTree = "<group>"; };
+		8896327B74872480C2C89914 /* Pods_ClipCardAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClipCardAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B3D96BF0F452E0C19220AAF /* Pods_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EBB9167420045AE85E37546 /* Pods-Analog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Analog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Analog/Pods-Analog.release.xcconfig"; sourceTree = "<group>"; };
+		A0925A1FD9F52E33EF085964 /* Pods_MobilePayAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilePayAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5BED48FA8B8EED6109FCC8A /* Pods-ClipCardAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClipCardAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClipCardAPI/Pods-ClipCardAPI.debug.xcconfig"; sourceTree = "<group>"; };
+		B61B7E2F854C67846DEB7449 /* Pods-Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Client/Pods-Client.debug.xcconfig"; sourceTree = "<group>"; };
+		CDFA76BEDD0A6BDAEF39BD5D /* Pods-ShiftPlanningAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftPlanningAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftPlanningAPI/Pods-ShiftPlanningAPI.release.xcconfig"; sourceTree = "<group>"; };
+		D02DE0B9791E9F9A46125C46 /* Pods-ShiftPlanningAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShiftPlanningAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShiftPlanningAPI/Pods-ShiftPlanningAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		EC01847821A1B20100230FF7 /* UpdateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewModel.swift; sourceTree = "<group>"; };
 		EC1770D9222C434E004247F2 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		EC1EFA43230940460073342A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC255330227ECFB600E193A1 /* NumberKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberKeyboard.swift; sourceTree = "<group>"; };
 		EC2A7EA022314F9C008AD03C /* GeneratedLocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedLocalizedStrings.swift; sourceTree = "<group>"; };
 		EC2A7EA222314F9C008AD03C /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
@@ -293,6 +323,7 @@
 		ECC91185215E5ADB0085295A /* VoucherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewController.swift; sourceTree = "<group>"; };
 		ECC91187215E5AE50085295A /* VoucherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoucherViewModel.swift; sourceTree = "<group>"; };
 		ECC911912160309C0085295A /* UpdateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserViewController.swift; sourceTree = "<group>"; };
+		FCAE65CA15214CBDA43A2825 /* Pods-MobilePayAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePayAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobilePayAPI/Pods-MobilePayAPI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +337,7 @@
 				EC604058214955A200666F22 /* ShiftPlanningAPI.framework in Frameworks */,
 				EC6040472149559200666F22 /* Client.framework in Frameworks */,
 				ECBE0DF22167CF9F001725D6 /* libMobilePayManager1.8.1.a in Frameworks */,
+				69D36E7C42238CA60224768E /* Pods_Analog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +345,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE18939564D0D5F59637C6B7 /* Pods_Entities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +356,7 @@
 				EC60409821495C1100666F22 /* Entities.framework in Frameworks */,
 				EC60409721495C0A00666F22 /* Client.framework in Frameworks */,
 				EC60409F214967B400666F22 /* Alamofire.framework in Frameworks */,
+				94FDD5F81638EA92AE829E5B /* Pods_ClipCardAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC60409D214960A800666F22 /* Alamofire.framework in Frameworks */,
+				6C703F8A301EC1C65829703C /* Pods_Client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +376,7 @@
 				EC60409A21495C5900666F22 /* Entities.framework in Frameworks */,
 				EC60409921495C5600666F22 /* Client.framework in Frameworks */,
 				EC60409E2149677400666F22 /* Alamofire.framework in Frameworks */,
+				E4F517678C1D7BBC6DF7738F /* Pods_ShiftPlanningAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBE0DF12167CF36001725D6 /* libMobilePayManager1.8.1.a in Frameworks */,
+				4F10E2683114DFB48F483F36 /* Pods_MobilePayAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +430,7 @@
 				ECBE0DE12167CF11001725D6 /* MobilePayAPI */,
 				EC603FC22149357700666F22 /* Products */,
 				EC60409621495C0A00666F22 /* Frameworks */,
+				FE7F36746FF173F976FD5CDA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -440,6 +478,7 @@
 		EC603FDB2149365900666F22 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				EC1EFA43230940460073342A /* GoogleService-Info.plist */,
 				EC603FCD2149357800666F22 /* LaunchScreen.storyboard */,
 				EC603FD02149357800666F22 /* Info.plist */,
 				EC603FC42149357700666F22 /* AppDelegate.swift */,
@@ -652,6 +691,12 @@
 			isa = PBXGroup;
 			children = (
 				EC60409C214960A800666F22 /* Alamofire.framework */,
+				1E037AB18AFA36F3C95CAD4C /* Pods_Analog.framework */,
+				8B3D96BF0F452E0C19220AAF /* Pods_Client.framework */,
+				8896327B74872480C2C89914 /* Pods_ClipCardAPI.framework */,
+				5FCBEBD7FE41D8C69117423E /* Pods_Entities.framework */,
+				A0925A1FD9F52E33EF085964 /* Pods_MobilePayAPI.framework */,
+				1F2326457B9ACEEC406FA03B /* Pods_ShiftPlanningAPI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -753,6 +798,25 @@
 			path = UpdateUser;
 			sourceTree = "<group>";
 		};
+		FE7F36746FF173F976FD5CDA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				11B5F20B7E232642B26436FD /* Pods-Analog.debug.xcconfig */,
+				8EBB9167420045AE85E37546 /* Pods-Analog.release.xcconfig */,
+				B61B7E2F854C67846DEB7449 /* Pods-Client.debug.xcconfig */,
+				7981E661068D39C72990F3C5 /* Pods-Client.release.xcconfig */,
+				A5BED48FA8B8EED6109FCC8A /* Pods-ClipCardAPI.debug.xcconfig */,
+				2ED840C26605EFE8AFB7AB1F /* Pods-ClipCardAPI.release.xcconfig */,
+				1D5CD750EC6430F9A695523A /* Pods-Entities.debug.xcconfig */,
+				24B77335784E7D6742D3BF26 /* Pods-Entities.release.xcconfig */,
+				FCAE65CA15214CBDA43A2825 /* Pods-MobilePayAPI.debug.xcconfig */,
+				42DBC7A7E0B528CB3CA7545E /* Pods-MobilePayAPI.release.xcconfig */,
+				D02DE0B9791E9F9A46125C46 /* Pods-ShiftPlanningAPI.debug.xcconfig */,
+				CDFA76BEDD0A6BDAEF39BD5D /* Pods-ShiftPlanningAPI.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -807,11 +871,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC603FD32149357800666F22 /* Build configuration list for PBXNativeTarget "Analog" */;
 			buildPhases = (
+				73518F7FCCBC192ABA5E22F1 /* [CP] Check Pods Manifest.lock */,
 				EC603FBD2149357700666F22 /* Sources */,
 				EC603FBE2149357700666F22 /* Frameworks */,
 				EC603FBF2149357700666F22 /* Resources */,
 				EC603FD9214935FE00666F22 /* Carthage */,
 				EC6040182149556000666F22 /* Embed Frameworks */,
+				6A527E77F3A0E6B018185943 /* [CP] Embed Pods Frameworks */,
+				EC1EFA4A230945520073342A /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -831,6 +898,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC6040152149556000666F22 /* Build configuration list for PBXNativeTarget "Entities" */;
 			buildPhases = (
+				F9555728025F5391BCC692B2 /* [CP] Check Pods Manifest.lock */,
 				EC6040072149556000666F22 /* Sources */,
 				EC6040082149556000666F22 /* Frameworks */,
 				EC6040092149556000666F22 /* Headers */,
@@ -849,6 +917,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC6040272149556A00666F22 /* Build configuration list for PBXNativeTarget "ClipCardAPI" */;
 			buildPhases = (
+				AF5067B65D8C9749C682008D /* [CP] Check Pods Manifest.lock */,
 				EC6040192149556A00666F22 /* Sources */,
 				EC60401A2149556A00666F22 /* Frameworks */,
 				EC60401B2149556A00666F22 /* Headers */,
@@ -867,6 +936,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC6040492149559200666F22 /* Build configuration list for PBXNativeTarget "Client" */;
 			buildPhases = (
+				997163142AB88CBFA25DF754 /* [CP] Check Pods Manifest.lock */,
 				EC60403B2149559200666F22 /* Sources */,
 				EC60403C2149559200666F22 /* Frameworks */,
 				EC60403D2149559200666F22 /* Headers */,
@@ -885,6 +955,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC60405A214955A200666F22 /* Build configuration list for PBXNativeTarget "ShiftPlanningAPI" */;
 			buildPhases = (
+				E746B0C3A1CE2DC3D7419380 /* [CP] Check Pods Manifest.lock */,
 				EC60404C214955A200666F22 /* Sources */,
 				EC60404D214955A200666F22 /* Frameworks */,
 				EC60404E214955A200666F22 /* Headers */,
@@ -903,6 +974,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECBE0DE92167CF11001725D6 /* Build configuration list for PBXNativeTarget "MobilePayAPI" */;
 			buildPhases = (
+				271DE5FF0C860B1718A6BCEC /* [CP] Check Pods Manifest.lock */,
 				ECBE0DDB2167CF11001725D6 /* Headers */,
 				ECBE0DDC2167CF11001725D6 /* Sources */,
 				ECBE0DDD2167CF11001725D6 /* Frameworks */,
@@ -990,6 +1062,7 @@
 				ECC91169215E4B4F0085295A /* README.md in Resources */,
 				EC603FCF2149357800666F22 /* LaunchScreen.storyboard in Resources */,
 				EC603FCC2149357800666F22 /* Assets.xcassets in Resources */,
+				EC1EFA44230940460073342A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,6 +1070,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1EFA45230940460073342A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,6 +1078,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1EFA46230940460073342A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1011,6 +1086,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1EFA47230940460073342A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1094,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1EFA48230940460073342A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,12 +1102,166 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC1EFA49230940460073342A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		271DE5FF0C860B1718A6BCEC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobilePayAPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6A527E77F3A0E6B018185943 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Analog/Pods-Analog-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Analog/Pods-Analog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73518F7FCCBC192ABA5E22F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Analog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		997163142AB88CBFA25DF754 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Client-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF5067B65D8C9749C682008D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ClipCardAPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E746B0C3A1CE2DC3D7419380 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShiftPlanningAPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC1EFA4A230945520073342A /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
+		};
 		EC603FD9214935FE00666F22 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1046,6 +1277,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		F9555728025F5391BCC692B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Entities-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1332,9 +1585,11 @@
 		};
 		EC603FD42149357800666F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11B5F20B7E232642B26436FD /* Pods-Analog.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = Y5U9T77F2K;
 				INFOPLIST_FILE = Analog/Application/Info.plist;
@@ -1360,6 +1615,7 @@
 		};
 		EC603FD52149357800666F22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EBB9167420045AE85E37546 /* Pods-Analog.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1388,6 +1644,7 @@
 		};
 		EC6040162149556000666F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D5CD750EC6430F9A695523A /* Pods-Entities.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1419,6 +1676,7 @@
 		};
 		EC6040172149556000666F22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24B77335784E7D6742D3BF26 /* Pods-Entities.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1449,6 +1707,7 @@
 		};
 		EC6040282149556A00666F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5BED48FA8B8EED6109FCC8A /* Pods-ClipCardAPI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1484,6 +1743,7 @@
 		};
 		EC6040292149556A00666F22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2ED840C26605EFE8AFB7AB1F /* Pods-ClipCardAPI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1518,6 +1778,7 @@
 		};
 		EC60404A2149559200666F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B61B7E2F854C67846DEB7449 /* Pods-Client.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1553,6 +1814,7 @@
 		};
 		EC60404B2149559200666F22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7981E661068D39C72990F3C5 /* Pods-Client.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1587,6 +1849,7 @@
 		};
 		EC60405B214955A200666F22 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D02DE0B9791E9F9A46125C46 /* Pods-ShiftPlanningAPI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1622,6 +1885,7 @@
 		};
 		EC60405C214955A200666F22 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDFA76BEDD0A6BDAEF39BD5D /* Pods-ShiftPlanningAPI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -1656,6 +1920,7 @@
 		};
 		ECBE0DEA2167CF11001725D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCAE65CA15214CBDA43A2825 /* Pods-MobilePayAPI.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1690,6 +1955,7 @@
 		};
 		ECBE0DEB2167CF11001725D6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42DBC7A7E0B528CB3CA7545E /* Pods-MobilePayAPI.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;

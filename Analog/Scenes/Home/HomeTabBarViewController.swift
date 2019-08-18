@@ -10,6 +10,7 @@ import UIKit
 import ShiftPlanningAPI
 import ClipCardAPI
 import Entities
+import Crashlytics
 
 protocol HomeTabBarViewControllerDelegate {}
 
