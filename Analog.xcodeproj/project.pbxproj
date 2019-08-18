@@ -1609,7 +1609,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Analog_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1638,7 +1638,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = Analog_prod;
 				SWIFT_OBJC_BRIDGING_HEADER = "Analog/Application/Analog-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
