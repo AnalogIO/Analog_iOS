@@ -57,6 +57,7 @@ class TicketsViewModel {
             } else {
                 delegate?.showSwipeButton(animated: true)
             }
+            
             delegate?.reloadData()
         }
     }
@@ -95,7 +96,13 @@ class TicketsViewModel {
     }
 
     public func didPressSelect(in cell: CoffeecardCollectionViewCell) {
-        selectedIndex = delegate?.index(for: cell)
+        if(selectedIndex == delegate?.index(for: cell)){
+            selectedIndex = nil
+            
+        } else {
+            selectedIndex = delegate?.index(for: cell)
+        }
+        
     }
 
     public func isCellSelected(index: Int) -> Bool {
