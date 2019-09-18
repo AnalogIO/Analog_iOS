@@ -77,7 +77,9 @@ class TicketsViewModel {
     }
 
     public func viewWillAppear() {
-        fetchTickets()
+        if(coffeecards.isEmpty){
+            fetchTickets()
+        }
     }
 
     public func viewDidDisappear() {
@@ -97,8 +99,7 @@ class TicketsViewModel {
 
     public func didPressSelect(in cell: CoffeecardCollectionViewCell) {
         if(selectedIndex == delegate?.index(for: cell)){
-            selectedIndex = nil
-            
+            selectedIndex = nil // fixed deselect issue
         } else {
             selectedIndex = delegate?.index(for: cell)
         }
