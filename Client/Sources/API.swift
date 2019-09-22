@@ -25,13 +25,13 @@ open class API {
         return dict
     }
     
-    public func response<Resource, ErrorType>(for resource: Request<Resource, ErrorType>, method: HTTPMethod, parameters: Parameters, headers: HTTPHeaders, response resourceResult: @escaping ((Response<Resource, ErrorType>) -> Void)) {
+    public func response<Resource, ErrorType>(for resource: Request<Resource, ErrorType>, method: HTTPMethod, parameters: Parameters, requestEncoding: ParameterEncoding, headers: HTTPHeaders, response resourceResult: @escaping ((Response<Resource, ErrorType>) -> Void)) {
         guard let url = URL(string: baseUrl.appending(resource.path)) else { return }
         let httpHeaders = mergeHeaders(headers: headers)
         print("URL: \(method.rawValue) \(url)")
         print("Parameters: \(parameters)")
         print("Headers: \(httpHeaders)")
-        Alamofire.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: httpHeaders)
+        Alamofire.request(url, method: method, parameters: parameters, encoding: requestEncoding, headers: httpHeaders)
             .validate(statusCode: 200..<300)
             .validate(contentType: ["application/json"])
             .responseData { (response: DataResponse<Data>) in

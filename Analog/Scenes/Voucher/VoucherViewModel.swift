@@ -36,7 +36,7 @@ class VoucherViewModel {
         let parameters = [
             "voucherCode": code
         ]
-        Purchase.redeemVoucher().response(using: provider.clipcard, method: .post, parameters: parameters) { response in
+        Purchase.redeemVoucher().responseURL(using: provider.clipcard, method: .post, parameters: parameters) { response in
             switch response {
             case .success(let purchase):
                 self.redeemVoucherState = .loaded(purchase)

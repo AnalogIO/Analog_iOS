@@ -20,6 +20,11 @@ public struct Request<Resource: Codable, ErrorType: APIError> {
 
 extension Request {
     public func response(using api: API, method: HTTPMethod, parameters: Parameters = [:], headers: HTTPHeaders = [:], response: @escaping ((Response<Resource, ErrorType>) -> Void)) {
-        api.response(for: self, method: method, parameters: parameters, headers: headers, response: response)
+        api.response(for: self, method: method, parameters: parameters, requestEncoding: JSONEncoding.default, headers: headers, response: response)
     }
+    
+    public func responseURL(using api: API, method: HTTPMethod, parameters: Parameters = [:], headers: HTTPHeaders = [:], response: @escaping ((Response<Resource, ErrorType>) -> Void)) {
+        api.response(for: self, method: method, parameters: parameters, requestEncoding: URLEncoding(destination: .queryString), headers: headers, response: response)
+    }
+    
 }
