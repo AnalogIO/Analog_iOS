@@ -77,10 +77,7 @@ class TicketsViewModel {
     }
 
     public func viewWillAppear() {
-        
-        //if(coffeecards.isEmpty){
-            fetchTickets()
-        //}
+        fetchTickets()
     }
 
     public func viewDidDisappear() {
