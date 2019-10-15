@@ -12,6 +12,7 @@ If you don't have carthage
 Otherwise setup as follows:
 1. Clone repository
 2. Run `carthage bootstrap --platform iOS`
+Tip) If this fails, this resolved it for me `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`
 3. Run `pod install`
 3. Open `Analog.xcworkspace`
 
