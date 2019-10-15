@@ -14,6 +14,7 @@ Otherwise setup as follows:
 2. Run `carthage bootstrap --platform iOS`
 Tip) If this fails, this resolved it for me `sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`
 3. Run `pod install`
+Tip) If your terminal doesnt know pod, run `sudo gem install cocoapods`
 3. Open `Analog.xcworkspace`
 
 ## Localization
