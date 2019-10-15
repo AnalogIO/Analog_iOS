@@ -3,7 +3,13 @@
 Architecture: MVVM
 
 ## Setup
+If you don't have brew:
+1. Run `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
+If you don't have carthage
+1. Run `brew install carthage`
+
+Otherwise setup as follows:
 1. Clone repository
 2. Run `carthage bootstrap --platform iOS`
 3. Run `pod install`
