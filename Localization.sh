@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ( cd "$(git rev-parse --show-toplevel)/Analog/Localization" && \
-curl 'https://localise.biz/api/export/archive/strings.zip?key=Hn-tsPryPIckbpv547GEAdxICToVJe-C' -o localDict.zip && \
+curl 'https://localise.biz/api/export/archive/strings.zip?key=ng-Qp-rxX-44xFiyxfWT356-sYdVCZfz' -o localDict.zip && \
 unzip localDict.zip && \
 rm localDict.zip && \
 rm -rf *.lproj && \
